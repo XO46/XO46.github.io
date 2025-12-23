@@ -4,7 +4,7 @@ date: 2025-01-10
 categories: [Writeups]
 ---
 
-## What this is
+## Recon
 
 This is my first writeup published on my GitHub Pages site.
 
@@ -13,7 +13,7 @@ learning journey in a clear and organized way.
 
 ---
 
-## What will come next
+## ENum
 
 - TryHackMe writeups
 - Hack The Box (retired) writeups
@@ -21,7 +21,7 @@ learning journey in a clear and organized way.
 
 ---
 
-## Why I’m doing this
+## Exploitation
 
 To improve:
 - Methodology
