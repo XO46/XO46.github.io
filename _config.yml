@@ -1,5 +1,5 @@
 title: XO46 – Penetration Testing Writeups
-theme: minima
+theme: jekyll-theme-hacker
 markdown: kramdown
 
 header_pages:
