@@ -1,7 +1,7 @@
 ---
 ---
 
-@import "minima";
+@import "{{ site.theme }}";
 
 /* ===== DARK THEME OVERRIDE ===== */
 
@@ -10,7 +10,6 @@ body {
   color: #c9d1d9;
 }
 
-/* Links */
 a {
   color: #58a6ff;
 }
@@ -18,43 +17,36 @@ a:hover {
   color: #79c0ff;
 }
 
-/* Headings */
 h1, h2, h3, h4, h5 {
   color: #e6edf3;
 }
 
-/* Code blocks */
 pre, code {
   background-color: #161b22;
   color: #c9d1d9;
   border-radius: 6px;
 }
 
-/* Inline code */
 code {
   padding: 2px 4px;
 }
 
-/* Blockquotes */
 blockquote {
   border-left: 4px solid #30363d;
   color: #8b949e;
 }
 
-/* Horizontal rule */
 hr {
   border: none;
   border-top: 1px solid #30363d;
 }
 
-/* Header & footer */
 .site-header,
 .site-footer {
   background-color: #0d1117;
   border-color: #30363d;
 }
 
-/* Navigation links */
 .site-nav a {
   color: #c9d1d9;
 }
