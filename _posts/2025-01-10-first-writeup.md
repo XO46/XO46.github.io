@@ -5,7 +5,7 @@ categories: [Writeups]
 ---
 
 ## Recon
-![Recon screenshot](/assets/images/first-writeup/bad.jpg)
+![Recon screenshot](/assets/images/bad.jpg)
 
 This is my first writeup published on my GitHub Pages site.
 
