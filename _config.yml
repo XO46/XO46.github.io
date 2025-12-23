@@ -6,3 +6,6 @@ header_pages:
   - about.md
   - certifications.md
   - contact.md
+
+include:
+  - assets/css
