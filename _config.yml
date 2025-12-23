@@ -7,5 +7,4 @@ header_pages:
   - certifications.md
   - contact.md
 
-include:
-  - assets/css
+
