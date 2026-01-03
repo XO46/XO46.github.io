@@ -100,22 +100,25 @@ body {
   text-decoration: underline;
 }
 
-/* ===== POSTS HEADING ===== */
+/* ===== POSTS HEADING (SAME AS BODY, CALM) ===== */
 .home h2 {
   font-size: 1.8rem;
-  color: #00ff00;
+  color: #c9ffd6;        /* SAME as surrounding text */
   margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  font-weight: 600;
 }
 
+/* optional subtle divider (very calm) */
 .home h2::after {
   content: "";
   display: block;
-  width: 80px;
-  height: 2px;
-  background: #00ff00;
+  width: 60px;
+  height: 1px;
+  background: #2a2a2a;  /* neutral, not green */
   margin-top: 8px;
 }
+
 
 /* ===== ALIGN POSTS ===== */
 .home .post-list,
