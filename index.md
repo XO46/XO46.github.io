@@ -4,12 +4,14 @@ title: XO46 | Pentest Writeups
 ---
 
 <style>
+/* ===== GLOBAL DARK THEME ===== */
 body {
   background: #0a0a0a !important;
   color: #00ff00 !important;
   font-family: 'Courier New', monospace;
 }
 
+/* ===== HERO TERMINAL BOX ===== */
 .hero {
   max-width: 900px;
   margin: 100px auto;
@@ -30,6 +32,33 @@ body {
 
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+/* ===== 0xdf-STYLE TOP NAVIGATION ===== */
+.site-header {
+  background: #0a0a0a !important;
+  border-bottom: 1px solid #222;
+}
+
+.site-title {
+  color: #e6e6e6 !important;
+  font-weight: 500;
+}
+
+.site-nav a {
+  color: #e6e6e6 !important;   /* readable soft white */
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: #00ccff !important;   /* subtle blue like 0xdf */
+  text-decoration: underline;
+}
+
+/* active page */
+.site-nav a.current {
+  border-bottom: 2px solid #00ccff;
 }
 </style>
 
