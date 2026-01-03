@@ -130,16 +130,15 @@ body {
   
 /* ===== WRITEUP TITLES (SUBTLE GLOW, HOME ONLY) ===== */
 .home .post-list a {
-  color: #c9ffd6;                 /* same as body text */
   font-size: 1.15rem;
   font-weight: 500;
   text-decoration: none;
   transition: text-shadow 0.2s ease;
 }
 
-/* hover glow */
+/* glow uses the ORIGINAL text color */
 .home .post-list a:hover {
-  text-shadow: 0 0 6px rgba(124, 255, 124, 0.35); /* soft, calm glow */
+  text-shadow: 0 0 6px currentColor;
 }
 
 </style>
