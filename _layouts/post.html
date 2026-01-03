@@ -3,24 +3,78 @@ layout: default
 ---
 
 <style>
+/* ===== GLOBAL POST THEME ===== */
 body {
   background: #0a0a0a !important;
-  color: #00ff00 !important;
-  font-family: 'Courier New', monospace;
+  color: #c9ffd6 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
+/* ===== POST CONTAINER ===== */
 .post-content {
-  max-width: 900px;
+  max-width: 1150px; /* wider, 0xdf-like */
   margin: 60px auto;
   background: #0d0d0d;
-  padding: 30px;
+  padding: 40px;
   border: 2px solid #00ff00;
-  box-shadow: 0 0 25px rgba(0,255,0,0.3);
+  box-shadow: 0 0 25px rgba(0,255,0,0.25);
 }
 
-pre, code {
+/* ===== TYPOGRAPHY ===== */
+.post-content h1 {
+  color: #00ff00;
+  font-size: 2.1rem;
+  margin-bottom: 10px;
+}
+
+.post-content h2 {
+  color: #00ff00;
+  font-size: 1.6rem;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.post-content h3 {
+  color: #7CFF7C;
+  font-size: 1.25rem;
+  margin-top: 30px;
+}
+
+.post-content p,
+.post-content li {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #c9ffd6;
+}
+
+/* ===== LINKS ===== */
+.post-content a {
+  color: #00ccff;
+  text-decoration: none;
+}
+
+.post-content a:hover {
+  color: #00ff00;
+  text-decoration: underline;
+}
+
+/* ===== CODE BLOCKS (TERMINAL STYLE) ===== */
+pre {
   background: #000 !important;
   color: #00ff00 !important;
+  padding: 16px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+}
+
+code {
+  background: #000 !important;
+  color: #00ff00 !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.95rem;
 }
 </style>
 
