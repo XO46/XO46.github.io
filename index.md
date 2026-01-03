@@ -13,7 +13,7 @@ body {
 
 /* ===== HERO TERMINAL BOX ===== */
 .hero {
-  max-width: 900px;
+  max-width: 1150px; /* widened */
   margin: 80px auto;
   padding: 30px;
   border: 2px solid #00ff00;
@@ -65,9 +65,21 @@ body {
 .site-nav a.current {
   border-bottom: 2px solid #00ccff;
 }
+
+/* ===== HIDE SITE TITLE ON HOMEPAGE ONLY ===== */
+.home .site-title {
+  display: none !important;
+}
+
+/* tighten header spacing on homepage */
+.home .site-header {
+  padding-bottom: 0;
+}
 </style>
 
 <div class="hero">
+
+## R. Chandra Shekar
 
 <span style="color:#00ff00; font-weight:600;">
 Junior Penetration Tester | Web · Active Directory · Linux
