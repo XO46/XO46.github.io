@@ -7,14 +7,14 @@ title: XO46 | Pentest Writeups
 /* ===== GLOBAL DARK THEME ===== */
 body {
   background: #0a0a0a !important;
-  color: #00ff00 !important;
+  color: #c9ffd6 !important; /* softer readable green */
   font-family: 'Courier New', monospace;
 }
 
 /* ===== HERO TERMINAL BOX ===== */
 .hero {
   max-width: 900px;
-  margin: 100px auto;
+  margin: 80px auto;
   padding: 30px;
   border: 2px solid #00ff00;
   background: #0d0d0d;
@@ -26,7 +26,13 @@ body {
   font-size: 1.1rem;
 }
 
+/* terminal command color */
+.live-terminal span {
+  color: #00ccff;
+}
+
 .cursor {
+  color: #00ff00;
   animation: blink 1s infinite;
 }
 
@@ -46,13 +52,13 @@ body {
 }
 
 .site-nav a {
-  color: #e6e6e6 !important;   /* readable soft white */
+  color: #e6e6e6 !important;
   font-weight: 500;
   text-decoration: none;
 }
 
 .site-nav a:hover {
-  color: #00ccff !important;   /* subtle blue like 0xdf */
+  color: #00ccff !important;
   text-decoration: underline;
 }
 
@@ -64,14 +70,16 @@ body {
 
 <div class="hero">
 
-# R. Chandra Shekar
+## R. Chandra Shekar
 
-**Penetration testing writeups documenting my journey into offensive security.**
+**Junior Penetration Tester | Web · Active Directory · Linux**
+
+Penetration testing writeups documenting my journey into offensive security.
 
 <div class="live-terminal">
   <span>$</span>
   <span id="cmd"></span><span class="cursor">█</span>
-  <div id="out" style="margin-top:5px;"></div>
+  <div id="out" style="margin-top:5px; color:#7CFF7C;"></div>
 </div>
 
 </div>
