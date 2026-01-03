@@ -69,8 +69,6 @@ body {
 
 <div class="hero">
 
-## R. Chandra Shekar
-
 <span style="color:#00ff00; font-weight:600;">
 Junior Penetration Tester | Web · Active Directory · Linux
 </span>
