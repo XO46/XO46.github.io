@@ -7,23 +7,25 @@ layout: default
 body {
   background: #0a0a0a !important;
   color: #c9ffd6 !important;
-  font-family: 'Courier New', monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 /* ===== FIX HEADER / NAVIGATION ===== */
 .site-header {
   background: #0a0a0a !important;
-  border-top: none !important;              /* remove white top line */
-  border-bottom: 1px solid #222 !important; /* subtle divider */
+  border-top: none !important;
+  border-bottom: 1px solid #222 !important;
 }
 
 .site-title {
   color: #e6e6e6 !important;
+  font-weight: 500;
 }
 
 .site-nav a {
   color: #e6e6e6 !important;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .site-nav a:hover {
@@ -34,45 +36,74 @@ body {
 /* ===== FIX FOOTER ===== */
 .site-footer {
   background: #0a0a0a !important;
-  border-top: 1px solid #222 !important;    /* remove white bottom line */
+  border-top: 1px solid #222 !important;
   color: #888 !important;
 }
 
 /* ===== PAGE CONTENT BOX ===== */
 .page-content {
-  max-width: 900px;
+  max-width: 1150px; /* wider, consistent with posts */
   margin: 60px auto;
   background: #0d0d0d;
-  padding: 30px;
+  padding: 40px;
   border: 2px solid #00ff00;
   box-shadow: 0 0 25px rgba(0,255,0,0.25);
 }
 
-/* ===== TEXT ===== */
-h1, h2, h3 {
+/* ===== TYPOGRAPHY ===== */
+.page-content h1 {
   color: #00ff00;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
 
-p, li {
+.page-content h2 {
+  color: #00ff00;
+  font-size: 1.5rem;
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+.page-content h3 {
+  color: #7CFF7C;
+  font-size: 1.2rem;
+  margin-top: 25px;
+}
+
+.page-content p,
+.page-content li {
+  font-size: 1rem;
+  line-height: 1.65;
   color: #c9ffd6;
 }
 
 /* ===== LINKS ===== */
-a {
+.page-content a {
   color: #00ccff;
 }
 
-a:hover {
+.page-content a:hover {
   color: #00ff00;
   text-decoration: underline;
 }
 
 /* ===== CODE BLOCKS ===== */
-pre, code {
+pre {
   background: #000 !important;
   color: #00ff00 !important;
+  padding: 16px;
   border: 1px solid #333;
   border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+}
+
+code {
+  background: #000 !important;
+  color: #00ff00 !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.95rem;
 }
 </style>
 
