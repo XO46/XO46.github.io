@@ -1,0 +1,43 @@
+/* ===== GLOBAL DARK THEME (ALL PAGES) ===== */
+html, body {
+  background-color: #0a0a0a !important;
+  color: #e6ffe6 !important;
+  font-family: 'Courier New', monospace;
+}
+
+/* Page content box */
+.page-content,
+.post-content {
+  background: #0d0d0d;
+  border: 1px solid #222;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(0,255,0,0.15);
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #00ff00;
+}
+
+/* Paragraph text */
+p, li {
+  color: #c9ffd6;
+}
+
+/* Links */
+a {
+  color: #00ccff;
+}
+
+a:hover {
+  color: #00ff00;
+  text-decoration: underline;
+}
+
+/* Code blocks */
+pre, code {
+  background: #000 !important;
+  color: #00ff00 !important;
+  border: 1px solid #333;
+  border-radius: 6px;
+}
