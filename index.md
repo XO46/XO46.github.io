@@ -7,7 +7,7 @@ title: XO46 | Pentest Writeups
 /* ===== GLOBAL DARK THEME ===== */
 body {
   background: #0a0a0a !important;
-  color: #c9ffd6 !important; /* softer readable green */
+  color: #c9ffd6 !important;
   font-family: 'Courier New', monospace;
 }
 
@@ -62,7 +62,6 @@ body {
   text-decoration: underline;
 }
 
-/* active page */
 .site-nav a.current {
   border-bottom: 2px solid #00ccff;
 }
@@ -72,9 +71,13 @@ body {
 
 ## R. Chandra Shekar
 
-**Junior Penetration Tester | Web · Active Directory · Linux**
+<span style="color:#00ff00; font-weight:600;">
+Junior Penetration Tester | Web · Active Directory · Linux
+</span>
 
+<p style="margin-top:10px;">
 Penetration testing writeups documenting my journey into offensive security.
+</p>
 
 <div class="live-terminal">
   <span>$</span>
