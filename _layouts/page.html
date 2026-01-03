@@ -10,10 +10,19 @@ body {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* ===== FIX HEADER / NAVIGATION ===== */
+/* ===== REMOVE EXTRA TOP SPACE ===== */
+.page-content {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.wrapper {
+  padding-top: 0 !important;
+}
+
+/* ===== HEADER / NAVIGATION ===== */
 .site-header {
   background: #0a0a0a !important;
-  border-top: none !important;
   border-bottom: 1px solid #222 !important;
 }
 
@@ -33,17 +42,18 @@ body {
   text-decoration: underline;
 }
 
-/* ===== FIX FOOTER ===== */
+/* ===== FOOTER ===== */
 .site-footer {
   background: #0a0a0a !important;
   border-top: 1px solid #222 !important;
   color: #888 !important;
+  margin-top: 40px !important;
 }
 
 /* ===== PAGE CONTENT BOX ===== */
 .page-content {
-  max-width: 1150px; /* wider, consistent with posts */
-  margin: 60px auto;
+  max-width: 1150px;
+  margin: 40px auto;
   background: #0d0d0d;
   padding: 40px;
   border: 2px solid #00ff00;
@@ -60,7 +70,7 @@ body {
 .page-content h2 {
   color: #00ff00;
   font-size: 1.5rem;
-  margin-top: 35px;
+  margin-top: 30px;
   margin-bottom: 10px;
 }
 
