@@ -11,7 +11,7 @@ body {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* ===== REMOVE MINIMA HOME TITLE (XO46 BLOCK) ===== */
+/* ===== REMOVE MINIMA HOME TITLE ===== */
 .home h1,
 .home .post-title,
 .home .page-heading {
@@ -19,16 +19,13 @@ body {
 }
 
 /* ===== REMOVE EXTRA TOP SPACE ===== */
-.home .page-content {
+.home .page-content,
+.home .wrapper {
   padding-top: 0 !important;
   margin-top: 0 !important;
 }
 
-.home .wrapper {
-  padding-top: 0 !important;
-}
-
-/* ===== EXPAND HOME CONTENT WIDTH ===== */
+/* ===== EXPAND WIDTH ===== */
 .home .wrapper {
   max-width: 1400px;
 }
@@ -38,17 +35,14 @@ body {
   padding-right: 0;
 }
 
-/* ===== HERO TERMINAL BOX ===== */
+/* ===== HERO (NO BOX) ===== */
 .hero {
   max-width: 1150px;
-  margin: 40px auto; /* compact */
-  padding: 30px;
-  border: 2px solid #00ff00;
-  background: #0d0d0d;
-  box-shadow: 0 0 25px rgba(0,255,0,0.3);
+  margin: 40px auto;
+  padding: 10px 0;      /* no box padding */
 }
 
-/* ===== HERO TYPOGRAPHY ===== */
+/* ===== TYPOGRAPHY ===== */
 .hero h2 {
   font-size: 2.1rem;
   margin-bottom: 6px;
@@ -56,15 +50,18 @@ body {
 
 .hero span {
   font-size: 1.05rem;
+  color: #00ff00;
+  font-weight: 600;
 }
 
 .hero p {
   font-size: 1rem;
   line-height: 1.6;
   max-width: 900px;
+  margin-top: 10px;
 }
 
-/* ===== TERMINAL ===== */
+/* ===== TERMINAL LINE ===== */
 .live-terminal {
   margin-top: 18px;
   font-size: 0.95rem;
@@ -83,16 +80,7 @@ body {
   50% { opacity: 0; }
 }
 
-/* ===== HIDE SITE TITLE ON HOMEPAGE ONLY ===== */
-.home .site-title {
-  display: none !important;
-}
-
-.home .site-header {
-  padding-bottom: 0;
-}
-
-/* ===== NAVIGATION STYLE ===== */
+/* ===== NAVIGATION ===== */
 .site-header {
   background: #0a0a0a !important;
   border-bottom: 1px solid #222;
@@ -109,13 +97,12 @@ body {
   text-decoration: underline;
 }
 
-/* ===== POSTS SECTION ===== */
+/* ===== POSTS HEADING ===== */
 .home h2 {
   font-size: 1.8rem;
   color: #00ff00;
   margin-top: 40px;
   margin-bottom: 20px;
-  text-shadow: 0 0 8px rgba(0,255,0,0.4);
 }
 
 .home h2::after {
@@ -124,34 +111,39 @@ body {
   width: 80px;
   height: 2px;
   background: #00ff00;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
-/* ===== ALIGN POSTS WITH HERO ===== */
+/* ===== ALIGN POSTS ===== */
 .home .post-list,
-.home .post-list-heading,
 .home .post-list li {
   max-width: 1150px;
   margin-left: auto;
   margin-right: auto;
 }
+</style>
 
-/* ===== REMOVE BOTTOM GAP ===== */
-.home footer,
-.home .site-footer {
-  margin-top: 40px !important;
+<!-- Subtle ambient background -->
+<canvas id="matrix-bg"></canvas>
+
+<style>
+#matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.05;       /* VERY subtle */
+  pointer-events: none;
 }
 </style>
 
 <div class="hero">
-
-## R. Chandra Shekar
-
-<span style="color:#00ff00; font-weight:600;">
+  
+<span>
 Junior Penetration Tester | Web · Active Directory · Linux
 </span>
 
-<p style="margin-top:10px;">
+<p>
 Penetration testing writeups documenting my journey into offensive security.
 </p>
 
@@ -164,6 +156,7 @@ Penetration testing writeups documenting my journey into offensive security.
 </div>
 
 <script>
+/* terminal typing */
 let command = "whoami";
 let output = "R. Chandra Shekar";
 let i = 0;
@@ -181,4 +174,41 @@ function typeCmd() {
 }
 
 typeCmd();
+
+/* subtle matrix background */
+const canvas = document.getElementById("matrix-bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const chars = "01$~";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+
+function draw() {
+  ctx.fillStyle = "rgba(10,10,10,0.08)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "rgba(0,255,0,0.05)";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+}
+
+setInterval(draw, 120);
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
 </script>
