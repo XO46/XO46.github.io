@@ -42,23 +42,26 @@ body {
   padding: 10px 0;      /* no box padding */
 }
 
-/* ===== TYPOGRAPHY ===== */
+/* ===== TYPOGRAPHY (COMFORTABLE) ===== */
 .hero h2 {
-  font-size: 2.1rem;
-  margin-bottom: 6px;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
 }
 
 .hero span {
-  font-size: 1.05rem;
-  color: #00ff00;
-  font-weight: 600;
+  font-size: 1.15rem;
 }
 
 .hero p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.75;
   max-width: 900px;
-  margin-top: 10px;
+  margin-top: 12px;
+}
+
+.live-terminal {
+  font-size: 1rem;
+  margin-top: 22px;
 }
 
 /* ===== TERMINAL LINE ===== */
