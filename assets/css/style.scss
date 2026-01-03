@@ -1,0 +1,27 @@
+---
+---
+
+@import "minima";
+
+/* Your terminal styles */
+html, body {
+  background: #0a0a0a !important;
+  color: #00ff00 !important;
+  font-family: 'Courier New', monospace;
+}
+
+/* Terminal styles */
+.terminal-header {
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 2px solid #00ff00;
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 8px;
+  color: #00ff00;
+  text-shadow: 0 0 20px #00ff00;
+}
