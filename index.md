@@ -8,12 +8,29 @@ title: XO46 | Pentest Writeups
 body {
   background: #0a0a0a !important;
   color: #c9ffd6 !important;
-  font-family: 'Courier New', monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ===== REMOVE MINIMA HOME TITLE (XO46 BLOCK) ===== */
+.home h1,
+.home .post-title,
+.home .page-heading {
+  display: none !important;
+}
+
+/* ===== EXPAND HOME CONTENT WIDTH ===== */
+.home .wrapper {
+  max-width: 1400px;
+}
+
+.home .page-content {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* ===== HERO TERMINAL BOX ===== */
 .hero {
-  max-width: 1150px; /* widened */
+  max-width: 1150px;
   margin: 80px auto;
   padding: 30px;
   border: 2px solid #00ff00;
@@ -23,7 +40,7 @@ body {
 
 .live-terminal {
   margin-top: 20px;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 /* terminal command color */
@@ -40,15 +57,19 @@ body {
   50% { opacity: 0; }
 }
 
-/* ===== 0xdf-STYLE TOP NAVIGATION ===== */
+/* ===== HIDE SITE TITLE ON HOMEPAGE ONLY ===== */
+.home .site-title {
+  display: none !important;
+}
+
+.home .site-header {
+  padding-bottom: 0;
+}
+
+/* ===== 0xdf-STYLE NAVIGATION ===== */
 .site-header {
   background: #0a0a0a !important;
   border-bottom: 1px solid #222;
-}
-
-.site-title {
-  color: #e6e6e6 !important;
-  font-weight: 500;
 }
 
 .site-nav a {
@@ -62,18 +83,22 @@ body {
   text-decoration: underline;
 }
 
-.site-nav a.current {
-  border-bottom: 2px solid #00ccff;
+/* ===== POSTS HEADING EMPHASIS ===== */
+.home h2 {
+  font-size: 1.8rem;
+  color: #00ff00;
+  margin-top: 70px;
+  margin-bottom: 25px;
+  text-shadow: 0 0 8px rgba(0,255,0,0.4);
 }
 
-/* ===== HIDE SITE TITLE ON HOMEPAGE ONLY ===== */
-.home .site-title {
-  display: none !important;
-}
-
-/* tighten header spacing on homepage */
-.home .site-header {
-  padding-bottom: 0;
+.home h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: #00ff00;
+  margin-top: 10px;
 }
 </style>
 
@@ -92,7 +117,7 @@ Penetration testing writeups documenting my journey into offensive security.
 <div class="live-terminal">
   <span>$</span>
   <span id="cmd"></span><span class="cursor">█</span>
-  <div id="out" style="margin-top:5px; color:#7CFF7C;"></div>
+  <div id="out" style="margin-top:6px; color:#7CFF7C;"></div>
 </div>
 
 </div>
