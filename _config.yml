@@ -2,9 +2,6 @@ title: XO46 – Penetration Testing Writeups
 theme: minima
 markdown: kramdown
 
-sass:
-  sass_dir: assets/css
-
 header_pages:
   - about.md
   - certifications.md
