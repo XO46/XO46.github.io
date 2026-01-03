@@ -18,6 +18,16 @@ body {
   display: none !important;
 }
 
+/* ===== REMOVE EXTRA TOP SPACE ===== */
+.home .page-content {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.home .wrapper {
+  padding-top: 0 !important;
+}
+
 /* ===== EXPAND HOME CONTENT WIDTH ===== */
 .home .wrapper {
   max-width: 1400px;
@@ -31,19 +41,35 @@ body {
 /* ===== HERO TERMINAL BOX ===== */
 .hero {
   max-width: 1150px;
-  margin: 80px auto;
+  margin: 40px auto; /* compact */
   padding: 30px;
   border: 2px solid #00ff00;
   background: #0d0d0d;
   box-shadow: 0 0 25px rgba(0,255,0,0.3);
 }
 
+/* ===== HERO TYPOGRAPHY ===== */
+.hero h2 {
+  font-size: 2.1rem;
+  margin-bottom: 6px;
+}
+
+.hero span {
+  font-size: 1.05rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 900px;
+}
+
+/* ===== TERMINAL ===== */
 .live-terminal {
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: 0.95rem;
 }
 
-/* terminal command color */
 .live-terminal span {
   color: #00ccff;
 }
@@ -66,7 +92,7 @@ body {
   padding-bottom: 0;
 }
 
-/* ===== 0xdf-STYLE NAVIGATION ===== */
+/* ===== NAVIGATION STYLE ===== */
 .site-header {
   background: #0a0a0a !important;
   border-bottom: 1px solid #222;
@@ -83,12 +109,12 @@ body {
   text-decoration: underline;
 }
 
-/* ===== POSTS HEADING EMPHASIS ===== */
+/* ===== POSTS SECTION ===== */
 .home h2 {
   font-size: 1.8rem;
   color: #00ff00;
-  margin-top: 70px;
-  margin-bottom: 25px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   text-shadow: 0 0 8px rgba(0,255,0,0.4);
 }
 
@@ -99,6 +125,21 @@ body {
   height: 2px;
   background: #00ff00;
   margin-top: 10px;
+}
+
+/* ===== ALIGN POSTS WITH HERO ===== */
+.home .post-list,
+.home .post-list-heading,
+.home .post-list li {
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== REMOVE BOTTOM GAP ===== */
+.home footer,
+.home .site-footer {
+  margin-top: 40px !important;
 }
 </style>
 
