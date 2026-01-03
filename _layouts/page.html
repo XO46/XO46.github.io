@@ -3,12 +3,42 @@ layout: default
 ---
 
 <style>
+/* ===== GLOBAL PAGE THEME ===== */
 body {
   background: #0a0a0a !important;
   color: #c9ffd6 !important;
   font-family: 'Courier New', monospace;
 }
 
+/* ===== FIX HEADER / NAVIGATION ===== */
+.site-header {
+  background: #0a0a0a !important;
+  border-top: none !important;              /* remove white top line */
+  border-bottom: 1px solid #222 !important; /* subtle divider */
+}
+
+.site-title {
+  color: #e6e6e6 !important;
+}
+
+.site-nav a {
+  color: #e6e6e6 !important;
+  font-weight: 500;
+}
+
+.site-nav a:hover {
+  color: #00ccff !important;
+  text-decoration: underline;
+}
+
+/* ===== FIX FOOTER ===== */
+.site-footer {
+  background: #0a0a0a !important;
+  border-top: 1px solid #222 !important;    /* remove white bottom line */
+  color: #888 !important;
+}
+
+/* ===== PAGE CONTENT BOX ===== */
 .page-content {
   max-width: 900px;
   margin: 60px auto;
@@ -18,6 +48,7 @@ body {
   box-shadow: 0 0 25px rgba(0,255,0,0.25);
 }
 
+/* ===== TEXT ===== */
 h1, h2, h3 {
   color: #00ff00;
 }
@@ -26,6 +57,7 @@ p, li {
   color: #c9ffd6;
 }
 
+/* ===== LINKS ===== */
 a {
   color: #00ccff;
 }
@@ -35,6 +67,7 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ===== CODE BLOCKS ===== */
 pre, code {
   background: #000 !important;
   color: #00ff00 !important;
