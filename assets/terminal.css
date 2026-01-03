@@ -1,0 +1,149 @@
+body {
+    background: #0a0a0a !important;
+    color: #00ff00 !important;
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-header {
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 2px solid #00ff00;
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 8px;
+    color: #00ff00;
+    text-shadow: 0 0 20px #00ff00;
+    animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #00cc00;
+    letter-spacing: 3px;
+    margin-top: 15px;
+}
+
+.terminal-box {
+    background: #0d0d0d;
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 40px auto;
+    max-width: 800px;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+}
+
+.terminal-box .prompt {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.terminal-box .command {
+    color: #00ccff;
+}
+
+.terminal-box .output {
+    color: #00cc00;
+    margin: 5px 0;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background: #00ff00;
+    animation: blink 1s infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.about-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.about-section h2 {
+    color: #00ff00;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.about-section h2::before {
+    content: '// ';
+}
+
+.about-section p {
+    color: #00cc00;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.posts-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.posts-section h2 {
+    color: #00ff00;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    background: #0d0d0d;
+    border: 1px solid #00ff00;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.post-list li:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    transform: translateX(5px);
+}
+
+.post-meta {
+    color: #00cc00;
+    font-size: 0.9rem;
+}
+
+.post-link {
+    color: #00ff00 !important;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 8px;
+}
+
+.post-link:hover {
+    text-shadow: 0 0 10px #00ff00;
+}
+
+a {
+    color: #00ccff !important;
+}
+
+a:hover {
+    color: #00ff00 !important;
+}
