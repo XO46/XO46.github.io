@@ -10,16 +10,6 @@ body {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* ===== REMOVE EXTRA TOP SPACE ===== */
-.page-content {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
-.wrapper {
-  padding-top: 0 !important;
-}
-
 /* ===== HEADER / NAVIGATION ===== */
 .site-header {
   background: #0a0a0a !important;
@@ -50,21 +40,21 @@ body {
   margin-top: 40px !important;
 }
 
-/* ===== PAGE CONTENT BOX ===== */
+/* ===== PAGE CONTENT (NO GREEN BOX) ===== */
 .page-content {
   max-width: 1150px;
   margin: 40px auto;
-  background: #0d0d0d;
-  padding: 40px;
-  border: 2px solid #00ff00;
-  box-shadow: 0 0 25px rgba(0,255,0,0.25);
+  padding: 20px 10px;
+  background: transparent;     /* no box */
+  border: none;                /* no green border */
+  box-shadow: none;            /* no glow */
 }
 
 /* ===== TYPOGRAPHY ===== */
 .page-content h1 {
   color: #00ff00;
   font-size: 2rem;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .page-content h2 {
@@ -72,12 +62,6 @@ body {
   font-size: 1.5rem;
   margin-top: 30px;
   margin-bottom: 10px;
-}
-
-.page-content h3 {
-  color: #7CFF7C;
-  font-size: 1.2rem;
-  margin-top: 25px;
 }
 
 .page-content p,
@@ -101,11 +85,9 @@ body {
 pre {
   background: #000 !important;
   color: #00ff00 !important;
-  padding: 16px;
-  border: 1px solid #333;
+  padding: 14px;
   border-radius: 6px;
   overflow-x: auto;
-  font-size: 0.95rem;
 }
 
 code {
@@ -113,7 +95,58 @@ code {
   color: #00ff00 !important;
   padding: 2px 6px;
   border-radius: 4px;
-  font-size: 0.95rem;
+}
+</style>
+
+<!-- Optional subtle ambient background -->
+<canvas id="matrix-bg"></canvas>
+
+<script>
+const canvas = document.getElementById("matrix-bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const chars = "01$~";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+
+function draw() {
+  ctx.fillStyle = "rgba(10,10,10,0.08)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "rgba(0,255,0,0.05)";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+}
+
+setInterval(draw, 120);
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
+
+<style>
+#matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.05;       /* VERY subtle */
+  pointer-events: none;
 }
 </style>
 
