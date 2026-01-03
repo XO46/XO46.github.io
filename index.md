@@ -138,8 +138,11 @@ body {
 
 /* glow uses the ORIGINAL text color */
 .home .post-list a:hover {
-  text-shadow: 0 0 6px currentColor;
+  text-shadow:
+    0 0 4px rgba(124, 255, 124, 0.25),
+    0 0 8px rgba(124, 255, 124, 0.15);
 }
+
 
 </style>
 
