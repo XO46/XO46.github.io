@@ -11,39 +11,41 @@
   width: 100%;
   border-radius: 8px;
 }
-/* ===== UBUNTU TERMINAL STYLE (OXDF-LIKE) ===== */
+
+/* ================================
+   UBUNTU TERMINAL STYLE (OXDF-LIKE)
+   ================================ */
 
 .terminal {
-  margin: 18px 0 28px 0;
+  margin: 16px 0 24px 0;
 }
 
 /* main terminal box */
 .terminal pre {
-  background: #300a24 !important;   /* Ubuntu terminal purple */
-  color: #eeeeee !important;
-  padding: 16px 18px;
-  border-radius: 6px;
+  background: #300a24 !important;        /* Ubuntu terminal purple */
+  color: #eeeeec !important;
+  padding: 14px 16px;                    /* slightly tighter */
+  border-radius: 8px;                    /* subtle curve */
   border: 1px solid #1f0015;
   overflow-x: auto;
-  overflow-y: auto;
-  max-height: 420px;               /* vertical scroll */
+  max-height: 420px;                     /* vertical scroll when needed */
   font-size: 0.95rem;
-  line-height: 1.45;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+  line-height: 1.4;
   font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
 }
 
-/* command line */
-.terminal .cmd {
-  color: #f7a41d;                   /* Ubuntu orange */
+/* prompt: user@host */
+.terminal .prompt {
+  color: #8ae234;                        /* Ubuntu green */
+  font-weight: 600;
 }
 
-/* command prompt */
-.terminal .prompt {
-  color: #8ae234;                   /* Ubuntu green */
+/* command text */
+.terminal .cmd {
+  color: #eeeeec;                        /* light gray (real terminal) */
 }
 
 /* output text */
 .terminal .out {
-  color: #eeeeee;
+  color: #eeeeec;
 }
