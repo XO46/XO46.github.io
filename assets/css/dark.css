@@ -11,3 +11,15 @@ a {
 a:hover {
   color: #00ff00;
 }
+/* ===== FORCE DARK BACKGROUND (MINIMA OVERRIDE) ===== */
+
+body {
+  background: #0a0a0a !important;
+  color: #c9ffd6 !important;
+}
+
+.page-content,
+.wrapper,
+.main-content {
+  background: transparent !important;
+}
