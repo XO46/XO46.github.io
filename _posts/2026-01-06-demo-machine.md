@@ -7,7 +7,7 @@ summary: >
   execution as a low-privileged user. Careful local enumeration then reveals
   a misconfigured sudo rule, which provides a straightforward path to full
   root compromise.
-thumbnail: /assets/img/thumbnails/wreath.png
+thumbnail: assets/images/thumbnails/wreath.png
 ---
 
 ## Initial Scanning
