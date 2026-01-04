@@ -3,84 +3,52 @@ layout: default
 ---
 
 <style>
-/* ===== GLOBAL POST THEME ===== */
-body {
-  background: #0a0a0a !important;
-  color: #c9ffd6 !important;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+/* ================================
+   FINAL LOCKED TERMINAL STYLE
+   ================================ */
+
+.terminal {
+  margin: 16px 0 24px 0;
 }
 
-/* ===== REMOVE EXTRA TOP SPACE ===== */
-.page-content {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
-.wrapper {
-  padding-top: 0 !important;
-}
-
-/* ===== POST CONTENT CONTAINER (BALANCED) ===== */
-.post-content {
-  max-width: 1200px;      /* slightly wider than default */
-  width: 100%;
-  margin: 40px auto;
-  padding: 32px;
-  background: transparent;
-}
-
-/* ===== TYPOGRAPHY ===== */
-.post-content h1 {
-  font-size: 2.3rem;
-  margin-bottom: 18px;
-}
-
-.post-content h2 {
-  font-size: 1.65rem;
-  margin-top: 26px;
-  margin-bottom: 10px;
-}
-
-.post-content h3 {
-  font-size: 1.3rem;
-  margin-top: 22px;
-}
-
-.post-content p,
-.post-content li {
-  font-size: 1.05rem;
-  line-height: 1.65;
-  max-width: 900px;      /* keeps reading natural */
-}
-
-/* ===== TERMINAL RESET (LET dark.css HANDLE IT) ===== */
-pre,
-code {
-  background: transparent !important;
-  color: inherit !important;
-  border: none !important;
-}
-
-code {
-  background: #000 !important;
-  color: #00ff00 !important;
-  padding: 2px 6px;
-  border-radius: 4px;
+.terminal pre {
+  background: #300a24 !important;   /* Ubuntu purple */
+  color: #eeeeec !important;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid #1f0015;
+  overflow-x: auto;
+  max-height: 420px;
   font-size: 0.95rem;
+  line-height: 1.4;
+  font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+}
+
+/* prompt */
+.terminal .prompt {
+  color: #8ae234 !important;
+  font-weight: 600;
+}
+
+/* command */
+.terminal .cmd {
+  color: #eeeeec !important;
+}
+
+/* output */
+.terminal .out {
+  color: #eeeeec !important;
 }
 </style>
 
 <div class="post-content">
 
-  <!-- Post Title -->
   <h1>{{ page.title }}</h1>
 
-  <!-- oxdf-style intro -->
   {% if page.summary %}
     {% include oxdf-intro.html %}
   {% endif %}
 
-  <!-- Writeup body -->
   {{ content }}
 
 </div>
