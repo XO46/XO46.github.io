@@ -1,0 +1,9 @@
+<!-- LinkedIn / Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.summary }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+
+{% if page.thumbnail %}
+<meta property="og:image" content="{{ page.thumbnail | absolute_url }}">
+{% endif %}
