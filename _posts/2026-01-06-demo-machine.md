@@ -15,16 +15,20 @@ thumbnail: /assets/images/thumbnails/wreath.png
 I started with a full TCP scan to identify open ports on the target.
 
 <div class="terminal">
-<pre><code class="cmd"><span class="prompt">elliot@kali</span>:~$ nmap -p- --min-rate 10000 10.10.11.69</code></pre>
+<pre><code>
+<span class="prompt">elliot@kali</span>$ <span class="cmd">nmap -p- --min-rate 10000 10.10.11.69</span>
+</code></pre>
 </div>
 
 <div class="terminal">
-<pre><code class="out">PORT     STATE SERVICE
+<pre><code class="out">
+PORT     STATE SERVICE
 53/tcp   open  domain
 88/tcp   open  kerberos-sec
 139/tcp  open  netbios-ssn
 389/tcp  open  ldap
-445/tcp  open  microsoft-ds</code></pre>
+445/tcp  open  microsoft-ds
+</code></pre>
 </div>
 
 The presence of Kerberos, LDAP, and SMB-related services suggests this host is
