@@ -2,40 +2,46 @@
 layout: default
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/dark.css' | relative_url }}">
-
 <style>
-/* ================================
-   FINAL LOCKED TERMINAL STYLE
-   ================================ */
-
+/* ===== TERMINAL (OXDF / UBUNTU) ===== */
 .terminal {
   margin: 16px 0 24px 0;
 }
 
 .terminal pre {
-  background: #300a24 !important;
-  color: #eeeeec !important;
+  background: #300a24;
+  color: #eeeeec;
   padding: 14px 16px;
   border-radius: 8px;
   border: 1px solid #1f0015;
   overflow-x: auto;
-  max-height: 420px;
+  font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
   font-size: 0.95rem;
   line-height: 1.4;
-  font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
 }
 
 .terminal .prompt {
-  color: #8ae234 !important;
+  color: #8ae234;
   font-weight: 600;
 }
 
 .terminal .cmd {
-  color: #eeeeec !important;
+  color: #eeeeec;
 }
 
 .terminal .out {
-  color: #eeeeec !important;
+  color: #eeeeec;
 }
 </style>
+
+<div class="post-content">
+
+  <h1>{{ page.title }}</h1>
+
+  {% if page.summary %}
+    {% include oxdf-intro.html %}
+  {% endif %}
+
+  {{ content }}
+
+</div>
