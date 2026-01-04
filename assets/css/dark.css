@@ -1,0 +1,13 @@
+.oxdf-intro {
+  display: flex;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.oxdf-text { flex: 3; }
+.oxdf-thumb { flex: 1; }
+
+.oxdf-thumb img {
+  width: 100%;
+  border-radius: 8px;
+}
