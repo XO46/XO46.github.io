@@ -1,3 +1,7 @@
+/* ================================
+   OXDF INTRO
+   ================================ */
+
 .oxdf-intro {
   display: flex;
   gap: 30px;
@@ -13,6 +17,17 @@
 }
 
 /* ================================
+   GLOBAL PRE RESET (IMPORTANT)
+   ================================ */
+
+/* neutralize any global pre styling */
+pre {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ================================
    UBUNTU TERMINAL STYLE (OXDF-LIKE)
    ================================ */
 
@@ -24,11 +39,11 @@
 .terminal pre {
   background: #300a24 !important;        /* Ubuntu terminal purple */
   color: #eeeeec !important;
-  padding: 14px 16px;                    /* slightly tighter */
-  border-radius: 8px;                    /* subtle curve */
+  padding: 14px 16px;
+  border-radius: 8px;
   border: 1px solid #1f0015;
   overflow-x: auto;
-  max-height: 420px;                     /* vertical scroll when needed */
+  max-height: 420px;
   font-size: 0.95rem;
   line-height: 1.4;
   font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
@@ -36,16 +51,16 @@
 
 /* prompt: user@host */
 .terminal .prompt {
-  color: #8ae234;                        /* Ubuntu green */
+  color: #8ae234 !important;             /* Ubuntu green */
   font-weight: 600;
 }
 
 /* command text */
 .terminal .cmd {
-  color: #eeeeec;                        /* light gray (real terminal) */
+  color: #eeeeec !important;             /* white / light gray */
 }
 
 /* output text */
 .terminal .out {
-  color: #eeeeec;
+  color: #eeeeec !important;             /* white / light gray */
 }
