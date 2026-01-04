@@ -1,9 +1,12 @@
+/* ===== GLOBAL DARK THEME ===== */
+
 body {
-  background: #0a0a0a;
-  color: #c9ffd6;
+  background: #0a0a0a !important;
+  color: #c9ffd6 !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
+/* links */
 a {
   color: #00ccff;
 }
@@ -11,15 +14,33 @@ a {
 a:hover {
   color: #00ff00;
 }
-/* ===== FORCE DARK BACKGROUND (MINIMA OVERRIDE) ===== */
 
-body {
-  background: #0a0a0a !important;
-  color: #c9ffd6 !important;
-}
+/* ===== MINIMA OVERRIDES ===== */
 
 .page-content,
 .wrapper,
 .main-content {
   background: transparent !important;
+}
+
+/* ===== HEADER / NAV ===== */
+
+.site-header {
+  background: #0a0a0a !important;
+  border-bottom: 1px solid #222;
+}
+
+.site-title,
+.site-title:visited {
+  color: #e6e6e6 !important;
+}
+
+.site-nav a {
+  color: #c9ffd6 !important;
+  font-weight: 500;
+}
+
+.site-nav a:hover {
+  color: #00ff00 !important;
+  text-decoration: underline;
 }
