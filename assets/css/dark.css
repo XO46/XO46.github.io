@@ -44,3 +44,28 @@ a:hover {
   color: #00ff00 !important;
   text-decoration: underline;
 }
+/* ===== MINIMA NAV FIX (CORRECT SELECTORS) ===== */
+
+.site-header {
+  background: #0a0a0a !important;
+  border-bottom: 1px solid #222 !important;
+}
+
+/* site title */
+.site-title,
+.site-title:visited {
+  color: #e6e6e6 !important;
+}
+
+/* ACTUAL minima nav links */
+.site-nav .page-link {
+  color: #c9ffd6 !important;
+  font-weight: 500;
+}
+
+/* hover */
+.site-nav .page-link:hover {
+  color: #00ff00 !important;
+  text-decoration: underline;
+}
+
