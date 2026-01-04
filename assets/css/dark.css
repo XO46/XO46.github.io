@@ -1,66 +1,13 @@
-/* ================================
-   OXDF INTRO
-   ================================ */
-
-.oxdf-intro {
-  display: flex;
-  gap: 30px;
-  margin: 40px 0;
+body {
+  background: #0a0a0a;
+  color: #c9ffd6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-.oxdf-text { flex: 3; }
-.oxdf-thumb { flex: 1; }
-
-.oxdf-thumb img {
-  width: 100%;
-  border-radius: 8px;
+a {
+  color: #00ccff;
 }
 
-/* ================================
-   GLOBAL PRE RESET (IMPORTANT)
-   ================================ */
-
-/* neutralize any global pre styling */
-pre {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* ================================
-   UBUNTU TERMINAL STYLE (OXDF-LIKE)
-   ================================ */
-
-.terminal {
-  margin: 16px 0 24px 0;
-}
-
-/* main terminal box */
-.terminal pre {
-  background: #300a24 !important;        /* Ubuntu terminal purple */
-  color: #eeeeec !important;
-  padding: 14px 16px;
-  border-radius: 8px;
-  border: 1px solid #1f0015;
-  overflow-x: auto;
-  max-height: 420px;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
-}
-
-/* prompt: user@host */
-.terminal .prompt {
-  color: #8ae234 !important;             /* Ubuntu green */
-  font-weight: 600;
-}
-
-/* command text */
-.terminal .cmd {
-  color: #eeeeec !important;             /* white / light gray */
-}
-
-/* output text */
-.terminal .out {
-  color: #eeeeec !important;             /* white / light gray */
+a:hover {
+  color: #00ff00;
 }
