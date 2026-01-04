@@ -13,7 +13,7 @@ thumbnail: /assets/img/thumbnails/wreath.png
 ## Enumeration
 ```bash
 nmap -sC -sV -p- 10.10.10.10
-
+```
 I began with basic enumeration to identify exposed services and potential
 attack surfaces. An HTTP service stood out as the most likely entry point.
 
