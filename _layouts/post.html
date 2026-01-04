@@ -74,5 +74,16 @@ code {
 </style>
 
 <div class="post-content">
+
+  <!-- Post Title -->
+  <h1>{{ page.title }}</h1>
+
+  <!-- oxdf-style intro (auto) -->
+  {% if page.summary %}
+    {% include oxdf-intro.html %}
+  {% endif %}
+
+  <!-- Actual writeup content -->
   {{ content }}
+
 </div>
