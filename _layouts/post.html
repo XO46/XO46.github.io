@@ -1,73 +1,677 @@
 ---
-layout: default
+# This goes in: _layouts/post.html
+# Replace your current post.html with this
 ---
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  {% include head-custom.html %}
+</head>
+<body>
+  
 <style>
-/* Keep your existing terminal styles */
+/* Retro Moody Writeup Page Styles */
+:root {
+  --retro-bg: #0d0d0d;
+  --retro-surface: #1a1a1a;
+  --retro-text: #c5c5c5;
+  --retro-text-dim: #858585;
+  --retro-border: #2d2d2d;
+  --htb-green: #9fef00;
+  --thm-red: #c0392b;
+  --accent-muted: #5a6c7d;
+}
 
-/* ADD: Post metadata section */
-.post-meta {
-  color: #888;
+body {
+  background: var(--retro-bg);
+  color: var(--retro-text);
+  font-family: 'Courier New', monospace;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Container */
+.post-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 40px;
+}
+
+/* Sticky Table of Contents */
+.toc-sidebar {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  background: var(--retro-surface);
+  border: 1px solid var(--retro-border);
+  padding: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.toc-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--htb-green);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 8px;
+}
+
+.toc-list a {
+  color: var(--retro-text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 5px 10px;
+  border-left: 2px solid transparent;
+}
+
+.toc-list a:hover,
+.toc-list a.active {
+  color: var(--htb-green);
+  border-left-color: var(--htb-green);
+  background: rgba(159, 239, 0, 0.05);
+}
+
+.toc-list .toc-h3 {
+  padding-left: 25px;
+  font-size: 0.8rem;
+}
+
+/* Main Content */
+.post-content-wrapper {
+  min-width: 0;
+}
+
+/* Machine Info Box with Thumbnail */
+.machine-info-box {
+  background: var(--retro-surface);
+  border: 2px solid var(--htb-green);
+  padding: 25px;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 25px;
+  box-shadow: 0 0 20px rgba(159, 239, 0, 0.1);
+}
+
+.machine-info-text h1 {
+  font-size: 2.2rem;
+  color: var(--retro-text);
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.machine-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
   font-size: 0.9rem;
-  margin-bottom: 30px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #222;
 }
 
-.post-meta span {
-  margin-right: 20px;
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--retro-text-dim);
 }
 
-/* ADD: Tags styling */
+.difficulty-easy {
+  color: var(--htb-green);
+  font-weight: 700;
+}
+
+.difficulty-medium {
+  color: #d4ac0d;
+  font-weight: 700;
+}
+
+.difficulty-hard {
+  color: var(--thm-red);
+  font-weight: 700;
+}
+
+.machine-summary {
+  color: var(--retro-text);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.machine-thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.machine-thumbnail img {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--retro-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Content Typography */
+.post-content {
+  color: var(--retro-text);
+}
+
+.post-content h2 {
+  font-size: 1.8rem;
+  color: var(--retro-text);
+  margin: 50px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--retro-border);
+  font-weight: 700;
+}
+
+.post-content h3 {
+  font-size: 1.4rem;
+  color: var(--retro-text);
+  margin: 35px 0 15px 0;
+  font-weight: 600;
+}
+
+.post-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 15px 0;
+  color: var(--retro-text);
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 20px 0;
+  padding-left: 30px;
+}
+
+.post-content li {
+  margin: 10px 0;
+  line-height: 1.8;
+}
+
+/* Terminal Style Code Blocks */
+.code-block-wrapper {
+  position: relative;
+  margin: 25px 0;
+}
+
+.code-header {
+  background: #2d0a3d;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3d1a4d;
+}
+
+.code-title {
+  color: #888;
+  font-size: 0.8rem;
+  font-family: 'Courier New', monospace;
+}
+
+.copy-button {
+  background: transparent;
+  border: 1px solid #888;
+  color: #888;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+  background: var(--htb-green);
+  border-color: var(--htb-green);
+  color: #000;
+}
+
+.copy-button.copied {
+  background: var(--htb-green);
+  border-color: var(--htb-green);
+  color: #000;
+}
+
+pre {
+  background: #300a24 !important;
+  color: #eeeeec !important;
+  padding: 20px !important;
+  margin: 0 !important;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border: 1px solid #1f0015;
+}
+
+pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+}
+
+.post-content code {
+  background: var(--retro-surface);
+  color: var(--htb-green);
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  border: 1px solid var(--retro-border);
+}
+
+/* Images */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--retro-border);
+  margin: 25px 0;
+  display: block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.post-content img:hover {
+  transform: scale(1.02);
+}
+
+/* Image Modal for Zoom */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid var(--htb-green);
+  box-shadow: 0 0 30px rgba(159, 239, 0, 0.3);
+}
+
+.image-modal.active {
+  display: flex;
+}
+
+/* Tags Section */
 .post-tags {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid #222;
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid var(--retro-border);
+}
+
+.post-tags strong {
+  color: var(--retro-text);
+  font-size: 1rem;
+  margin-right: 15px;
 }
 
 .post-tags a {
-  background: #1a1a1a;
-  padding: 4px 12px;
-  border-radius: 4px;
-  margin-right: 8px;
-  font-size: 0.85rem;
+  display: inline-block;
+  background: transparent;
+  color: var(--retro-text-dim);
+  border: 1px solid var(--retro-border);
+  padding: 6px 14px;
+  margin: 5px 5px 5px 0;
   text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
 }
 
 .post-tags a:hover {
-  background: #2a2a2a;
+  border-color: var(--htb-green);
+  color: var(--htb-green);
+  transform: translateY(-2px);
+}
+
+/* Related Posts Section */
+.related-posts {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 2px solid var(--retro-border);
+}
+
+.related-posts h3 {
+  font-size: 1.6rem;
+  color: var(--retro-text);
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.related-post-card {
+  background: var(--retro-surface);
+  border: 1px solid var(--retro-border);
+  padding: 20px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.related-post-card:hover {
+  border-color: var(--htb-green);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(159, 239, 0, 0.2);
+}
+
+.related-post-title {
+  color: var(--retro-text);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.related-post-meta {
+  color: var(--retro-text-dim);
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.related-post-excerpt {
+  color: var(--retro-text-dim);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .post-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .toc-sidebar {
+    position: static;
+    margin-bottom: 30px;
+  }
+  
+  .machine-info-box {
+    grid-template-columns: 1fr;
+  }
+  
+  .machine-thumbnail {
+    order: -1;
+  }
+  
+  .related-posts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Scrollbar Styling */
+.toc-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-sidebar::-webkit-scrollbar-track {
+  background: var(--retro-bg);
+}
+
+.toc-sidebar::-webkit-scrollbar-thumb {
+  background: var(--retro-border);
+  border-radius: 3px;
+}
+
+.toc-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--htb-green);
 }
 </style>
 
-<div class="post-content">
+<div class="post-container">
   
-  <h1>{{ page.title }}</h1>
+  <!-- Sticky Table of Contents Sidebar -->
+  <aside class="toc-sidebar">
+    <div class="toc-title">// Contents</div>
+    <ul class="toc-list" id="toc-list">
+      <!-- Will be populated by JavaScript -->
+    </ul>
+  </aside>
 
-  <!-- ADD: Post metadata -->
-  <div class="post-meta">
-    <span>📅 {{ page.date | date: "%b %d, %Y" }}</span>
-    {% if page.difficulty %}
-      <span>🎯 {{ page.difficulty }}</span>
+  <!-- Main Content -->
+  <div class="post-content-wrapper">
+    
+    <!-- Machine Info Box with Thumbnail -->
+    <div class="machine-info-box">
+      <div class="machine-info-text">
+        <h1>{{ page.title }}</h1>
+        <div class="machine-meta">
+          <span class="meta-item">📅 {{ page.date | date: "%b %d, %Y" }}</span>
+          {% if page.difficulty %}
+            <span class="meta-item">🎯 <span class="difficulty-{{ page.difficulty | downcase }}">{{ page.difficulty }}</span></span>
+          {% endif %}
+          {% if page.os %}
+            <span class="meta-item">💻 {{ page.os }}</span>
+          {% endif %}
+          {% if page.read_time %}
+            <span class="meta-item">⏱️ {{ page.read_time }} min read</span>
+          {% endif %}
+        </div>
+        {% if page.summary %}
+          <p class="machine-summary">{{ page.summary }}</p>
+        {% endif %}
+      </div>
+      
+      {% if page.thumbnail %}
+      <div class="machine-thumbnail">
+        <img src="{{ page.thumbnail }}" alt="{{ page.title }}">
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Post Content -->
+    <div class="post-content" id="post-content">
+      {{ content }}
+    </div>
+
+    <!-- Tags -->
+    {% if page.tags %}
+    <div class="post-tags">
+      <strong>Tags:</strong>
+      {% for tag in page.tags %}
+        <a href="/tags#{{ tag }}">#{{ tag }}</a>
+      {% endfor %}
+    </div>
     {% endif %}
-    {% if page.os %}
-      <span>💻 {{ page.os }}</span>
-    {% endif %}
+
+    <!-- Related Posts -->
+    <div class="related-posts">
+      <h3>> Related Posts</h3>
+      <div class="related-posts-grid" id="related-posts">
+        <!-- Will be populated by JavaScript -->
+      </div>
+    </div>
+
   </div>
-
-  {% if page.summary %}
-    {% include oxdf-intro.html %}
-  {% endif %}
-
-  {{ content }}
-
-  <!-- ADD: Tags at bottom -->
-  {% if page.tags %}
-  <div class="post-tags">
-    <strong>Tags:</strong>
-    {% for tag in page.tags %}
-      <a href="/tags#{{ tag }}">#{{ tag }}</a>
-    {% endfor %}
-  </div>
-  {% endif %}
-
 </div>
+
+<!-- Image Zoom Modal -->
+<div class="image-modal" id="imageModal">
+  <img src="" alt="" id="modalImage">
+</div>
+
+<script>
+// Generate Table of Contents
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.getElementById('post-content');
+  const tocList = document.getElementById('toc-list');
+  const headings = content.querySelectorAll('h2, h3');
+  
+  headings.forEach((heading, index) => {
+    const id = 'heading-' + index;
+    heading.id = id;
+    
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + id;
+    a.textContent = heading.textContent;
+    a.className = heading.tagName === 'H3' ? 'toc-h3' : '';
+    
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
+  
+  // Active TOC highlighting on scroll
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  
+  window.addEventListener('scroll', () => {
+    let current = '';
+    
+    headings.forEach(heading => {
+      const sectionTop = heading.offsetTop;
+      if (window.pageYOffset >= sectionTop - 100) {
+        current = heading.id;
+      }
+    });
+    
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+  
+  // Smooth scroll for TOC links
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+});
+
+// Add Copy Buttons to Code Blocks
+document.addEventListener('DOMContentLoaded', function() {
+  const codeBlocks = document.querySelectorAll('pre');
+  
+  codeBlocks.forEach((block, index) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-block-wrapper';
+    
+    const header = document.createElement('div');
+    header.className = 'code-header';
+    
+    const title = document.createElement('span');
+    title.className = 'code-title';
+    title.textContent = 'Terminal';
+    
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-button';
+    copyBtn.textContent = '📋 Copy';
+    copyBtn.setAttribute('data-index', index);
+    
+    header.appendChild(title);
+    header.appendChild(copyBtn);
+    
+    block.parentNode.insertBefore(wrapper, block);
+    wrapper.appendChild(header);
+    wrapper.appendChild(block);
+    
+    copyBtn.addEventListener('click', function() {
+      const code = block.textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        copyBtn.textContent = '✓ Copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.textContent = '📋 Copy';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+  });
+});
+
+// Image Zoom Modal
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  const images = document.querySelectorAll('.post-content img');
+  
+  images.forEach(img => {
+    img.addEventListener('click', function() {
+      modal.classList.add('active');
+      modalImg.src = this.src;
+    });
+  });
+  
+  modal.addEventListener('click', function() {
+    this.classList.remove('active');
+  });
+});
+
+// Generate Related Posts
+document.addEventListener('DOMContentLoaded', function() {
+  const relatedContainer = document.getElementById('related-posts');
+  const currentTags = {{ page.tags | jsonify }};
+  const allPosts = {{ site.posts | jsonify }};
+  
+  // Find posts with matching tags
+  const related = allPosts
+    .filter(post => post.url !== '{{ page.url }}')
+    .filter(post => {
+      if (!post.tags) return false;
+      return post.tags.some(tag => currentTags.includes(tag));
+    })
+    .slice(0, 3);
+  
+  if (related.length === 0) {
+    relatedContainer.innerHTML = '<p style="color: var(--retro-text-dim);">No related posts found.</p>';
+    return;
+  }
+  
+  related.forEach(post => {
+    const card = document.createElement('a');
+    card.href = post.url;
+    card.className = 'related-post-card';
+    
+    card.innerHTML = `
+      <div class="related-post-title">${post.title}</div>
+      <div class="related-post-meta">${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
+      <div class="related-post-excerpt">${post.summary || post.excerpt || 'Click to read more...'}</div>
+    `;
+    
+    relatedContainer.appendChild(card);
+  });
+});
+</script>
+
+</body>
+</html>
