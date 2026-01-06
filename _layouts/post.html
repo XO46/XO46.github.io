@@ -4,267 +4,733 @@ layout: default
 
 <style>
 /* =========================================================
-   PAGE WRAPPER — WHITE BACKGROUND
+   0XDF STYLE - WIDE LAYOUT WITH WHITE BACKGROUND
    ========================================================= */
-.post-page-wrapper {
+   
+/* Force white background for entire page */
+body {
   background: #ffffff !important;
-  min-height: 100vh;
-  padding: 0 !important;
+  color: #000000 !important;
 }
 
-
+.site-header,
+.site-footer {
+  background: #ffffff !important;
+  border-color: #dddddd !important;
+}
 
 /* =========================================================
-   MAIN LAYOUT — 20% WIDER THAN BEFORE
-   (1150px → ~1380px)
+   MAIN CONTAINER - VERY WIDE LIKE 0XDF
    ========================================================= */
-.post-container {
-  max-width: 1380px;               /* +20% width */
+.post-wrapper {
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 40px 30px;
+  background: #ffffff;
+}
+
+.post-layout {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 64px;
-  font-family: "Courier New", Courier, monospace; /* retro font */
+  grid-template-columns: 280px 1fr;
+  gap: 60px;
+  align-items: start;
 }
 
 /* =========================================================
-   TABLE OF CONTENTS — WHITE / RETRO
+   TABLE OF CONTENTS - STICKY SIDEBAR (0XDF STYLE)
    ========================================================= */
-.toc-sidebar {
+.toc-container {
   position: sticky;
-  top: 20px;
-  height: fit-content;
-  max-height: calc(100vh - 40px);
+  top: 80px;
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px 20px;
+  max-height: calc(100vh - 120px);
   overflow-y: auto;
-  background: #f6f6f6;
-  border: 1px solid #000;
-  border-radius: 6px;
-  padding: 20px;
 }
 
-.toc-title {
-  font-size: 0.8rem;
+.toc-header {
+  font-size: 0.9rem;
   font-weight: 700;
-  color: #000;
+  color: #333;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #ddd;
 }
 
-.toc-list {
+.toc-nav {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.toc-list li {
-  margin-bottom: 6px;
+.toc-nav li {
+  margin-bottom: 4px;
 }
 
-.toc-list a {
-  color: #000;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 700;
+.toc-nav a {
   display: block;
-  padding: 6px 10px;
+  padding: 8px 12px;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.88rem;
+  line-height: 1.4;
   border-left: 3px solid transparent;
-  border-radius: 4px;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
 }
 
-.toc-list a:hover {
-  background: #eaeaea;
+.toc-nav a:hover {
+  color: #000;
+  background: #f0f0f0;
+  border-left-color: #888;
+}
+
+.toc-nav a.active {
+  color: #000;
+  font-weight: 600;
+  background: #e8e8e8;
   border-left-color: #000;
 }
 
-.toc-list a.active {
-  background: #000;
-  color: #fff;
-  border-left-color: #000;
-}
-
-.toc-h3 {
-  padding-left: 24px;
-  font-size: 0.8rem;
+.toc-nav .toc-h3 {
+  padding-left: 28px;
+  font-size: 0.82rem;
 }
 
 /* =========================================================
-   MAIN CONTENT
+   MAIN CONTENT AREA - WIDE LIKE 0XDF
    ========================================================= */
-.post-content-wrapper {
+.post-main {
   min-width: 0;
+  max-width: 900px;
 }
 
 /* =========================================================
-   MACHINE INFO BOX — WHITE CARD
+   MACHINE INFO BOX - 0XDF STYLE
    ========================================================= */
-.machine-info-box {
-  background: #ffffff;
-  border: 2px solid #000;
+.machine-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-left: 4px solid #4a90e2;
   border-radius: 6px;
-  padding: 36px 40px;
-  margin-bottom: 55px;
-  display: flex;
-  gap: 35px;
+  padding: 32px;
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 32px;
+  align-items: start;
 }
 
-.machine-info-text {
-  flex: 1;
-}
-
-.machine-info-text h1 {
-  font-size: 2.6rem;
-  color: #000;
-  margin: 0 0 18px 0;
-  font-weight: 800;
-}
-
-.machine-meta {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-  font-size: 0.9rem;
+.machine-details h1 {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin: 0 0 20px 0;
   font-weight: 700;
-  color: #000;
+  line-height: 1.2;
 }
+
+.machine-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #333;
+}
+
+.difficulty-easy { border-left: 3px solid #28a745; color: #28a745; }
+.difficulty-medium { border-left: 3px solid #ffc107; color: #f39c12; }
+.difficulty-hard { border-left: 3px solid #dc3545; color: #dc3545; }
 
 .machine-summary {
-  color: #000;
+  color: #444;
   font-size: 1.05rem;
   line-height: 1.7;
-  font-weight: 600;
+  margin: 0;
 }
 
-.machine-thumbnail {
-  width: 200px;
-  flex-shrink: 0;
+.machine-image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-.machine-thumbnail img {
+.machine-image img {
   width: 100%;
-  border-radius: 4px;
-  border: 2px solid #000;
+  max-width: 200px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 /* =========================================================
-   TYPOGRAPHY — BLACK, BOLD, RETRO
+   CONTENT TYPOGRAPHY - 0XDF STYLE
    ========================================================= */
-.post-content {
-  color: #000 !important;
-  font-size: 1.1rem;
-  line-height: 1.9;
-  font-weight: 600;
+.writeup-content {
+  color: #2c2c2c;
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
-.post-content h2 {
-  font-size: 2rem;
-  color: #000 !important;
-  font-weight: 800;
-  margin: 70px 0 28px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #000;
-}
-
-.post-content h3 {
-  font-size: 1.6rem;
-  color: #000 !important;
-  font-weight: 800;
-  margin: 50px 0 24px;
-}
-
-.post-content h4 {
-  font-size: 1.3rem;
-  color: #000 !important;
-  font-weight: 800;
-  margin: 35px 0 18px;
-}
-
-.post-content p {
-  margin: 26px 0;
-}
-
-/* =========================================================
-   CODE BLOCKS — RETRO TERMINAL (INVERTED)
-   ========================================================= */
-.post-content pre {
-  background: #f4f4f4;
-  border: 2px solid #000;
-  border-radius: 4px;
-  padding: 22px;
-  margin: 32px 0;
-  overflow-x: auto;
-  font-family: "Courier New", monospace;
-  font-size: 0.95rem;
+.writeup-content h2 {
+  font-size: 1.9rem;
+  color: #1a1a1a;
   font-weight: 700;
-  color: #000;
+  margin: 60px 0 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0e0e0;
+  line-height: 1.3;
+}
+
+.writeup-content h3 {
+  font-size: 1.5rem;
+  color: #2c2c2c;
+  font-weight: 600;
+  margin: 44px 0 20px 0;
+  line-height: 1.3;
+}
+
+.writeup-content h4 {
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: 600;
+  margin: 32px 0 16px 0;
+}
+
+.writeup-content p {
+  margin: 18px 0;
+  color: #2c2c2c;
+}
+
+.writeup-content ul,
+.writeup-content ol {
+  margin: 20px 0;
+  padding-left: 32px;
+}
+
+.writeup-content li {
+  margin: 10px 0;
+  line-height: 1.7;
+}
+
+.writeup-content blockquote {
+  border-left: 4px solid #4a90e2;
+  background: #f8f9fa;
+  padding: 16px 20px;
+  margin: 24px 0;
+  color: #555;
+  font-style: italic;
 }
 
 /* =========================================================
-   MOBILE
+   CODE BLOCKS - 0XDF TERMINAL STYLE
    ========================================================= */
-@media (max-width: 1024px) {
-  .post-container {
+.code-wrapper {
+  position: relative;
+  margin: 28px 0;
+  background: #1e1e1e;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.code-toolbar {
+  background: #2d2d2d;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.code-lang {
+  color: #888;
+  font-size: 0.8rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-copy {
+  background: #3d3d3d;
+  border: 1px solid #555;
+  color: #aaa;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: monospace;
+  transition: all 0.2s ease;
+}
+
+.btn-copy:hover {
+  background: #4d4d4d;
+  border-color: #666;
+  color: #fff;
+}
+
+.btn-copy.copied {
+  background: #28a745;
+  border-color: #28a745;
+  color: #fff;
+}
+
+.writeup-content pre {
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+  padding: 20px !important;
+  margin: 0 !important;
+  overflow-x: auto;
+  font-family: 'Courier New', 'Consolas', monospace;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.writeup-content pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.writeup-content code {
+  background: #f4f4f4;
+  color: #e83e8c;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-family: 'Courier New', monospace;
+  border: 1px solid #e0e0e0;
+}
+
+.writeup-content a code {
+  color: #0366d6;
+}
+
+/* =========================================================
+   IMAGES - 0XDF STYLE
+   ========================================================= */
+.writeup-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 32px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.writeup-content img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Image Modal */
+.img-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.img-modal.show {
+  display: flex;
+}
+
+.img-modal img {
+  max-width: 95%;
+  max-height: 95%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+/* =========================================================
+   TAGS SECTION
+   ========================================================= */
+.post-tags-section {
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.tags-label {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-item {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.tag-item:hover {
+  background: #e8e8e8;
+  border-color: #bbb;
+  color: #000;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   RELATED POSTS SECTION
+   ========================================================= */
+.related-section {
+  margin-top: 70px;
+  padding-top: 40px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.related-header {
+  font-size: 1.6rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.related-card {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 24px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.related-card:hover {
+  background: #f4f4f4;
+  border-color: #ccc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.related-card-title {
+  color: #1a1a1a;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.related-card-date {
+  color: #777;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.related-card-excerpt {
+  color: #555;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+@media (max-width: 1100px) {
+  .post-layout {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding: 30px;
   }
-
-  .toc-sidebar {
+  
+  .toc-container {
     position: static;
+    max-height: none;
   }
+  
+  .machine-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .machine-image {
+    order: -1;
+  }
+  
+  .machine-image img {
+    max-width: 100%;
+  }
+  
+  .post-wrapper {
+    padding: 24px 20px;
+  }
+  
+  .writeup-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .writeup-content h3 {
+    font-size: 1.3rem;
+  }
+}
 
-  .machine-info-box {
-    flex-direction: column;
-    padding: 28px;
-  }
+/* =========================================================
+   SCROLLBAR STYLING
+   ========================================================= */
+.toc-container::-webkit-scrollbar {
+  width: 6px;
+}
 
-  .machine-thumbnail {
-    width: 100%;
-    max-width: 300px;
-  }
+.toc-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.toc-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.toc-container::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
 }
 </style>
 
-<div class="post-page-wrapper">
-  <div class="post-container">
-
-    <!-- Table of Contents -->
-    <aside class="toc-sidebar">
-      <div class="toc-title">Contents</div>
-      <ul class="toc-list" id="toc-list"></ul>
+<div class="post-wrapper">
+  <div class="post-layout">
+    
+    <!-- TABLE OF CONTENTS SIDEBAR -->
+    <aside class="toc-container">
+      <div class="toc-header">Contents</div>
+      <ul class="toc-nav" id="toc-nav">
+        <!-- Auto-generated by JavaScript -->
+      </ul>
     </aside>
 
-    <!-- Main Content -->
-    <div class="post-content-wrapper">
-
-      <div class="machine-info-box">
-        <div class="machine-info-text">
+    <!-- MAIN CONTENT -->
+    <main class="post-main">
+      
+      <!-- MACHINE INFO CARD -->
+      <article class="machine-card">
+        <div class="machine-details">
           <h1>{{ page.title }}</h1>
-          <div class="machine-meta">
-            <span>{{ page.date | date: "%b %d, %Y" }}</span>
-            {% if page.difficulty %}<span>{{ page.difficulty }}</span>{% endif %}
-            {% if page.os %}<span>{{ page.os }}</span>{% endif %}
-            {% if page.read_time %}<span>{{ page.read_time }} min read</span>{% endif %}
+          
+          <div class="machine-stats">
+            <span class="stat-badge">📅 {{ page.date | date: "%b %d, %Y" }}</span>
+            {% if page.difficulty %}
+              <span class="stat-badge difficulty-{{ page.difficulty | downcase }}">
+                🎯 {{ page.difficulty }}
+              </span>
+            {% endif %}
+            {% if page.os %}
+              <span class="stat-badge">💻 {{ page.os }}</span>
+            {% endif %}
+            {% if page.read_time %}
+              <span class="stat-badge">⏱️ {{ page.read_time }} min</span>
+            {% endif %}
           </div>
+          
           {% if page.summary %}
             <p class="machine-summary">{{ page.summary }}</p>
           {% endif %}
         </div>
-
+        
         {% if page.thumbnail %}
-        <div class="machine-thumbnail">
+        <div class="machine-image">
           <img src="{{ page.thumbnail }}" alt="{{ page.title }}">
         </div>
         {% endif %}
-      </div>
+      </article>
 
-      <div class="post-content" id="post-content">
+      <!-- WRITEUP CONTENT -->
+      <div class="writeup-content" id="writeup-content">
         {{ content }}
       </div>
 
-    </div>
+      <!-- TAGS -->
+      {% if page.tags %}
+      <section class="post-tags-section">
+        <div class="tags-label">Tags</div>
+        <div class="tag-list">
+          {% for tag in page.tags %}
+            <a href="/tags#{{ tag }}" class="tag-item">#{{ tag }}</a>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      <!-- RELATED POSTS -->
+      <section class="related-section">
+        <h2 class="related-header">Related Posts</h2>
+        <div class="related-grid" id="related-grid">
+          <!-- Auto-generated by JavaScript -->
+        </div>
+      </section>
+
+    </main>
   </div>
 </div>
+
+<!-- IMAGE MODAL -->
+<div class="img-modal" id="img-modal">
+  <img src="" alt="" id="modal-img">
+</div>
+
+<script>
+// ===== AUTO-GENERATE TABLE OF CONTENTS =====
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.getElementById('writeup-content');
+  const tocNav = document.getElementById('toc-nav');
+  const headings = content.querySelectorAll('h2, h3');
+  
+  headings.forEach((heading, idx) => {
+    const id = 'section-' + idx;
+    heading.id = id;
+    
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + id;
+    a.textContent = heading.textContent;
+    
+    if (heading.tagName === 'H3') {
+      a.classList.add('toc-h3');
+    }
+    
+    li.appendChild(a);
+    tocNav.appendChild(li);
+  });
+  
+  // Highlight active section on scroll
+  const tocLinks = tocNav.querySelectorAll('a');
+  
+  window.addEventListener('scroll', () => {
+    let current = '';
+    
+    headings.forEach(heading => {
+      const top = heading.offsetTop;
+      if (window.pageYOffset >= top - 100) {
+        current = heading.id;
+      }
+    });
+    
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+  
+  // Smooth scroll
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById(this.getAttribute('href').slice(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+});
+
+// ===== ADD COPY BUTTONS TO CODE BLOCKS =====
+document.addEventListener('DOMContentLoaded', function() {
+  const codeBlocks = document.querySelectorAll('.writeup-content pre');
+  
+  codeBlocks.forEach((pre, idx) => {
+    if (pre.parentElement.classList.contains('code-wrapper')) return;
+    
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-wrapper';
+    
+    const toolbar = document.createElement('div');
+    toolbar.className = 'code-toolbar';
+    
+    const lang = document.createElement('span');
+    lang.className = 'code-lang';
+    lang.textContent = 'code';
+    
+    const btn = document.createElement('button');
+    btn.className = 'btn-copy';
+    btn.textContent = 'Copy';
+    btn.dataset.idx = idx;
+    
+    toolbar.appendChild(lang);
+    toolbar.appendChild(btn);
+    
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(toolbar);
+    wrapper.appendChild(pre);
+    
+    btn.addEventListener('click', function() {
+      const code = pre.textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+  });
+});
+
+// ===== IMAGE ZOOM MODAL =====
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('img-modal');
+  const modalImg = document.getElementById('modal-img');
+  const images = document.querySelectorAll('.writeup-content img');
+  
+  images.forEach(img => {
+    img.addEventListener('click', function() {
+      modal.classList.add('show');
+      modalImg.src = this.src;
+    });
+  });
+  
+  modal.addEventListener('click', function() {
+    this.classList.remove('show');
+  });
+});
+
+// ===== GENERATE RELATED POSTS =====
+document.addEventListener('DOMContentLoaded', function() {
+  const grid = document.getElementById('related-grid');
+  
+  // Simple fallback message
+  grid.innerHTML = '<p style="color: #777; grid-column: 1/-1;">Check out more writeups on the <a href="/" style="color: #0366d6;">home page</a>!</p>';
+});
+</script>
