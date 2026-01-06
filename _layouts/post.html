@@ -3,64 +3,71 @@ layout: default
 ---
 
 <style>
-/* ===== TERMINAL (OXDF / UBUNTU) ===== */
-.terminal {
-  margin: 16px 0 24px 0;
+/* Keep your existing terminal styles */
+
+/* ADD: Post metadata section */
+.post-meta {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #222;
 }
 
-.terminal pre {
-  background: #300a24;
-  color: #eeeeec;
-  padding: 14px 16px;
-  border-radius: 8px;
-  border: 1px solid #1f0015;
-  overflow-x: auto;
-  font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
-  font-size: 0.95rem;
-  line-height: 1.4;
+.post-meta span {
+  margin-right: 20px;
 }
 
-.terminal .prompt {
-  color: #8ae234;
-  font-weight: 600;
+/* ADD: Tags styling */
+.post-tags {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
 }
 
-.terminal .cmd {
-  color: #eeeeec;
+.post-tags a {
+  background: #1a1a1a;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-size: 0.85rem;
+  text-decoration: none;
 }
 
-.terminal .out {
-  color: #eeeeec;
-}
-/* ===== HARD DARK OVERRIDE (STOP MINIMA) ===== */
-
-html, body {
-  background: #0a0a0a !important;
-  color: #c9ffd6 !important;
-}
-
-.page-content,
-.wrapper,
-.site,
-.site-content,
-main {
-  background: transparent !important;
-}
-/* FIX: remove Minima code background inside terminal */
-.terminal code {
-  background: transparent !important;
-  color: inherit !important;
+.post-tags a:hover {
+  background: #2a2a2a;
 }
 </style>
 
 <div class="post-content">
-
+  
   <h1>{{ page.title }}</h1>
+
+  <!-- ADD: Post metadata -->
+  <div class="post-meta">
+    <span>📅 {{ page.date | date: "%b %d, %Y" }}</span>
+    {% if page.difficulty %}
+      <span>🎯 {{ page.difficulty }}</span>
+    {% endif %}
+    {% if page.os %}
+      <span>💻 {{ page.os }}</span>
+    {% endif %}
+  </div>
 
   {% if page.summary %}
     {% include oxdf-intro.html %}
   {% endif %}
 
   {{ content }}
+
+  <!-- ADD: Tags at bottom -->
+  {% if page.tags %}
+  <div class="post-tags">
+    <strong>Tags:</strong>
+    {% for tag in page.tags %}
+      <a href="/tags#{{ tag }}">#{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
 
 </div>
