@@ -1,13 +1,12 @@
 ---
+layout: post
 title: "HTB: DemoMachine"
 date: 2026-01-06
+difficulty: Easy
+os: Linux
 tags: [hackthebox, linux, web]
-summary: >
-  DemoMachine starts with a vulnerable web application that allows command
-  execution as a low-privileged user. Careful local enumeration then reveals
-  a misconfigured sudo rule, which provides a straightforward path to full
-  root compromise.
-thumbnail: /assets/images/thumbnails/wreath.png
+summary: "DemoMachine starts with a vulnerable web application that allows command execution as a low-privileged user."
+read_time: 8
 ---
 
 ## Initial Scanning
