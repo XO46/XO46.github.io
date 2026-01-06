@@ -221,16 +221,16 @@ title: Mr. White | The Professor's Lab Notes
 
 /* DRAMATIC HOVER EFFECTS */
 .post-list li:hover::before {
-  width: 6px;
+  width: 4px;
   background: var(--htb-green);
-  box-shadow: 0 0 20px var(--htb-green);
+  box-shadow: 0 0 10px var(--htb-green);
 }
 
 .post-list li:hover {
   border-color: var(--htb-green);
-  transform: translateX(15px) translateY(-8px);
-  box-shadow: -10px 15px 40px rgba(159, 239, 0, 0.3);
-  background: rgba(159, 239, 0, 0.03);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(159, 239, 0, 0.2);
+  background: var(--retro-surface);
 }
 
 .post-link {
@@ -249,8 +249,7 @@ title: Mr. White | The Professor's Lab Notes
 
 .post-link:hover {
   color: var(--htb-green) !important;
-  text-shadow: 0 0 15px rgba(159, 239, 0, 0.5);
-  transform: translateX(10px);
+  text-shadow: 0 0 8px rgba(159, 239, 0, 0.3);
 }
 
 /* Platform Indicator */
@@ -259,7 +258,6 @@ title: Mr. White | The Professor's Lab Notes
   margin-right: 6px;
   color: var(--retro-text-dim);
   font-weight: 400;
-  transition: all 0.5s ease;
 }
 
 .post-link::after {
@@ -267,12 +265,6 @@ title: Mr. White | The Professor's Lab Notes
   margin-left: 6px;
   color: var(--retro-text-dim);
   font-weight: 400;
-  transition: all 0.5s ease;
-}
-
-.post-link:hover::before,
-.post-link:hover::after {
-  color: var(--htb-green);
 }
 
 .post-list .post-meta {
@@ -465,12 +457,7 @@ body::before {
   z-index: 1000;
 }
 
-/* Terminal Cursor Effect on Hover */
-.post-link:hover::after {
-  content: '_';
-  animation: blink 1s infinite;
-  margin-left: 8px;
-}
+/* Terminal Cursor Effect - Removed */
 
 @keyframes blink {
   0%, 50% { opacity: 1; }
@@ -500,19 +487,7 @@ body::before {
 .post-list li:nth-child(4) { animation-delay: 0.4s; }
 .post-list li:nth-child(5) { animation-delay: 0.5s; }
 
-/* Glow effect on hover */
-.post-list li:hover {
-  animation: pulse-glow 2s infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: -10px 15px 40px rgba(159, 239, 0, 0.3);
-  }
-  50% {
-    box-shadow: -10px 15px 60px rgba(159, 239, 0, 0.5);
-  }
-}
+/* Glow effect on hover - Removed */
 </style>
 
 <div class="hero">
