@@ -90,15 +90,19 @@ layout: default
   border: 2px solid var(--htb-green);
   padding: 25px;
   margin-bottom: 40px;
-  display: grid;
-  grid-template-columns: 1fr 200px;
+  display: flex;
+  align-items: center;
   gap: 25px;
   box-shadow: 0 0 20px rgba(159, 239, 0, 0.1);
 }
 
+.machine-info-text {
+  flex: 1;
+}
+
 .machine-info-text h1 {
   font-size: 2.2rem;
-  color: var(--retro-text);
+  color: #ffffff;
   margin: 0 0 15px 0;
   font-weight: 700;
 }
@@ -141,6 +145,8 @@ layout: default
 }
 
 .machine-thumbnail {
+  flex-shrink: 0;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,6 +157,7 @@ layout: default
   height: auto;
   border: 2px solid var(--retro-border);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
 }
 
 /* Content Typography */
@@ -162,7 +169,7 @@ layout: default
 
 .post-content h2 {
   font-size: 1.8rem;
-  color: var(--retro-text);
+  color: #ffffff;
   margin: 50px 0 20px 0;
   padding-bottom: 10px;
   border-bottom: 2px solid var(--retro-border);
@@ -171,14 +178,14 @@ layout: default
 
 .post-content h3 {
   font-size: 1.4rem;
-  color: var(--retro-text);
+  color: #ffffff;
   margin: 35px 0 15px 0;
   font-weight: 600;
 }
 
 .post-content h4 {
   font-size: 1.2rem;
-  color: var(--retro-text);
+  color: #ffffff;
   margin: 25px 0 12px 0;
   font-weight: 600;
 }
@@ -187,7 +194,7 @@ layout: default
   font-size: 1.05rem;
   line-height: 1.8;
   margin: 15px 0;
-  color: var(--retro-text);
+  color: #e0e0e0;
 }
 
 .post-content ul,
@@ -221,17 +228,17 @@ layout: default
 }
 
 .code-header {
-  background: var(--code-bg);
+  background: #2d1b69;
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--retro-border);
+  border-bottom: 1px solid #4a2d8f;
 }
 
 .code-title {
-  color: var(--retro-text-dim);
-  font-size: 0.8rem;
+  color: #b8a4e8;
+  font-size: 0.85rem;
   font-family: 'Courier New', monospace;
   font-weight: 600;
 }
@@ -261,13 +268,13 @@ layout: default
 }
 
 pre {
-  background: var(--code-bg) !important;
-  color: #e0e0e0 !important;
+  background: #2d1b69 !important;
+  color: #e8deff !important;
   padding: 20px !important;
   margin: 0 !important;
   overflow-x: auto;
   font-family: 'Courier New', 'Consolas', monospace;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
@@ -466,10 +473,11 @@ pre code {
   }
   
   .machine-info-box {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
   
   .machine-thumbnail {
+    width: 100%;
     order: -1;
   }
   
