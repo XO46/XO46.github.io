@@ -4,7 +4,8 @@ layout: default
 
 <style>
 /* =========================================================
-   ULTRA-WIDE LAYOUT - MAXIMUM HORIZONTAL SPACE
+   OPTION A - FULL SCREEN WIDTH LAYOUT
+   Maximum horizontal space for writeup content
    ========================================================= */
    
 /* Force white background */
@@ -20,13 +21,12 @@ body {
 }
 
 /* =========================================================
-   MAXIMUM WIDTH CONTAINER - TIGHT TO EDGES
+   FULL WIDTH CONTAINER - NO LIMITS
    ========================================================= */
 .post-wrapper {
-  max-width: 100%;
   width: 100%;
   margin: 0;
-  padding: 20px 15px 40px 15px;
+  padding: 20px 30px 40px 30px;
   background: #ffffff;
 }
 
@@ -35,33 +35,31 @@ body {
   grid-template-columns: 240px 1fr;
   gap: 50px;
   align-items: start;
-  max-width: 1800px;
-  margin: 0 auto;
 }
 
 /* =========================================================
-   COMPACT TOC SIDEBAR - TOP LEFT CORNER
+   FIXED WIDTH TOC SIDEBAR - 240px
    ========================================================= */
 .toc-container {
   position: sticky;
   top: 20px;
+  width: 240px;
   background: #f8f8f8;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
-  padding: 16px 12px;
+  padding: 18px 14px;
   max-height: calc(100vh - 40px);
   overflow-y: auto;
-  width: 240px;
 }
 
 .toc-header {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #333;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
-  margin-bottom: 10px;
-  padding-bottom: 8px;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 2px solid #ddd;
 }
 
@@ -77,11 +75,11 @@ body {
 
 .toc-nav a {
   display: block;
-  padding: 5px 8px;
+  padding: 6px 10px;
   color: #555;
   text-decoration: none;
-  font-size: 0.75rem;
-  line-height: 1.3;
+  font-size: 0.78rem;
+  line-height: 1.4;
   border-left: 2px solid transparent;
   transition: all 0.2s ease;
 }
@@ -100,22 +98,21 @@ body {
 }
 
 .toc-nav .toc-h3 {
-  padding-left: 18px;
-  font-size: 0.7rem;
+  padding-left: 22px;
+  font-size: 0.72rem;
 }
 
 /* =========================================================
-   MAXIMUM WIDTH CONTENT AREA - 0XDF STYLE
+   CONTENT AREA - USES ALL REMAINING SPACE
    ========================================================= */
 .post-main {
   min-width: 0;
-  max-width: 1400px;
   width: 100%;
-  padding-left: 20px;
+  max-width: 100%;
 }
 
 /* =========================================================
-   MACHINE INFO BOX - COMPACT
+   MACHINE INFO BOX
    ========================================================= */
 .machine-card {
   background: #f9f9f9;
@@ -134,9 +131,9 @@ body {
 }
 
 .machine-details h1 {
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   color: #1a1a1a;
-  margin: 0 0 16px 0;
+  margin: 0 0 18px 0;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -153,13 +150,13 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   background: #ffffff;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-weight: 600;
   color: #333;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
 }
 
 .difficulty-easy { border-left: 3px solid #28a745; color: #28a745; }
@@ -168,7 +165,7 @@ body {
 
 .machine-summary {
   color: #444;
-  font-size: 1rem;
+  font-size: 1.02rem;
   line-height: 1.7;
   margin: 0;
 }
@@ -192,65 +189,66 @@ body {
   color: #2c2c2c;
   font-size: 1.05rem;
   line-height: 1.8;
+  width: 100%;
   max-width: 100%;
 }
 
 .writeup-content h2 {
-  font-size: 1.85rem;
+  font-size: 1.9rem;
   color: #1a1a1a;
   font-weight: 700;
-  margin: 55px 0 22px 0;
-  padding-bottom: 10px;
+  margin: 55px 0 24px 0;
+  padding-bottom: 12px;
   border-bottom: 2px solid #e0e0e0;
   line-height: 1.3;
 }
 
 .writeup-content h3 {
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   color: #2c2c2c;
   font-weight: 600;
-  margin: 40px 0 18px 0;
+  margin: 42px 0 20px 0;
   line-height: 1.3;
 }
 
 .writeup-content h4 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #333;
   font-weight: 600;
-  margin: 30px 0 14px 0;
+  margin: 32px 0 16px 0;
 }
 
 .writeup-content p {
-  margin: 16px 0;
+  margin: 18px 0;
   color: #2c2c2c;
 }
 
 .writeup-content ul,
 .writeup-content ol {
-  margin: 18px 0;
+  margin: 20px 0;
   padding-left: 32px;
 }
 
 .writeup-content li {
-  margin: 8px 0;
+  margin: 10px 0;
   line-height: 1.7;
 }
 
 .writeup-content blockquote {
   border-left: 4px solid #4a90e2;
   background: #f8f9fa;
-  padding: 14px 18px;
-  margin: 20px 0;
+  padding: 16px 20px;
+  margin: 24px 0;
   color: #555;
   font-style: italic;
 }
 
 /* =========================================================
-   ULTRA-WIDE CODE BLOCKS - MAXIMUM HORIZONTAL SPACE
+   CODE BLOCKS - FULL WIDTH, NO SCROLLING
    ========================================================= */
 .code-wrapper {
   position: relative;
-  margin: 24px 0;
+  margin: 26px 0;
   background: #1e1e1e;
   border-radius: 6px;
   overflow: hidden;
@@ -260,7 +258,7 @@ body {
 
 .code-toolbar {
   background: #2d2d2d;
-  padding: 6px 16px;
+  padding: 7px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -279,7 +277,7 @@ body {
   background: #3d3d3d;
   border: 1px solid #555;
   color: #aaa;
-  padding: 3px 10px;
+  padding: 4px 12px;
   font-size: 0.72rem;
   cursor: pointer;
   border-radius: 3px;
@@ -306,10 +304,9 @@ body {
   margin: 0 !important;
   overflow-x: auto;
   font-family: 'Courier New', 'Consolas', monospace;
-  font-size: 0.88rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.6;
   width: 100%;
-  max-width: 100%;
 }
 
 .writeup-content pre code {
@@ -319,7 +316,6 @@ body {
   border: none !important;
   white-space: pre;
   word-wrap: normal;
-  overflow-wrap: normal;
 }
 
 .writeup-content code {
@@ -355,7 +351,6 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Image Modal */
 .img-modal {
   display: none;
   position: fixed;
@@ -385,16 +380,16 @@ body {
    TAGS SECTION
    ========================================================= */
 .post-tags-section {
-  margin-top: 50px;
-  padding-top: 28px;
+  margin-top: 55px;
+  padding-top: 30px;
   border-top: 2px solid #e0e0e0;
 }
 
 .tags-label {
   font-weight: 700;
   color: #333;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -407,13 +402,13 @@ body {
 
 .tag-item {
   display: inline-block;
-  padding: 5px 12px;
+  padding: 6px 14px;
   background: #f4f4f4;
   border: 1px solid #ddd;
   border-radius: 4px;
   color: #555;
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   transition: all 0.2s ease;
 }
 
@@ -428,29 +423,29 @@ body {
    RELATED POSTS SECTION
    ========================================================= */
 .related-section {
-  margin-top: 60px;
+  margin-top: 65px;
   padding-top: 35px;
   border-top: 2px solid #e0e0e0;
 }
 
 .related-header {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #1a1a1a;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
 }
 
 .related-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
 }
 
 .related-card {
   background: #f9f9f9;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
-  padding: 20px;
+  padding: 22px;
   text-decoration: none;
   transition: all 0.2s ease;
   display: block;
@@ -465,21 +460,21 @@ body {
 
 .related-card-title {
   color: #1a1a1a;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   line-height: 1.3;
 }
 
 .related-card-date {
   color: #777;
-  font-size: 0.82rem;
-  margin-bottom: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
 }
 
 .related-card-excerpt {
   color: #555;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   line-height: 1.6;
 }
 
@@ -489,7 +484,7 @@ body {
 @media (max-width: 1100px) {
   .post-layout {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 30px;
   }
   
   .toc-container {
@@ -510,15 +505,14 @@ body {
   
   .post-wrapper {
     padding: 20px 15px;
-    max-width: 100%;
   }
   
   .writeup-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
   
   .writeup-content h3 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -546,7 +540,7 @@ body {
 <div class="post-wrapper">
   <div class="post-layout">
     
-    <!-- COMPACT TOC SIDEBAR -->
+    <!-- FIXED 240PX TOC SIDEBAR -->
     <aside class="toc-container">
       <div class="toc-header">Contents</div>
       <ul class="toc-nav" id="toc-nav">
@@ -554,7 +548,7 @@ body {
       </ul>
     </aside>
 
-    <!-- MAXIMUM WIDTH CONTENT -->
+    <!-- FULL WIDTH CONTENT AREA -->
     <main class="post-main">
       
       <!-- MACHINE INFO CARD -->
@@ -589,7 +583,7 @@ body {
         {% endif %}
       </article>
 
-      <!-- WRITEUP CONTENT -->
+      <!-- WRITEUP CONTENT - FULL WIDTH -->
       <div class="writeup-content" id="writeup-content">
         {{ content }}
       </div>
