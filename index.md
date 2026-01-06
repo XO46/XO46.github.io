@@ -248,17 +248,19 @@ title: Mr. White | The Professor's Lab Notes
 }
 
 .post-link:visited {
-  color: var(--retro-text-dim) !important;
+  color: var(--retro-text) !important;
+  opacity: 0.85;
 }
 
 .post-link:hover {
   color: var(--htb-green) !important;
   text-shadow: 0 0 15px rgba(159, 239, 0, 0.5);
   transform: translateX(10px);
+  opacity: 1;
 }
 
-.post-link:visited:hover {
-  color: var(--htb-green) !important;
+.post-link:active {
+  color: var(--retro-text) !important;
 }
 
 /* Platform Indicator */
