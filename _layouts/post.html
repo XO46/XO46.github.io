@@ -4,10 +4,10 @@ layout: default
 
 <style>
 /* =========================================================
-   0XDF STYLE - WIDE LAYOUT WITH WHITE BACKGROUND
+   ULTRA-WIDE LAYOUT - MAXIMUM HORIZONTAL SPACE
    ========================================================= */
    
-/* Force white background for entire page */
+/* Force white background */
 body {
   background: #ffffff !important;
   color: #000000 !important;
@@ -20,44 +20,46 @@ body {
 }
 
 /* =========================================================
-   MAIN CONTAINER - VERY WIDE LIKE 0XDF
+   MAXIMUM WIDTH CONTAINER - 95% OF SCREEN
    ========================================================= */
 .post-wrapper {
-  max-width: 1400px;
+  max-width: 95%;
+  width: 100%;
   margin: 0 auto;
-  padding: 40px 30px;
+  padding: 40px 2%;
   background: #ffffff;
 }
 
 .post-layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 60px;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
   align-items: start;
 }
 
 /* =========================================================
-   TABLE OF CONTENTS - STICKY SIDEBAR (0XDF STYLE)
+   COMPACT TOC SIDEBAR - MINIMAL WIDTH
    ========================================================= */
 .toc-container {
   position: sticky;
   top: 80px;
   background: #f8f8f8;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 24px 20px;
+  border-radius: 6px;
+  padding: 20px 16px;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
+  width: 260px;
 }
 
 .toc-header {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: #333;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
   border-bottom: 2px solid #ddd;
 }
 
@@ -68,15 +70,15 @@ body {
 }
 
 .toc-nav li {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .toc-nav a {
   display: block;
-  padding: 8px 12px;
+  padding: 6px 10px;
   color: #555;
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   line-height: 1.4;
   border-left: 3px solid transparent;
   transition: all 0.2s ease;
@@ -96,38 +98,42 @@ body {
 }
 
 .toc-nav .toc-h3 {
-  padding-left: 28px;
-  font-size: 0.82rem;
+  padding-left: 24px;
+  font-size: 0.78rem;
 }
 
 /* =========================================================
-   MAIN CONTENT AREA - WIDE LIKE 0XDF
+   MAXIMUM WIDTH CONTENT AREA
    ========================================================= */
 .post-main {
   min-width: 0;
-  max-width: 900px;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* =========================================================
-   MACHINE INFO BOX - 0XDF STYLE
+   MACHINE INFO BOX - COMPACT
    ========================================================= */
 .machine-card {
   background: #f9f9f9;
   border: 1px solid #ddd;
   border-left: 4px solid #4a90e2;
   border-radius: 6px;
-  padding: 32px;
-  margin-bottom: 48px;
-  display: grid;
-  grid-template-columns: 1fr 200px;
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  display: flex;
   gap: 32px;
   align-items: start;
 }
 
+.machine-details {
+  flex: 1;
+}
+
 .machine-details h1 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   color: #1a1a1a;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -135,21 +141,22 @@ body {
 .machine-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 20px;
-  font-size: 0.95rem;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
 }
 
 .stat-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 5px;
+  padding: 5px 10px;
   background: #ffffff;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-weight: 600;
   color: #333;
+  font-size: 0.85rem;
 }
 
 .difficulty-easy { border-left: 3px solid #28a745; color: #28a745; }
@@ -158,99 +165,99 @@ body {
 
 .machine-summary {
   color: #444;
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
   margin: 0;
 }
 
 .machine-image {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  width: 180px;
+  flex-shrink: 0;
 }
 
 .machine-image img {
   width: 100%;
-  max-width: 200px;
   border-radius: 6px;
   border: 1px solid #ddd;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 /* =========================================================
-   CONTENT TYPOGRAPHY - 0XDF STYLE
+   CONTENT TYPOGRAPHY
    ========================================================= */
 .writeup-content {
   color: #2c2c2c;
   font-size: 1.05rem;
   line-height: 1.8;
+  max-width: 100%;
 }
 
 .writeup-content h2 {
-  font-size: 1.9rem;
+  font-size: 1.85rem;
   color: #1a1a1a;
   font-weight: 700;
-  margin: 60px 0 24px 0;
-  padding-bottom: 12px;
+  margin: 55px 0 22px 0;
+  padding-bottom: 10px;
   border-bottom: 2px solid #e0e0e0;
   line-height: 1.3;
 }
 
 .writeup-content h3 {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   color: #2c2c2c;
   font-weight: 600;
-  margin: 44px 0 20px 0;
+  margin: 40px 0 18px 0;
   line-height: 1.3;
 }
 
 .writeup-content h4 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: #333;
   font-weight: 600;
-  margin: 32px 0 16px 0;
+  margin: 30px 0 14px 0;
 }
 
 .writeup-content p {
-  margin: 18px 0;
+  margin: 16px 0;
   color: #2c2c2c;
 }
 
 .writeup-content ul,
 .writeup-content ol {
-  margin: 20px 0;
+  margin: 18px 0;
   padding-left: 32px;
 }
 
 .writeup-content li {
-  margin: 10px 0;
+  margin: 8px 0;
   line-height: 1.7;
 }
 
 .writeup-content blockquote {
   border-left: 4px solid #4a90e2;
   background: #f8f9fa;
-  padding: 16px 20px;
-  margin: 24px 0;
+  padding: 14px 18px;
+  margin: 20px 0;
   color: #555;
   font-style: italic;
 }
 
 /* =========================================================
-   CODE BLOCKS - 0XDF TERMINAL STYLE
+   ULTRA-WIDE CODE BLOCKS - MAXIMUM HORIZONTAL SPACE
    ========================================================= */
 .code-wrapper {
   position: relative;
-  margin: 28px 0;
+  margin: 24px 0;
   background: #1e1e1e;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  width: 100%;
 }
 
 .code-toolbar {
   background: #2d2d2d;
-  padding: 8px 16px;
+  padding: 6px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -259,7 +266,7 @@ body {
 
 .code-lang {
   color: #888;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-family: monospace;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -269,10 +276,10 @@ body {
   background: #3d3d3d;
   border: 1px solid #555;
   color: #aaa;
-  padding: 4px 12px;
-  font-size: 0.75rem;
+  padding: 3px 10px;
+  font-size: 0.72rem;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 3px;
   font-family: monospace;
   transition: all 0.2s ease;
 }
@@ -292,12 +299,14 @@ body {
 .writeup-content pre {
   background: #1e1e1e !important;
   color: #d4d4d4 !important;
-  padding: 20px !important;
+  padding: 18px !important;
   margin: 0 !important;
   overflow-x: auto;
   font-family: 'Courier New', 'Consolas', monospace;
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
 }
 
 .writeup-content pre code {
@@ -305,6 +314,9 @@ body {
   color: inherit !important;
   padding: 0 !important;
   border: none !important;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-wrap: normal;
 }
 
 .writeup-content code {
@@ -312,7 +324,7 @@ body {
   color: #e83e8c;
   padding: 2px 6px;
   border-radius: 3px;
-  font-size: 0.9em;
+  font-size: 0.88em;
   font-family: 'Courier New', monospace;
   border: 1px solid #e0e0e0;
 }
@@ -322,12 +334,12 @@ body {
 }
 
 /* =========================================================
-   IMAGES - 0XDF STYLE
+   IMAGES
    ========================================================= */
 .writeup-content img {
   max-width: 100%;
   height: auto;
-  margin: 32px 0;
+  margin: 28px 0;
   border: 1px solid #ddd;
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -370,16 +382,16 @@ body {
    TAGS SECTION
    ========================================================= */
 .post-tags-section {
-  margin-top: 60px;
-  padding-top: 32px;
+  margin-top: 50px;
+  padding-top: 28px;
   border-top: 2px solid #e0e0e0;
 }
 
 .tags-label {
   font-weight: 700;
   color: #333;
-  margin-bottom: 12px;
-  font-size: 0.95rem;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -392,13 +404,13 @@ body {
 
 .tag-item {
   display: inline-block;
-  padding: 6px 14px;
+  padding: 5px 12px;
   background: #f4f4f4;
   border: 1px solid #ddd;
   border-radius: 4px;
   color: #555;
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   transition: all 0.2s ease;
 }
 
@@ -413,29 +425,29 @@ body {
    RELATED POSTS SECTION
    ========================================================= */
 .related-section {
-  margin-top: 70px;
-  padding-top: 40px;
+  margin-top: 60px;
+  padding-top: 35px;
   border-top: 2px solid #e0e0e0;
 }
 
 .related-header {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: #1a1a1a;
   font-weight: 700;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .related-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 20px;
 }
 
 .related-card {
   background: #f9f9f9;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
-  padding: 24px;
+  padding: 20px;
   text-decoration: none;
   transition: all 0.2s ease;
   display: block;
@@ -450,21 +462,21 @@ body {
 
 .related-card-title {
   color: #1a1a1a;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.3;
 }
 
 .related-card-date {
   color: #777;
-  font-size: 0.85rem;
-  margin-bottom: 12px;
+  font-size: 0.82rem;
+  margin-bottom: 10px;
 }
 
 .related-card-excerpt {
   color: #555;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.6;
 }
 
@@ -474,36 +486,36 @@ body {
 @media (max-width: 1100px) {
   .post-layout {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
   
   .toc-container {
     position: static;
     max-height: none;
+    width: 100%;
   }
   
   .machine-card {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
   
   .machine-image {
     order: -1;
-  }
-  
-  .machine-image img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 300px;
   }
   
   .post-wrapper {
-    padding: 24px 20px;
+    padding: 20px 15px;
+    max-width: 100%;
   }
   
   .writeup-content h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
   
   .writeup-content h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -511,7 +523,7 @@ body {
    SCROLLBAR STYLING
    ========================================================= */
 .toc-container::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 .toc-container::-webkit-scrollbar-track {
@@ -531,15 +543,15 @@ body {
 <div class="post-wrapper">
   <div class="post-layout">
     
-    <!-- TABLE OF CONTENTS SIDEBAR -->
+    <!-- COMPACT TOC SIDEBAR -->
     <aside class="toc-container">
       <div class="toc-header">Contents</div>
       <ul class="toc-nav" id="toc-nav">
-        <!-- Auto-generated by JavaScript -->
+        <!-- Auto-generated -->
       </ul>
     </aside>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAXIMUM WIDTH CONTENT -->
     <main class="post-main">
       
       <!-- MACHINE INFO CARD -->
@@ -595,7 +607,7 @@ body {
       <section class="related-section">
         <h2 class="related-header">Related Posts</h2>
         <div class="related-grid" id="related-grid">
-          <!-- Auto-generated by JavaScript -->
+          <p style="color: #777;">Check out more writeups on the <a href="/" style="color: #0366d6;">home page</a>!</p>
         </div>
       </section>
 
@@ -632,7 +644,7 @@ document.addEventListener('DOMContentLoaded', function() {
     tocNav.appendChild(li);
   });
   
-  // Highlight active section on scroll
+  // Highlight active section
   const tocLinks = tocNav.querySelectorAll('a');
   
   window.addEventListener('scroll', () => {
@@ -680,12 +692,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const lang = document.createElement('span');
     lang.className = 'code-lang';
-    lang.textContent = 'code';
+    lang.textContent = 'terminal';
     
     const btn = document.createElement('button');
     btn.className = 'btn-copy';
     btn.textContent = 'Copy';
-    btn.dataset.idx = idx;
     
     toolbar.appendChild(lang);
     toolbar.appendChild(btn);
@@ -724,13 +735,5 @@ document.addEventListener('DOMContentLoaded', function() {
   modal.addEventListener('click', function() {
     this.classList.remove('show');
   });
-});
-
-// ===== GENERATE RELATED POSTS =====
-document.addEventListener('DOMContentLoaded', function() {
-  const grid = document.getElementById('related-grid');
-  
-  // Simple fallback message
-  grid.innerHTML = '<p style="color: #777; grid-column: 1/-1;">Check out more writeups on the <a href="/" style="color: #0366d6;">home page</a>!</p>';
 });
 </script>
