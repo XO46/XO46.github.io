@@ -13,6 +13,7 @@ layout: default
   --htb-green: #9fef00;
   --thm-red: #c0392b;
   --accent-muted: #5a6c7d;
+  --code-bg: #1e1e1e;
 }
 
 /* Main Container */
@@ -155,6 +156,8 @@ layout: default
 /* Content Typography */
 .post-content {
   color: var(--retro-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.8;
 }
 
 .post-content h2 {
@@ -170,6 +173,13 @@ layout: default
   font-size: 1.4rem;
   color: var(--retro-text);
   margin: 35px 0 15px 0;
+  font-weight: 600;
+}
+
+.post-content h4 {
+  font-size: 1.2rem;
+  color: var(--retro-text);
+  margin: 25px 0 12px 0;
   font-weight: 600;
 }
 
@@ -191,36 +201,51 @@ layout: default
   line-height: 1.8;
 }
 
-/* Terminal Style Code Blocks */
+.post-content blockquote {
+  border-left: 4px solid var(--htb-green);
+  padding-left: 20px;
+  margin: 20px 0;
+  color: var(--retro-text-dim);
+  font-style: italic;
+  background: rgba(159, 239, 0, 0.05);
+  padding: 15px 20px;
+}
+
+/* Code Blocks with Copy Button */
 .code-block-wrapper {
   position: relative;
   margin: 25px 0;
+  border: 1px solid var(--retro-border);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .code-header {
-  background: #2d0a3d;
-  padding: 8px 15px;
+  background: var(--code-bg);
+  padding: 10px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #3d1a4d;
+  border-bottom: 1px solid var(--retro-border);
 }
 
 .code-title {
-  color: #888;
+  color: var(--retro-text-dim);
   font-size: 0.8rem;
   font-family: 'Courier New', monospace;
+  font-weight: 600;
 }
 
 .copy-button {
   background: transparent;
-  border: 1px solid #888;
-  color: #888;
+  border: 1px solid var(--retro-border);
+  color: var(--retro-text-dim);
   padding: 4px 12px;
   font-size: 0.75rem;
   cursor: pointer;
   font-family: 'Courier New', monospace;
   transition: all 0.3s ease;
+  border-radius: 4px;
 }
 
 .copy-button:hover {
@@ -236,15 +261,14 @@ layout: default
 }
 
 pre {
-  background: #300a24 !important;
-  color: #eeeeec !important;
+  background: var(--code-bg) !important;
+  color: #e0e0e0 !important;
   padding: 20px !important;
   margin: 0 !important;
   overflow-x: auto;
-  font-family: 'Courier New', monospace;
-  font-size: 0.95rem;
+  font-family: 'Courier New', 'Consolas', monospace;
+  font-size: 0.9rem;
   line-height: 1.6;
-  border: 1px solid #1f0015;
 }
 
 pre code {
@@ -254,15 +278,16 @@ pre code {
 }
 
 .post-content code {
-  background: var(--retro-surface);
+  background: var(--code-bg);
   color: var(--htb-green);
   padding: 3px 8px;
   border-radius: 3px;
   font-size: 0.9em;
   border: 1px solid var(--retro-border);
+  font-family: 'Courier New', monospace;
 }
 
-/* Images */
+/* Images with Zoom */
 .post-content img {
   max-width: 100%;
   height: auto;
@@ -272,13 +297,15 @@ pre code {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: transform 0.3s ease;
+  border-radius: 4px;
 }
 
 .post-content img:hover {
   transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(159, 239, 0, 0.2);
 }
 
-/* Image Modal for Zoom */
+/* Image Modal */
 .image-modal {
   display: none;
   position: fixed;
@@ -290,6 +317,7 @@ pre code {
   background: rgba(0, 0, 0, 0.95);
   justify-content: center;
   align-items: center;
+  cursor: zoom-out;
 }
 
 .image-modal img {
@@ -301,6 +329,35 @@ pre code {
 
 .image-modal.active {
   display: flex;
+}
+
+/* Tables */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  background: var(--retro-surface);
+  border: 1px solid var(--retro-border);
+}
+
+.post-content th,
+.post-content td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid var(--retro-border);
+}
+
+.post-content th {
+  background: var(--code-bg);
+  color: var(--htb-green);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.post-content tr:hover {
+  background: rgba(159, 239, 0, 0.05);
 }
 
 /* Tags Section */
@@ -326,12 +383,14 @@ pre code {
   text-decoration: none;
   font-size: 0.85rem;
   transition: all 0.3s ease;
+  border-radius: 4px;
 }
 
 .post-tags a:hover {
   border-color: var(--htb-green);
   color: var(--htb-green);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(159, 239, 0, 0.2);
 }
 
 /* Related Posts Section */
@@ -348,6 +407,12 @@ pre code {
   font-weight: 700;
 }
 
+.related-posts h3::before {
+  content: '>';
+  margin-right: 10px;
+  color: var(--htb-green);
+}
+
 .related-posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -361,6 +426,7 @@ pre code {
   transition: all 0.3s ease;
   text-decoration: none;
   display: block;
+  border-radius: 6px;
 }
 
 .related-post-card:hover {
@@ -429,6 +495,17 @@ pre code {
 .toc-sidebar::-webkit-scrollbar-thumb:hover {
   background: var(--htb-green);
 }
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Highlight.js syntax highlighting override */
+.post-content pre code.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
 </style>
 
 <div class="post-container">
@@ -489,7 +566,7 @@ pre code {
 
     <!-- Related Posts -->
     <div class="related-posts">
-      <h3>> Related Posts</h3>
+      <h3>Related Posts</h3>
       <div class="related-posts-grid" id="related-posts">
         <!-- Will be populated by JavaScript -->
       </div>
@@ -508,7 +585,7 @@ pre code {
 document.addEventListener('DOMContentLoaded', function() {
   const content = document.getElementById('post-content');
   const tocList = document.getElementById('toc-list');
-  const headings = content.querySelectorAll('h2, h3');
+  const headings = content.querySelectorAll('h2, h3, h4');
   
   headings.forEach((heading, index) => {
     const id = 'heading-' + index;
@@ -518,7 +595,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const a = document.createElement('a');
     a.href = '#' + id;
     a.textContent = heading.textContent;
-    a.className = heading.tagName === 'H3' ? 'toc-h3' : '';
+    a.className = heading.tagName === 'H3' ? 'toc-h3' : (heading.tagName === 'H4' ? 'toc-h4' : '');
     
     li.appendChild(a);
     tocList.appendChild(li);
@@ -576,7 +653,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const title = document.createElement('span');
     title.className = 'code-title';
-    title.textContent = 'Terminal';
+    
+    // Try to detect language from class or use default
+    const codeElement = block.querySelector('code');
+    let lang = 'Terminal';
+    if (codeElement && codeElement.className) {
+      const langMatch = codeElement.className.match(/language-(\w+)/);
+      if (langMatch) {
+        lang = langMatch[1].toUpperCase();
+      }
+    }
+    title.textContent = lang;
     
     const copyBtn = document.createElement('button');
     copyBtn.className = 'copy-button';
@@ -620,6 +707,13 @@ document.addEventListener('DOMContentLoaded', function() {
   modal.addEventListener('click', function() {
     this.classList.remove('active');
   });
+  
+  // ESC key to close modal
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      modal.classList.remove('active');
+    }
+  });
 });
 
 // Generate Related Posts
@@ -628,60 +722,37 @@ document.addEventListener('DOMContentLoaded', function() {
   const currentTags = {{ page.tags | jsonify }};
   const currentUrl = '{{ page.url }}';
   
-  // Get all posts
-  fetch('/feed.xml')
-    .then(response => response.text())
-    .then(data => {
-      // Parse posts from your site
-      // This is a simplified version - you may need to adjust based on your setup
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(data, 'text/xml');
-      const entries = xml.querySelectorAll('entry');
-      
-      const related = [];
-      
-      entries.forEach(entry => {
-        const link = entry.querySelector('link');
-        const url = link ? link.getAttribute('href') : '';
-        
-        if (url !== currentUrl && related.length < 3) {
-          const title = entry.querySelector('title');
-          const published = entry.querySelector('published');
-          const summary = entry.querySelector('summary');
-          
-          if (title) {
-            related.push({
-              url: url,
-              title: title.textContent,
-              date: published ? new Date(published.textContent) : new Date(),
-              summary: summary ? summary.textContent : ''
-            });
-          }
-        }
-      });
-      
-      if (related.length === 0) {
-        relatedContainer.innerHTML = '<p style="color: var(--retro-text-dim); font-family: Courier New, monospace;">No related posts found yet. Keep pwning boxes!</p>';
-        return;
-      }
-      
-      related.forEach(post => {
-        const card = document.createElement('a');
-        card.href = post.url;
-        card.className = 'related-post-card';
-        
-        card.innerHTML = `
-          <div class="related-post-title">${post.title}</div>
-          <div class="related-post-meta">${post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
-          <div class="related-post-excerpt">${post.summary.substring(0, 150)}...</div>
-        `;
-        
-        relatedContainer.appendChild(card);
-      });
-    })
-    .catch(error => {
-      console.error('Error loading related posts:', error);
-      relatedContainer.innerHTML = '<p style="color: var(--retro-text-dim); font-family: Courier New, monospace;">Check out other writeups on the home page!</p>';
-    });
+  // Simple fallback - just show recent posts
+  const allPosts = [
+    {% for post in site.posts limit:10 %}
+      {
+        url: '{{ post.url }}',
+        title: '{{ post.title | escape }}',
+        date: new Date('{{ post.date | date: "%Y-%m-%d" }}'),
+        summary: '{{ post.summary | default: post.excerpt | strip_html | truncatewords: 20 | escape }}'
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+  
+  const related = allPosts.filter(post => post.url !== currentUrl).slice(0, 3);
+  
+  if (related.length === 0) {
+    relatedContainer.innerHTML = '<p style="color: var(--retro-text-dim);">No related posts found yet. Keep pwning boxes!</p>';
+    return;
+  }
+  
+  related.forEach(post => {
+    const card = document.createElement('a');
+    card.href = post.url;
+    card.className = 'related-post-card';
+    
+    card.innerHTML = `
+      <div class="related-post-title">${post.title}</div>
+      <div class="related-post-meta">${post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
+      <div class="related-post-excerpt">${post.summary}</div>
+    `;
+    
+    relatedContainer.appendChild(card);
+  });
 });
 </script>
