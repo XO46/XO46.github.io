@@ -1,18 +1,7 @@
 ---
-# This goes in: _layouts/post.html
-# Replace your current post.html with this
+layout: default
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | {{ site.title }}</title>
-  {% include head-custom.html %}
-</head>
-<body>
-  
 <style>
 /* Retro Moody Writeup Page Styles */
 :root {
@@ -24,15 +13,6 @@
   --htb-green: #9fef00;
   --thm-red: #c0392b;
   --accent-muted: #5a6c7d;
-}
-
-body {
-  background: var(--retro-bg);
-  color: var(--retro-text);
-  font-family: 'Courier New', monospace;
-  line-height: 1.8;
-  margin: 0;
-  padding: 0;
 }
 
 /* Main Container */
@@ -583,6 +563,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const codeBlocks = document.querySelectorAll('pre');
   
   codeBlocks.forEach((block, index) => {
+    // Skip if already wrapped
+    if (block.parentElement.classList.contains('code-block-wrapper')) {
+      return;
+    }
+    
     const wrapper = document.createElement('div');
     wrapper.className = 'code-block-wrapper';
     
@@ -641,37 +626,62 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   const relatedContainer = document.getElementById('related-posts');
   const currentTags = {{ page.tags | jsonify }};
-  const allPosts = {{ site.posts | jsonify }};
+  const currentUrl = '{{ page.url }}';
   
-  // Find posts with matching tags
-  const related = allPosts
-    .filter(post => post.url !== '{{ page.url }}')
-    .filter(post => {
-      if (!post.tags) return false;
-      return post.tags.some(tag => currentTags.includes(tag));
+  // Get all posts
+  fetch('/feed.xml')
+    .then(response => response.text())
+    .then(data => {
+      // Parse posts from your site
+      // This is a simplified version - you may need to adjust based on your setup
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(data, 'text/xml');
+      const entries = xml.querySelectorAll('entry');
+      
+      const related = [];
+      
+      entries.forEach(entry => {
+        const link = entry.querySelector('link');
+        const url = link ? link.getAttribute('href') : '';
+        
+        if (url !== currentUrl && related.length < 3) {
+          const title = entry.querySelector('title');
+          const published = entry.querySelector('published');
+          const summary = entry.querySelector('summary');
+          
+          if (title) {
+            related.push({
+              url: url,
+              title: title.textContent,
+              date: published ? new Date(published.textContent) : new Date(),
+              summary: summary ? summary.textContent : ''
+            });
+          }
+        }
+      });
+      
+      if (related.length === 0) {
+        relatedContainer.innerHTML = '<p style="color: var(--retro-text-dim); font-family: Courier New, monospace;">No related posts found yet. Keep pwning boxes!</p>';
+        return;
+      }
+      
+      related.forEach(post => {
+        const card = document.createElement('a');
+        card.href = post.url;
+        card.className = 'related-post-card';
+        
+        card.innerHTML = `
+          <div class="related-post-title">${post.title}</div>
+          <div class="related-post-meta">${post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
+          <div class="related-post-excerpt">${post.summary.substring(0, 150)}...</div>
+        `;
+        
+        relatedContainer.appendChild(card);
+      });
     })
-    .slice(0, 3);
-  
-  if (related.length === 0) {
-    relatedContainer.innerHTML = '<p style="color: var(--retro-text-dim);">No related posts found.</p>';
-    return;
-  }
-  
-  related.forEach(post => {
-    const card = document.createElement('a');
-    card.href = post.url;
-    card.className = 'related-post-card';
-    
-    card.innerHTML = `
-      <div class="related-post-title">${post.title}</div>
-      <div class="related-post-meta">${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
-      <div class="related-post-excerpt">${post.summary || post.excerpt || 'Click to read more...'}</div>
-    `;
-    
-    relatedContainer.appendChild(card);
-  });
+    .catch(error => {
+      console.error('Error loading related posts:', error);
+      relatedContainer.innerHTML = '<p style="color: var(--retro-text-dim); font-family: Courier New, monospace;">Check out other writeups on the home page!</p>';
+    });
 });
 </script>
-
-</body>
-</html>
