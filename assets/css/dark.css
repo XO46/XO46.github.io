@@ -1,93 +1,37 @@
-/* =====================================
-   GLOBAL DARK THEME
-   ===================================== */
-
-html, body {
-  background: #0a0a0a !important;
+/* ===== IMPROVED CODE BLOCKS ===== */
+pre {
+  background: #1a1a1a !important;
   color: #c9ffd6 !important;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-}
-
-/* links */
-a {
-  color: #00ccff;
-}
-
-a:hover {
-  color: #00ff00;
-}
-
-/* =====================================
-   MINIMA WHITE BACKGROUND OVERRIDES
-   ===================================== */
-
-.page-content,
-.wrapper,
-.site,
-.site-content,
-main {
-  background: transparent !important;
-}
-
-/* =====================================
-   HEADER / NAVIGATION (MINIMA FIXED)
-   ===================================== */
-
-.site-header {
-  background: #0a0a0a !important;
-  border-bottom: 1px solid #222 !important;
-}
-
-/* site title */
-.site-title,
-.site-title:visited {
-  color: #e6e6e6 !important;
-}
-
-/* nav container */
-.site-nav {
-  background: transparent !important;
-}
-
-/* FORCE NAV LINKS TO SHOW (KEY FIX) */
-.site-nav .trigger {
-  display: block !important;
-  position: static !important;
-  background: transparent !important;
-}
-
-/* nav links */
-.site-nav .page-link {
-  color: #c9ffd6 !important;
-  font-weight: 500;
-  margin-left: 16px;
-}
-
-/* hover */
-.site-nav .page-link:hover {
-  color: #00ff00 !important;
-  text-decoration: underline;
-}
-
-/* remove hamburger menu (desktop-style nav) */
-.site-nav .menu-icon {
-  display: none !important;
-}
-
-/* =====================================
-   OXDF INTRO BLOCK
-   ===================================== */
-
-.oxdf-intro {
-  display: flex;
-  gap: 30px;
-  margin: 40px 0;
-}
-
-.oxdf-text { flex: 3; }
-.oxdf-thumb { flex: 1; }
-
-.oxdf-thumb img {
-  width: 100%;
+  padding: 16px;
   border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  overflow-x: auto;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+code {
+  background: #1a1a1a !important;
+  color: #00ff00 !important;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* inline code should be different from blocks */
+p code, li code {
+  background: rgba(0, 255, 0, 0.1) !important;
+  color: #00ff00 !important;
+  font-size: 0.9em;
+}
+
+/* Command prompts */
+pre .prompt {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+/* Output text */
+pre .output {
+  color: #aaa;
 }
