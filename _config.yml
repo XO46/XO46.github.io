@@ -1,30 +1,21 @@
-title: XO46 – Penetration Testing Writeups
+title: Mr. White | The Professor's Lab Notes
 theme: minima
 markdown: kramdown
 
 future: true
 
-# Better permalinks like 0xdf
 permalink: /:year/:month/:day/:title/
 
-# Excerpt handling
 excerpt_separator: "<!--more-->"
 
-# Plugins for better functionality
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# SEO
 author: R. Chandra Shekar
 description: Penetration testing writeups and offensive security research
 url: https://xo46.github.io
-
-# Social
-twitter_username: your_twitter
-github_username: your_github
-linkedin_username: your_linkedin
 
 header_pages:
   - about.md
