@@ -4,234 +4,66 @@ title: XO46 | Pentest Writeups
 ---
 
 <style>
-/* ===== GLOBAL DARK THEME ===== */
-body {
-  background: #0a0a0a !important;
-  color: #c9ffd6 !important;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+/* Your existing styles... */
+
+/* IMPROVED: Post list styling */
+.post-list {
+  list-style: none;
+  padding: 0;
 }
 
-/* ===== REMOVE MINIMA HOME TITLE ===== */
-.home h1,
-.home .post-title,
-.home .page-heading {
-  display: none !important;
+.post-list li {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(0, 255, 0, 0.02);
+  border-left: 3px solid #00ff00;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
-/* ===== REMOVE EXTRA TOP SPACE ===== */
-.home .page-content,
-.home .wrapper {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+.post-list li:hover {
+  background: rgba(0, 255, 0, 0.04);
+  transform: translateX(5px);
 }
 
-/* ===== EXPAND WIDTH ===== */
-.home .wrapper {
-  max-width: 1400px;
-}
-
-.home .page-content {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* ===== HERO (NO BOX) ===== */
-.hero {
-  max-width: 1150px;
-  margin: 40px auto;
-  padding: 10px 0;      /* no box padding */
-}
-
-/* ===== TYPOGRAPHY (COMFORTABLE) ===== */
-.hero h2 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-}
-
-.hero span {
-  font-size: 1.15rem;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  line-height: 1.75;
-  max-width: 900px;
-  margin-top: 12px;
-}
-
-.live-terminal {
-  font-size: 1rem;
-  margin-top: 22px;
-}
-
-/* ===== TERMINAL LINE ===== */
-.live-terminal {
-  margin-top: 18px;
-  font-size: 0.95rem;
-}
-
-.live-terminal span {
-  color: #00ccff;
-}
-
-.cursor {
-  color: #00ff00;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-/* ===== NAVIGATION ===== */
-.site-header {
-  background: #0a0a0a !important;
-  border-bottom: 1px solid #222;
-}
-
-.site-nav a {
-  color: #e6e6e6 !important;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.site-nav a:hover {
-  color: #00ccff !important;
-  text-decoration: underline;
-}
-
-/* ===== POSTS HEADING (SAME AS BODY, CALM) ===== */
-.home h2 {
-  font-size: 1.8rem;
-  color: #c9ffd6;        /* SAME as surrounding text */
-  margin-top: 40px;
-  margin-bottom: 18px;
+.post-link {
+  font-size: 1.3rem !important;
   font-weight: 600;
-}
-
-/* optional subtle divider (very calm) */
-.home h2::after {
-  content: "";
   display: block;
-  width: 60px;
-  height: 1px;
-  background: #2a2a2a;  /* neutral, not green */
-  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
-
-/* ===== ALIGN POSTS ===== */
-.home .post-list,
-.home .post-list li {
-  max-width: 1150px;
-  margin-left: auto;
-  margin-right: auto;
-}
-  
-/* ===== WRITEUP TITLES (SUBTLE GLOW, HOME ONLY) ===== */
-.home .post-list a {
-  font-size: 1.15rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: text-shadow 0.2s ease;
+.post-meta {
+  color: #888;
+  font-size: 0.9rem;
 }
 
-/* glow uses the ORIGINAL text color */
-.home .post-list a:hover {
-  text-shadow:
-    0 0 4px rgba(124, 255, 124, 0.25),
-    0 0 8px rgba(124, 255, 124, 0.15);
-}
-
-
-</style>
-
-<!-- Subtle ambient background -->
-<canvas id="matrix-bg"></canvas>
-
-<style>
-#matrix-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.05;       /* VERY subtle */
-  pointer-events: none;
+.post-excerpt {
+  margin-top: 10px;
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 </style>
 
-<div class="hero">
-  
-<span>
-Junior Penetration Tester | Web · Active Directory · Linux
-</span>
+<!-- Your existing hero section -->
 
-<p>
-Penetration testing writeups documenting my journey into offensive security.
-</p>
+<h2>Latest Writeups</h2>
 
-<div class="live-terminal">
-  <span>$</span>
-  <span id="cmd"></span><span class="cursor">█</span>
-  <div id="out" style="margin-top:6px; color:#7CFF7C;"></div>
-</div>
-
-</div>
-
-<script>
-/* terminal typing */
-let command = "whoami";
-let output = "R. Chandra Shekar";
-let i = 0;
-
-function typeCmd() {
-  if (i < command.length) {
-    document.getElementById("cmd").innerHTML += command[i];
-    i++;
-    setTimeout(typeCmd, 120);
-  } else {
-    setTimeout(() => {
-      document.getElementById("out").innerHTML = output;
-    }, 500);
-  }
-}
-
-typeCmd();
-
-/* subtle matrix background */
-const canvas = document.getElementById("matrix-bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const chars = "01$~";
-const fontSize = 14;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
-
-function draw() {
-  ctx.fillStyle = "rgba(10,10,10,0.08)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = "rgba(0,255,0,0.05)";
-  ctx.font = fontSize + "px monospace";
-
-  for (let i = 0; i < drops.length; i++) {
-    const text = chars[Math.floor(Math.random() * chars.length)];
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
-      drops[i] = 0;
-    }
-    drops[i]++;
-  }
-}
-
-setInterval(draw, 120);
-
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-</script>
+<ul class="post-list">
+  {% for post in site.posts %}
+    <li>
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        {{ post.title | escape }}
+      </a>
+      <div class="post-meta">
+        {{ post.date | date: "%b %d, %Y" }}
+        {% if post.difficulty %} • {{ post.difficulty }}{% endif %}
+        {% if post.os %} • {{ post.os }}{% endif %}
+      </div>
+      {% if post.summary %}
+        <div class="post-excerpt">{{ post.summary }}</div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
