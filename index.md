@@ -4,7 +4,19 @@ title: Mr. White | The Professor's Lab Notes
 ---
 
 <style>
-/* Hero Section - Compact */
+/* Retro Moody Color Palette */
+:root {
+  --retro-bg: #0d0d0d;
+  --retro-surface: #1a1a1a;
+  --retro-text: #c5c5c5;
+  --retro-text-dim: #858585;
+  --retro-border: #2d2d2d;
+  --htb-green: #9fef00;
+  --thm-red: #c0392b;
+  --accent-muted: #5a6c7d;
+}
+
+/* Hero Section - Minimal */
 .hero {
   max-width: 1150px;
   margin: 0 auto;
@@ -13,27 +25,28 @@ title: Mr. White | The Professor's Lab Notes
 
 .hero h2 {
   text-align: center;
-  color: #00ccff;
-  font-size: 2rem;
+  color: var(--retro-text);
+  font-size: 1.8rem;
   margin-bottom: 20px;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   font-weight: 300;
+  font-family: 'Courier New', monospace;
 }
 
 .hero-quote {
   margin: 20px auto;
-  padding: 20px;
-  background: var(--bg-secondary);
-  border-left: 3px solid var(--accent-blue);
-  border-radius: 8px;
+  padding: 18px 20px;
+  background: var(--retro-surface);
+  border-left: 2px solid var(--retro-border);
   max-width: 700px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: var(--retro-text-dim);
+  font-family: 'Courier New', monospace;
 }
 
-/* COMPACT PLATFORM COUNTERS - Side by Side */
+/* COMPACT COUNTERS - Retro Style */
 .stats-compact {
   display: flex;
   gap: 15px;
@@ -45,111 +58,89 @@ title: Mr. White | The Professor's Lab Notes
 
 .counter-box {
   flex: 1;
-  max-width: 200px;
-  background: linear-gradient(145deg, #161616, #1f1f1f);
-  border: 2px solid;
-  border-radius: 15px;
-  padding: 20px 15px;
+  max-width: 180px;
+  background: var(--retro-surface);
+  border: 1px solid;
+  padding: 18px 12px;
   text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.counter-box::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.counter-box:hover::before {
-  opacity: 1;
 }
 
 .counter-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
 }
 
 .htb-counter {
-  border-color: #9fef00;
+  border-color: var(--htb-green);
 }
 
 .htb-counter:hover {
-  box-shadow: 0 10px 30px rgba(159, 239, 0, 0.3);
+  box-shadow: 0 0 15px rgba(159, 239, 0, 0.2);
+  border-color: var(--htb-green);
 }
 
 .thm-counter {
-  border-color: #ff0000;
+  border-color: var(--thm-red);
 }
 
 .thm-counter:hover {
-  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(192, 57, 43, 0.2);
+  border-color: var(--thm-red);
 }
 
 .total-counter {
-  border-color: #00ccff;
+  border-color: var(--accent-muted);
 }
 
 .total-counter:hover {
-  box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
+  box-shadow: 0 0 15px rgba(90, 108, 125, 0.2);
+  border-color: var(--accent-muted);
 }
 
 .counter-icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  opacity: 0.8;
 }
 
 .counter-number {
-  font-size: 2.5rem;
-  font-weight: 900;
-  margin: 10px 0;
-  position: relative;
-  z-index: 1;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 8px 0;
+  font-family: 'Courier New', monospace;
 }
 
 .htb-counter .counter-number {
-  color: #9fef00;
-  text-shadow: 0 0 20px rgba(159, 239, 0, 0.4);
+  color: var(--htb-green);
 }
 
 .thm-counter .counter-number {
-  color: #ff0000;
-  text-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  color: var(--thm-red);
 }
 
 .total-counter .counter-number {
-  color: #00ccff;
-  text-shadow: 0 0 20px rgba(0, 204, 255, 0.4);
+  color: var(--retro-text);
 }
 
 .counter-label {
-  font-size: 0.75rem;
-  color: #808080;
+  font-size: 0.7rem;
+  color: var(--retro-text-dim);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
+  font-family: 'Courier New', monospace;
 }
 
 .counter-detail {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #2a2a2a;
-  font-size: 0.7rem;
-  color: #666;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--retro-border);
+  font-size: 0.65rem;
+  color: var(--retro-text-dim);
   display: flex;
   justify-content: space-around;
-}
-
-.counter-detail span {
-  display: block;
+  font-family: 'Courier New', monospace;
 }
 
 /* WRITEUPS SECTION - MAIN FOCUS */
@@ -160,29 +151,30 @@ title: Mr. White | The Professor's Lab Notes
 }
 
 .writeups-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #00ccff;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--retro-text);
+  margin-bottom: 8px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
 }
 
 .writeups-title::before {
-  content: '📝';
-  font-size: 2rem;
+  content: '>';
+  margin-right: 10px;
+  color: var(--htb-green);
 }
 
 .writeups-subtitle {
-  color: var(--text-secondary);
-  font-size: 1rem;
+  color: var(--retro-text-dim);
+  font-size: 0.9rem;
   margin-bottom: 25px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid var(--border-primary);
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--retro-border);
+  font-family: 'Courier New', monospace;
 }
 
-/* Enhanced Post Cards - BIGGER & MORE PROMINENT */
+/* Enhanced Post Cards - Retro Terminal Style */
 .post-list {
   list-style: none;
   padding: 0;
@@ -191,14 +183,12 @@ title: Mr. White | The Professor's Lab Notes
 }
 
 .post-list li {
-  margin-bottom: 30px;
-  padding: 30px;
-  background: linear-gradient(145deg, #161616, #1f1f1f);
-  border: 2px solid var(--border-primary);
-  border-radius: 12px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 25px;
+  padding: 25px;
+  background: var(--retro-surface);
+  border: 1px solid var(--retro-border);
+  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
 
 .post-list li::before {
@@ -206,161 +196,149 @@ title: Mr. White | The Professor's Lab Notes
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px;
+  width: 3px;
   height: 100%;
-  background: linear-gradient(180deg, #00ccff, #9fef00, #ff0000);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.post-list li::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 204, 255, 0.05), transparent);
-  transition: left 0.6s ease;
+  background: var(--retro-border);
+  transition: all 0.3s ease;
 }
 
 .post-list li:hover::before {
-  opacity: 1;
-}
-
-.post-list li:hover::after {
-  left: 100%;
+  background: var(--htb-green);
+  box-shadow: 0 0 10px var(--htb-green);
 }
 
 .post-list li:hover {
-  background: linear-gradient(145deg, #1a1a1a, #242424);
-  border-color: #00ccff;
-  transform: translateX(8px) translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0, 204, 255, 0.2);
+  border-color: var(--htb-green);
+  transform: translateX(5px);
 }
 
 .post-link {
-  font-size: 1.6rem !important;
-  font-weight: 700;
+  font-size: 1.5rem !important;
+  font-weight: 600;
   display: inline-block;
   margin-bottom: 12px;
   text-decoration: none;
-  color: #00ccff !important;
+  color: var(--retro-text) !important;
   position: relative;
   z-index: 1;
   transition: all 0.3s ease;
-  line-height: 1.3;
+  line-height: 1.4;
+  font-family: 'Courier New', monospace;
 }
 
 .post-link:hover {
-  color: #00aadd !important;
-  text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+  color: var(--htb-green) !important;
 }
 
-/* Platform Badge in Title */
+/* Platform Indicator */
 .post-link::before {
-  content: '🎯';
-  margin-right: 8px;
-  font-size: 1.4rem;
+  content: '[';
+  margin-right: 5px;
+  color: var(--retro-text-dim);
+  font-weight: 400;
+}
+
+.post-link::after {
+  content: ']';
+  margin-left: 5px;
+  color: var(--retro-text-dim);
+  font-weight: 400;
 }
 
 .post-list .post-meta {
   border: none;
   padding: 0;
   margin: 10px 0;
-  font-size: 0.95rem;
-  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  color: var(--retro-text-dim);
   display: flex;
-  gap: 20px;
+  gap: 15px;
   align-items: center;
   flex-wrap: wrap;
+  font-family: 'Courier New', monospace;
 }
 
 .post-meta span {
   display: flex;
   align-items: center;
-  gap: 6px;
-}
-
-.post-excerpt {
-  margin-top: 15px;
-  color: var(--text-secondary);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  position: relative;
-  z-index: 1;
-}
-
-/* Difficulty Badge - More Prominent */
-.difficulty-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
   gap: 5px;
 }
 
+.post-excerpt {
+  margin-top: 12px;
+  color: var(--retro-text-dim);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+  font-family: 'Courier New', monospace;
+}
+
+/* Difficulty Badge - Minimal Retro */
+.difficulty-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid;
+  font-family: 'Courier New', monospace;
+}
+
 .difficulty-easy {
-  background: rgba(0, 255, 0, 0.2);
-  color: #00ff00;
-  border: 2px solid #00ff00;
+  background: transparent;
+  color: var(--htb-green);
+  border-color: var(--htb-green);
 }
 
 .difficulty-easy::before {
-  content: '⭐';
+  content: '[E]';
+  margin-right: 5px;
 }
 
 .difficulty-medium {
-  background: rgba(255, 191, 0, 0.2);
-  color: #ffbf00;
-  border: 2px solid #ffbf00;
+  background: transparent;
+  color: #d4ac0d;
+  border-color: #d4ac0d;
 }
 
 .difficulty-medium::before {
-  content: '⭐⭐';
+  content: '[M]';
+  margin-right: 5px;
 }
 
 .difficulty-hard {
-  background: rgba(248, 81, 73, 0.2);
-  color: #f85149;
-  border: 2px solid #f85149;
+  background: transparent;
+  color: var(--thm-red);
+  border-color: var(--thm-red);
 }
 
 .difficulty-hard::before {
-  content: '⭐⭐⭐';
+  content: '[H]';
+  margin-right: 5px;
 }
 
-.post-link:hover .difficulty-badge {
-  transform: scale(1.1);
-}
-
-/* Tags - Enhanced */
+/* Tags - Minimal Style */
 .post-list div[style*="margin-top: 10px"] {
-  margin-top: 15px !important;
+  margin-top: 12px !important;
 }
 
 .post-list div[style*="margin-top: 10px"] span {
-  background: var(--bg-tertiary) !important;
-  color: #00ccff !important;
-  border: 1px solid var(--border-primary);
-  padding: 4px 12px !important;
-  border-radius: 6px !important;
-  font-size: 0.8rem !important;
-  transition: all 0.3s ease;
+  background: transparent !important;
+  color: var(--retro-text-dim) !important;
+  border: 1px solid var(--retro-border) !important;
+  padding: 3px 8px !important;
+  font-size: 0.75rem !important;
+  transition: all 0.2s ease;
   display: inline-block;
+  font-family: 'Courier New', monospace;
 }
 
 .post-list div[style*="margin-top: 10px"] span:hover {
-  background: var(--bg-primary) !important;
-  border-color: #00ccff;
-  color: #00ccff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 204, 255, 0.2);
+  border-color: var(--htb-green) !important;
+  color: var(--htb-green) !important;
 }
 
 /* Read Time Badge */
@@ -368,22 +346,21 @@ title: Mr. White | The Professor's Lab Notes
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--text-tertiary);
-  font-size: 0.9rem;
-  background: var(--bg-tertiary);
-  padding: 4px 10px;
-  border-radius: 6px;
+  color: var(--retro-text-dim);
+  font-size: 0.8rem;
+  font-family: 'Courier New', monospace;
 }
 
 .read-time::before {
-  content: '⏱️';
+  content: '~';
+  font-weight: 700;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .stats-compact {
     flex-direction: column;
-    max-width: 300px;
+    max-width: 280px;
   }
   
   .counter-box {
@@ -391,23 +368,59 @@ title: Mr. White | The Professor's Lab Notes
   }
   
   .post-link {
-    font-size: 1.3rem !important;
+    font-size: 1.2rem !important;
   }
   
   .writeups-title {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   
   .post-list li {
-    padding: 20px;
+    padding: 18px;
   }
 }
 
-/* Scroll Animation */
-@keyframes slideInUp {
+/* Subtle Scan Line Effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(transparent, var(--htb-green), transparent);
+  opacity: 0.03;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Terminal Cursor Effect on Hover */
+.post-link:hover::after {
+  content: '_';
+  animation: blink 1s infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -416,7 +429,7 @@ title: Mr. White | The Professor's Lab Notes
 }
 
 .post-list li {
-  animation: slideInUp 0.6s ease forwards;
+  animation: fadeInUp 0.5s ease forwards;
   opacity: 0;
 }
 
@@ -431,51 +444,53 @@ title: Mr. White | The Professor's Lab Notes
   <h2>THE PROFESSOR'S LAB</h2>
   
   <div class="hero-quote">
-    <p style="margin: 0; font-style: italic;">
-      "Say my name." — "Heisenberg." — <strong style="color: #00ccff;">"You're goddamn right."</strong>
+    <p style="margin: 0;">
+      > "Say my name."<br>
+      > "Heisenberg."<br>
+      > <span style="color: var(--htb-green);">"You're goddamn right."</span>
     </p>
   </div>
 </div>
 
-<!-- COMPACT STATS - Quick Overview -->
+<!-- COMPACT STATS -->
 <div class="stats-compact">
   <div class="counter-box htb-counter">
-    <div class="counter-icon">🎯</div>
+    <div class="counter-icon">▣</div>
     <div class="counter-number" id="htb-count">0</div>
     <div class="counter-label">HackTheBox</div>
     <div class="counter-detail">
-      <span id="htb-easy-compact">0</span>
-      <span id="htb-medium-compact">0</span>
-      <span id="htb-hard-compact">0</span>
+      <span>E:<span id="htb-easy-compact">0</span></span>
+      <span>M:<span id="htb-medium-compact">0</span></span>
+      <span>H:<span id="htb-hard-compact">0</span></span>
     </div>
   </div>
 
   <div class="counter-box thm-counter">
-    <div class="counter-icon">🔐</div>
+    <div class="counter-icon">▣</div>
     <div class="counter-number" id="thm-count">0</div>
     <div class="counter-label">TryHackMe</div>
     <div class="counter-detail">
-      <span id="thm-easy-compact">0</span>
-      <span id="thm-medium-compact">0</span>
-      <span id="thm-hard-compact">0</span>
+      <span>E:<span id="thm-easy-compact">0</span></span>
+      <span>M:<span id="thm-medium-compact">0</span></span>
+      <span>H:<span id="thm-hard-compact">0</span></span>
     </div>
   </div>
 
   <div class="counter-box total-counter">
-    <div class="counter-icon">🏆</div>
+    <div class="counter-icon">◈</div>
     <div class="counter-number" id="total-count">0</div>
-    <div class="counter-label">Total Writeups</div>
+    <div class="counter-label">Total</div>
     <div class="counter-detail" style="justify-content: center;">
-      <span style="color: #00ccff;">100% Root</span>
+      <span>100% Root</span>
     </div>
   </div>
 </div>
 
-<!-- WRITEUPS SECTION - MAIN FOCUS -->
+<!-- WRITEUPS SECTION -->
 <div class="writeups-header">
-  <h2 class="writeups-title">Latest Writeups</h2>
+  <h2 class="writeups-title">WRITEUPS</h2>
   <p class="writeups-subtitle">
-    Detailed penetration testing reports documenting vulnerabilities, exploitation techniques, and privilege escalation paths from reconnaissance to full system compromise.
+    Penetration testing reports // Reconnaissance -> Exploitation -> Privilege Escalation -> Root
   </p>
 </div>
 
@@ -496,21 +511,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (title.includes('htb:') || title.includes('hackthebox')) {
       htbCount++;
-      if (difficulty.includes('easy')) htbEasy++;
-      else if (difficulty.includes('medium')) htbMedium++;
-      else if (difficulty.includes('hard')) htbHard++;
+      if (difficulty.includes('easy') || difficulty.includes('[e]')) htbEasy++;
+      else if (difficulty.includes('medium') || difficulty.includes('[m]')) htbMedium++;
+      else if (difficulty.includes('hard') || difficulty.includes('[h]')) htbHard++;
     } 
     else if (title.includes('thm:') || title.includes('tryhackme')) {
       thmCount++;
-      if (difficulty.includes('easy')) thmEasy++;
-      else if (difficulty.includes('medium')) thmMedium++;
-      else if (difficulty.includes('hard')) thmHard++;
+      if (difficulty.includes('easy') || difficulty.includes('[e]')) thmEasy++;
+      else if (difficulty.includes('medium') || difficulty.includes('[m]')) thmMedium++;
+      else if (difficulty.includes('hard') || difficulty.includes('[h]')) thmHard++;
     }
   });
   
   function animateCounter(element, target) {
     let current = 0;
-    const increment = Math.ceil(target / 20);
+    const increment = Math.ceil(target / 15);
     const timer = setInterval(() => {
       current += increment;
       if (current >= target) {
@@ -519,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         element.textContent = current;
       }
-    }, 50);
+    }, 60);
   }
   
   const total = htbCount + thmCount;
