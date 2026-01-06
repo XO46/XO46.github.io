@@ -3,7 +3,26 @@ layout: default
 ---
 
 <style>
-/* Override any conflicting home page styles for writeup pages */
+/* =========================================================
+   🔥 OXDF-STYLE GLOBAL OVERRIDES (CRITICAL)
+   ========================================================= */
+.wrapper {
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+main,
+.page-content {
+  max-width: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* =========================================================
+   PAGE WRAPPER
+   ========================================================= */
 .post-page-wrapper {
   background: #0a0a0a !important;
   min-height: 100vh;
@@ -14,35 +33,41 @@ layout: default
   color: inherit;
 }
 
+/* =========================================================
+   MAIN GRID — WIDE LIKE OXDF
+   ========================================================= */
 .post-container {
-  max-width: 1400px;
+  max-width: 1650px;
   margin: 0 auto;
-  padding: 40px 60px;
+  padding: 40px 80px;
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 80px;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 90px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
-/* ===== TABLE OF CONTENTS ===== */
+/* =========================================================
+   TABLE OF CONTENTS
+   ========================================================= */
 .toc-sidebar {
   position: sticky;
   top: 20px;
   height: fit-content;
   max-height: calc(100vh - 40px);
   overflow-y: auto;
-  background: #161616;
-  border: 1px solid #2a2a2a;
+  background: #111;
+  border: 1px solid #222;
   border-radius: 8px;
   padding: 24px;
+  box-shadow: inset 0 0 0 1px rgba(0,255,0,0.02);
 }
 
 .toc-title {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #b3b3b3;
+  color: #999;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   margin-bottom: 16px;
 }
 
@@ -53,15 +78,15 @@ layout: default
 }
 
 .toc-list li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .toc-list a {
-  color: #b3b3b3;
+  color: #aaa;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   display: block;
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-left: 2px solid transparent;
   border-radius: 4px;
   transition: all 0.2s ease;
@@ -69,39 +94,42 @@ layout: default
 
 .toc-list a:hover {
   color: #00ccff;
-  background: rgba(0, 204, 255, 0.1);
+  background: rgba(0,255,0,0.05);
   border-left-color: #00ccff;
 }
 
 .toc-list a.active {
   color: #00ff00;
-  background: rgba(0, 255, 0, 0.05);
+  background: rgba(0,255,0,0.06);
   border-left-color: #00ff00;
   font-weight: 500;
 }
 
 .toc-h3 {
-  padding-left: 28px;
-  font-size: 0.8125rem;
+  padding-left: 26px;
+  font-size: 0.8rem;
 }
 
-/* ===== MAIN CONTENT - FULL WIDTH ===== */
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
 .post-content-wrapper {
   min-width: 0;
-  /* No max-width - use full available space */
 }
 
-/* ===== MACHINE INFO BOX ===== */
+/* =========================================================
+   MACHINE INFO BOX
+   ========================================================= */
 .machine-info-box {
   background: #161616;
   border: 2px solid #00ff00;
   border-radius: 8px;
   padding: 35px 40px;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   display: flex;
   align-items: flex-start;
   gap: 35px;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 25px rgba(0,255,0,0.12);
 }
 
 .machine-info-text {
@@ -109,661 +137,134 @@ layout: default
 }
 
 .machine-info-text h1 {
-  font-size: 2.5rem;
-  color: #e6e6e6 !important;
-  margin: 0 0 20px 0;
+  font-size: 2.6rem;
+  margin: 0 0 18px 0;
   font-weight: 600;
-  line-height: 1.2;
 }
 
 .machine-meta {
   display: flex;
   gap: 24px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: #aaa;
 }
-
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #b3b3b3;
-}
-
-.difficulty-easy { color: #00ff00; font-weight: 600; }
-.difficulty-medium { color: #ffbf00; font-weight: 600; }
-.difficulty-hard { color: #ff4444; font-weight: 600; }
 
 .machine-summary {
-  color: #b3b3b3;
   font-size: 1.05rem;
   line-height: 1.7;
-  margin: 0;
+  color: #b3b3b3;
 }
 
 .machine-thumbnail {
-  flex-shrink: 0;
   width: 200px;
+  flex-shrink: 0;
 }
 
 .machine-thumbnail img {
   width: 100%;
-  height: auto;
-  border: 2px solid #2a2a2a;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border: 2px solid #2a2a2a;
 }
 
-/* ===== TYPOGRAPHY - MATCHING HOME PAGE ===== */
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
 .post-content {
-  color: #e6e6e6 !important;
   font-size: 1.1rem;
   line-height: 1.8;
+  color: #e6e6e6;
 }
 
 .post-content h2 {
   font-size: 2rem;
-  color: #e6e6e6 !important;
-  font-weight: 600 !important;
-  margin: 70px 0 28px 0;
+  margin: 70px 0 28px;
   padding-bottom: 12px;
   border-bottom: 1px solid #2a2a2a;
-  line-height: 1.3;
-}
-
-.post-content h2:first-of-type {
-  margin-top: 10px;
 }
 
 .post-content h3 {
-  font-size: 1.6rem;
-  color: #e6e6e6 !important;
-  font-weight: 600 !important;
-  margin: 50px 0 24px 0;
-  line-height: 1.3;
-}
-
-.post-content h4 {
-  font-size: 1.3rem;
-  color: #e6e6e6 !important;
-  font-weight: 600 !important;
-  margin: 35px 0 18px 0;
+  font-size: 1.55rem;
+  margin: 50px 0 24px;
 }
 
 .post-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
   margin: 24px 0;
-  color: #e6e6e6 !important;
 }
 
-.post-content strong {
-  color: #e6e6e6 !important;
-  font-weight: 600;
-}
-
-.post-content ul,
-.post-content ol {
-  margin: 24px 0;
-  padding-left: 32px;
-}
-
-.post-content li {
-  margin: 14px 0;
-  line-height: 1.8;
-  color: #e6e6e6 !important;
-}
-
-.post-content blockquote {
-  border-left: 4px solid #00ccff;
-  padding: 18px 24px;
-  margin: 28px 0;
-  background: rgba(0, 204, 255, 0.05);
-  color: #b3b3b3;
-  font-style: italic;
-  border-radius: 4px;
-}
-
-.post-content a {
-  color: #00ccff !important;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.post-content a:hover {
-  color: #00aadd !important;
-  text-decoration: underline;
-}
-
-/* ===== CODE BLOCKS - LARGE & VISIBLE ===== */
+/* =========================================================
+   CODE BLOCKS (OXDF-STYLE)
+   ========================================================= */
 .post-content pre {
-  background: #000000 !important;
+  background: #000;
   border: 1px solid #2a2a2a;
   border-radius: 6px;
-  padding: 24px !important;
-  margin: 32px 0 !important;
-  overflow-x: auto;
-  font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Droid Sans Mono", "Source Code Pro", monospace;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #00ff00 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.post-content pre code {
-  background: transparent !important;
-  color: #00ff00 !important;
-  padding: 0 !important;
-  border: none;
-  font-size: inherit;
-}
-
-.post-content code {
-  background: #1f1f1f;
-  color: #00ccff !important;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.95em;
-  font-family: "SF Mono", "Monaco", monospace;
-  border: 1px solid #2a2a2a;
-}
-
-/* Code Block Wrapper with Copy Button */
-.code-block-wrapper {
-  position: relative;
-  margin: 32px 0;
-  border: 1px solid #2a2a2a;
-  border-radius: 6px;
-  overflow: hidden;
-  background: #000000;
-}
-
-.code-header {
-  background: #0a0a0a;
-  padding: 14px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-.code-title {
-  color: #b3b3b3;
-  font-size: 0.85rem;
-  font-family: "SF Mono", monospace;
-  font-weight: 500;
-}
-
-.copy-button {
-  background: transparent;
-  border: 1px solid #2a2a2a;
-  color: #b3b3b3;
-  padding: 6px 14px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  font-family: "SF Mono", monospace;
-}
-
-.copy-button:hover {
-  background: rgba(0, 204, 255, 0.1);
-  border-color: #00ccff;
-  color: #00ccff;
-}
-
-.copy-button.copied {
-  background: rgba(0, 255, 0, 0.1);
-  border-color: #00ff00;
-  color: #00ff00;
-}
-
-/* ===== IMAGES - FULL WIDTH SUPPORT ===== */
-.post-content img {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid #2a2a2a;
-  border-radius: 6px;
-  margin: 35px 0;
-  display: block;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.post-content img:hover {
-  transform: scale(1.01);
-}
-
-/* Image Modal */
-.image-modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  justify-content: center;
-  align-items: center;
-  cursor: zoom-out;
-}
-
-.image-modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border: 2px solid #2a2a2a;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-}
-
-.image-modal.active {
-  display: flex;
-}
-
-/* ===== TABLES ===== */
-.post-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 35px 0;
-  background: #161616;
-  border: 1px solid #2a2a2a;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.post-content th,
-.post-content td {
-  padding: 14px 18px;
-  text-align: left;
-  border: 1px solid #2a2a2a;
-  color: #e6e6e6 !important;
-}
-
-.post-content th {
-  background: #0a0a0a;
-  color: #00ff00 !important;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.post-content tr:hover {
-  background: rgba(0, 204, 255, 0.05);
-}
-
-/* ===== TAGS ===== */
-.post-tags {
-  margin-top: 70px;
-  padding-top: 28px;
-  border-top: 1px solid #2a2a2a;
-}
-
-.post-tags strong {
-  color: #e6e6e6 !important;
-  font-size: 1rem;
-  margin-right: 16px;
-}
-
-.post-tags a {
-  display: inline-block;
-  background: transparent;
-  color: #b3b3b3;
-  border: 1px solid #2a2a2a;
-  padding: 8px 16px;
-  margin: 5px 5px 5px 0;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-  border-radius: 4px;
-}
-
-.post-tags a:hover {
-  border-color: #00ccff;
-  color: #00ccff !important;
-  background: rgba(0, 204, 255, 0.05);
-}
-
-/* ===== RELATED POSTS ===== */
-.related-posts {
-  margin-top: 70px;
-  padding-top: 35px;
-  border-top: 1px solid #2a2a2a;
-}
-
-.related-posts h3 {
-  font-size: 1.6rem;
-  color: #e6e6e6 !important;
-  margin-bottom: 28px;
-  font-weight: 600 !important;
-}
-
-.related-posts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-}
-
-.related-post-card {
-  background: #161616;
-  border: 1px solid #2a2a2a;
-  border-radius: 8px;
   padding: 24px;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: block;
+  margin: 32px 0;
+  font-family: "SF Mono", monospace;
+  font-size: 1rem;
+  color: #00ff00;
+  overflow-x: auto;
 }
 
-.related-post-card:hover {
-  border-color: #00ccff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 204, 255, 0.2);
-}
-
-.related-post-title {
-  color: #e6e6e6 !important;
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.related-post-meta {
-  color: #808080;
-  font-size: 0.85rem;
-  margin-bottom: 10px;
-}
-
-.related-post-excerpt {
-  color: #b3b3b3;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* ===== MOBILE RESPONSIVE ===== */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 @media (max-width: 1024px) {
   .post-container {
     grid-template-columns: 1fr;
-    gap: 32px;
     padding: 30px;
+    gap: 40px;
   }
-  
+
   .toc-sidebar {
     position: static;
-    margin-bottom: 32px;
   }
-  
-  .machine-info-box {
-    flex-direction: column;
-    padding: 28px;
-  }
-  
-  .machine-thumbnail {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 768px) {
-  .post-container {
-    padding: 20px;
-  }
-  
-  .machine-info-box {
-    padding: 20px;
-  }
-  
-  .post-content h2 {
-    font-size: 1.7rem;
-  }
-  
-  .post-content h3 {
-    font-size: 1.4rem;
-  }
-}
-
-/* ===== SCROLLBAR ===== */
-.toc-sidebar::-webkit-scrollbar {
-  width: 8px;
-}
-
-.toc-sidebar::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-.toc-sidebar::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
-  border-radius: 4px;
-}
-
-.toc-sidebar::-webkit-scrollbar-thumb:hover {
-  background: #00ccff;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 </style>
 
 <div class="post-page-wrapper">
-<div class="post-container">
-  
-  <!-- Table of Contents -->
-  <aside class="toc-sidebar">
-    <div class="toc-title">Contents</div>
-    <ul class="toc-list" id="toc-list"></ul>
-  </aside>
+  <div class="post-container">
 
-  <!-- Main Content -->
-  <div class="post-content-wrapper">
-    
-    <!-- Machine Info Box -->
-    <div class="machine-info-box">
-      <div class="machine-info-text">
-        <h1>{{ page.title }}</h1>
-        <div class="machine-meta">
-          <span class="meta-item">📅 {{ page.date | date: "%b %d, %Y" }}</span>
-          {% if page.difficulty %}
-            <span class="meta-item">🎯 <span class="difficulty-{{ page.difficulty | downcase }}">{{ page.difficulty }}</span></span>
-          {% endif %}
-          {% if page.os %}
-            <span class="meta-item">💻 {{ page.os }}</span>
-          {% endif %}
-          {% if page.read_time %}
-            <span class="meta-item">⏱️ {{ page.read_time }} min read</span>
+    <aside class="toc-sidebar">
+      <div class="toc-title">Contents</div>
+      <ul class="toc-list" id="toc-list"></ul>
+    </aside>
+
+    <div class="post-content-wrapper">
+
+      <div class="machine-info-box">
+        <div class="machine-info-text">
+          <h1>{{ page.title }}</h1>
+          <div class="machine-meta">
+            <span>📅 {{ page.date | date: "%b %d, %Y" }}</span>
+            {% if page.difficulty %}
+              <span>🎯 {{ page.difficulty }}</span>
+            {% endif %}
+            {% if page.os %}
+              <span>💻 {{ page.os }}</span>
+            {% endif %}
+            {% if page.read_time %}
+              <span>⏱️ {{ page.read_time }} min read</span>
+            {% endif %}
+          </div>
+          {% if page.summary %}
+            <p class="machine-summary">{{ page.summary }}</p>
           {% endif %}
         </div>
-        {% if page.summary %}
-          <p class="machine-summary">{{ page.summary }}</p>
+
+        {% if page.thumbnail %}
+        <div class="machine-thumbnail">
+          <img src="{{ page.thumbnail }}">
+        </div>
         {% endif %}
       </div>
-      
-      {% if page.thumbnail %}
-      <div class="machine-thumbnail">
-        <img src="{{ page.thumbnail }}" alt="{{ page.title }}">
+
+      <div class="post-content" id="post-content">
+        {{ content }}
       </div>
-      {% endif %}
-    </div>
 
-    <!-- Post Content -->
-    <div class="post-content" id="post-content">
-      {{ content }}
     </div>
-
-    <!-- Tags -->
-    {% if page.tags %}
-    <div class="post-tags">
-      <strong>Tags:</strong>
-      {% for tag in page.tags %}
-        <a href="/tags#{{ tag }}">#{{ tag }}</a>
-      {% endfor %}
-    </div>
-    {% endif %}
-
-    <!-- Related Posts -->
-    <div class="related-posts">
-      <h3>Related Posts</h3>
-      <div class="related-posts-grid" id="related-posts"></div>
-    </div>
-
   </div>
 </div>
-</div>
-
-<!-- Image Modal -->
-<div class="image-modal" id="imageModal">
-  <img src="" alt="" id="modalImage">
-</div>
-
-<script>
-// Generate TOC
-document.addEventListener('DOMContentLoaded', function() {
-  const content = document.getElementById('post-content');
-  const tocList = document.getElementById('toc-list');
-  const headings = content.querySelectorAll('h2, h3, h4');
-  
-  headings.forEach((heading, index) => {
-    const id = 'heading-' + index;
-    heading.id = id;
-    
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = '#' + id;
-    a.textContent = heading.textContent;
-    a.className = heading.tagName === 'H3' ? 'toc-h3' : '';
-    
-    li.appendChild(a);
-    tocList.appendChild(li);
-  });
-  
-  // Active TOC on scroll
-  const tocLinks = document.querySelectorAll('.toc-list a');
-  
-  window.addEventListener('scroll', () => {
-    let current = '';
-    
-    headings.forEach(heading => {
-      const sectionTop = heading.offsetTop;
-      if (window.pageYOffset >= sectionTop - 100) {
-        current = heading.id;
-      }
-    });
-    
-    tocLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
-  });
-});
-
-// Add Copy Buttons
-document.addEventListener('DOMContentLoaded', function() {
-  const codeBlocks = document.querySelectorAll('pre');
-  
-  codeBlocks.forEach((block, index) => {
-    if (block.parentElement.classList.contains('code-block-wrapper')) return;
-    
-    const wrapper = document.createElement('div');
-    wrapper.className = 'code-block-wrapper';
-    
-    const header = document.createElement('div');
-    header.className = 'code-header';
-    
-    const title = document.createElement('span');
-    title.className = 'code-title';
-    
-    const codeElement = block.querySelector('code');
-    let lang = 'Shell';
-    if (codeElement && codeElement.className) {
-      const langMatch = codeElement.className.match(/language-(\w+)/);
-      if (langMatch) lang = langMatch[1].charAt(0).toUpperCase() + langMatch[1].slice(1);
-    }
-    title.textContent = lang;
-    
-    const copyBtn = document.createElement('button');
-    copyBtn.className = 'copy-button';
-    copyBtn.textContent = 'Copy';
-    
-    header.appendChild(title);
-    header.appendChild(copyBtn);
-    
-    block.parentNode.insertBefore(wrapper, block);
-    wrapper.appendChild(header);
-    wrapper.appendChild(block);
-    
-    copyBtn.addEventListener('click', function() {
-      const code = block.textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        copyBtn.textContent = '✓ Copied!';
-        copyBtn.classList.add('copied');
-        setTimeout(() => {
-          copyBtn.textContent = 'Copy';
-          copyBtn.classList.remove('copied');
-        }, 2000);
-      });
-    });
-  });
-});
-
-// Image Modal
-document.addEventListener('DOMContentLoaded', function() {
-  const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImage');
-  const images = document.querySelectorAll('.post-content img');
-  
-  images.forEach(img => {
-    img.addEventListener('click', function() {
-      modal.classList.add('active');
-      modalImg.src = this.src;
-    });
-  });
-  
-  modal.addEventListener('click', function() {
-    this.classList.remove('active');
-  });
-  
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      modal.classList.remove('active');
-    }
-  });
-});
-
-// Related Posts
-document.addEventListener('DOMContentLoaded', function() {
-  const relatedContainer = document.getElementById('related-posts');
-  const allPosts = [
-    {% for post in site.posts limit:10 %}
-      {
-        url: '{{ post.url }}',
-        title: '{{ post.title | escape }}',
-        date: new Date('{{ post.date | date: "%Y-%m-%d" }}'),
-        summary: '{{ post.summary | default: post.excerpt | strip_html | truncatewords: 20 | escape }}'
-      }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ];
-  
-  const currentUrl = '{{ page.url }}';
-  const related = allPosts.filter(post => post.url !== currentUrl).slice(0, 3);
-  
-  if (related.length === 0) {
-    relatedContainer.innerHTML = '<p style="color: #b3b3b3;">No related posts yet.</p>';
-    return;
-  }
-  
-  related.forEach(post => {
-    const card = document.createElement('a');
-    card.href = post.url;
-    card.className = 'related-post-card';
-    
-    card.innerHTML = `
-      <div class="related-post-title">${post.title}</div>
-      <div class="related-post-meta">${post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
-      <div class="related-post-excerpt">${post.summary}</div>
-    `;
-    
-    relatedContainer.appendChild(card);
-  });
-});
-</script>
