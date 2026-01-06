@@ -1,4 +1,259 @@
-/* ===== IMPROVED CODE BLOCKS ===== */
+/* =====================================
+   GLOBAL DARK THEME
+   ===================================== */
+html, body {
+  background: #0a0a0a !important;
+  color: #c9ffd6 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  line-height: 1.6;
+}
+
+/* links */
+a {
+  color: #00ccff;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #00ff00;
+}
+
+/* =====================================
+   MINIMA WHITE BACKGROUND OVERRIDES
+   ===================================== */
+.page-content,
+.wrapper,
+.site,
+.site-content,
+main {
+  background: transparent !important;
+}
+
+/* =====================================
+   HEADER / NAVIGATION (MINIMA FIXED)
+   ===================================== */
+.site-header {
+  background: #0a0a0a !important;
+  border-bottom: 1px solid #222 !important;
+  padding: 20px 0;
+}
+
+/* site title */
+.site-title,
+.site-title:visited {
+  color: #e6e6e6 !important;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.site-title:hover {
+  color: #00ff00 !important;
+  text-decoration: none;
+}
+
+/* nav container */
+.site-nav {
+  background: transparent !important;
+}
+
+/* FORCE NAV LINKS TO SHOW (KEY FIX) */
+.site-nav .trigger {
+  display: block !important;
+  position: static !important;
+  background: transparent !important;
+}
+
+/* nav links */
+.site-nav .page-link {
+  color: #c9ffd6 !important;
+  font-weight: 500;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* hover */
+.site-nav .page-link:hover {
+  color: #00ff00 !important;
+  text-decoration: underline;
+}
+
+/* remove hamburger menu (desktop-style nav) */
+.site-nav .menu-icon {
+  display: none !important;
+}
+
+/* =====================================
+   FOOTER
+   ===================================== */
+.site-footer {
+  background: #0a0a0a !important;
+  border-top: 1px solid #222 !important;
+  color: #888 !important;
+  margin-top: 60px !important;
+  padding: 30px 0 !important;
+}
+
+.site-footer a {
+  color: #00ccff;
+}
+
+.site-footer a:hover {
+  color: #00ff00;
+}
+
+/* =====================================
+   OXDF INTRO BLOCK (ENHANCED)
+   ===================================== */
+.oxdf-intro {
+  display: flex;
+  gap: 30px;
+  margin: 30px 0 40px 0;
+  padding: 20px;
+  background: rgba(0, 255, 0, 0.02);
+  border-left: 3px solid #00ff00;
+  border-radius: 6px;
+}
+
+.oxdf-text {
+  flex: 3;
+}
+
+.oxdf-text p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #c9ffd6;
+}
+
+.oxdf-thumb {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.oxdf-thumb img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #222;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .oxdf-intro {
+    flex-direction: column;
+  }
+}
+
+/* =====================================
+   POST CONTENT TYPOGRAPHY
+   ===================================== */
+.post-content,
+.page-content {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* headings */
+.post-content h1,
+.page-content h1 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+  color: #00ff00;
+  font-weight: 700;
+}
+
+.post-content h2,
+.page-content h2 {
+  font-size: 1.8rem;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: #00ff00;
+  border-bottom: 2px solid #222;
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
+.post-content h3,
+.page-content h3 {
+  font-size: 1.4rem;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  color: #00ccff;
+  font-weight: 600;
+}
+
+.post-content h4,
+.page-content h4 {
+  font-size: 1.2rem;
+  margin-top: 25px;
+  margin-bottom: 12px;
+  color: #c9ffd6;
+  font-weight: 600;
+}
+
+/* paragraphs */
+.post-content p,
+.page-content p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin: 16px 0;
+}
+
+/* lists */
+.post-content ul,
+.post-content ol,
+.page-content ul,
+.page-content ol {
+  margin: 20px 0;
+  padding-left: 30px;
+}
+
+.post-content li,
+.page-content li {
+  margin: 10px 0;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* blockquotes */
+.post-content blockquote,
+.page-content blockquote {
+  border-left: 4px solid #00ff00;
+  padding-left: 20px;
+  margin: 20px 0;
+  color: #aaa;
+  font-style: italic;
+  background: rgba(0, 255, 0, 0.02);
+  padding: 15px 20px;
+  border-radius: 4px;
+}
+
+/* images */
+.post-content img,
+.page-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #222;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+/* horizontal rules */
+.post-content hr,
+.page-content hr {
+  border: none;
+  border-top: 1px solid #222;
+  margin: 40px 0;
+}
+
+/* =====================================
+   CODE BLOCKS (ENHANCED)
+   ===================================== */
 pre {
   background: #1a1a1a !important;
   color: #c9ffd6 !important;
@@ -8,6 +263,7 @@ pre {
   overflow-x: auto;
   margin: 20px 0;
   line-height: 1.5;
+  font-size: 0.95rem;
 }
 
 code {
@@ -16,22 +272,258 @@ code {
   padding: 3px 8px;
   border-radius: 4px;
   font-size: 0.9em;
+  font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
 }
 
-/* inline code should be different from blocks */
-p code, li code {
+/* inline code (different from blocks) */
+p code,
+li code,
+td code {
   background: rgba(0, 255, 0, 0.1) !important;
   color: #00ff00 !important;
   font-size: 0.9em;
+  padding: 2px 6px;
 }
 
-/* Command prompts */
-pre .prompt {
+/* fix for code inside pre */
+pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* command prompts */
+pre .prompt,
+.terminal .prompt {
   color: #00ff00;
   font-weight: bold;
 }
 
-/* Output text */
-pre .output {
+/* output text */
+pre .output,
+.terminal .output {
   color: #aaa;
+}
+
+/* =====================================
+   POST METADATA
+   ===================================== */
+.post-meta {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #222;
+}
+
+.post-meta span {
+  margin-right: 20px;
+  display: inline-block;
+}
+
+/* =====================================
+   POST TAGS
+   ===================================== */
+.post-tags {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+}
+
+.post-tags strong {
+  color: #00ff00;
+  margin-right: 10px;
+}
+
+.post-tags a {
+  background: #1a1a1a;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid #2a2a2a;
+  transition: all 0.2s ease;
+}
+
+.post-tags a:hover {
+  background: #2a2a2a;
+  border-color: #00ff00;
+  transform: translateY(-2px);
+}
+
+/* =====================================
+   HOME PAGE POST LIST
+   ===================================== */
+.post-list {
+  list-style: none;
+  padding: 0;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.post-list li {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(0, 255, 0, 0.02);
+  border-left: 3px solid #00ff00;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.post-list li:hover {
+  background: rgba(0, 255, 0, 0.04);
+  transform: translateX(5px);
+}
+
+.post-link {
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+
+.post-list .post-meta {
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.post-excerpt {
+  margin-top: 10px;
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =====================================
+   TABLE STYLES
+   ===================================== */
+table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+  background: rgba(0, 255, 0, 0.02);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: #1a1a1a;
+}
+
+th {
+  padding: 12px;
+  text-align: left;
+  color: #00ff00;
+  font-weight: 600;
+  border-bottom: 2px solid #222;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #222;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background: rgba(0, 255, 0, 0.04);
+}
+
+/* =====================================
+   TERMINAL STYLING (OXDF-STYLE)
+   ===================================== */
+.terminal {
+  margin: 20px 0 30px 0;
+}
+
+.terminal pre {
+  background: #300a24 !important;
+  color: #eeeeec !important;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #1f0015;
+  overflow-x: auto;
+  font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.terminal .prompt {
+  color: #8ae234;
+  font-weight: 600;
+}
+
+.terminal .cmd {
+  color: #eeeeec;
+}
+
+.terminal .out {
+  color: #eeeeec;
+}
+
+/* fix code inside terminal */
+.terminal code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+   ===================================== */
+@media (max-width: 768px) {
+  .post-content h1,
+  .page-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .post-content h2,
+  .page-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .post-content h3,
+  .page-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .site-nav .page-link {
+    margin-left: 10px;
+  }
+
+  .post-content,
+  .page-content,
+  .post-list {
+    padding: 15px;
+  }
+}
+
+/* =====================================
+   UTILITY CLASSES
+   ===================================== */
+.text-center {
+  text-align: center;
+}
+
+.highlight {
+  background: rgba(0, 255, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.badge {
+  background: #1a1a1a;
+  color: #00ff00;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  border: 1px solid #2a2a2a;
 }
