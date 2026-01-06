@@ -20,36 +20,38 @@ body {
 }
 
 /* =========================================================
-   MAXIMUM WIDTH CONTAINER - 95% OF SCREEN
+   MAXIMUM WIDTH CONTAINER - TIGHT TO EDGES
    ========================================================= */
 .post-wrapper {
-  max-width: 95%;
+  max-width: 100%;
   width: 100%;
-  margin: 0 auto;
-  padding: 40px 2%;
+  margin: 0;
+  padding: 20px 15px 40px 15px;
   background: #ffffff;
 }
 
 .post-layout {
   display: grid;
-  grid-template-columns: 18% 82%;
-  gap: 2%;
+  grid-template-columns: 240px 1fr;
+  gap: 30px;
   align-items: start;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 
 /* =========================================================
-   COMPACT TOC SIDEBAR - MINIMAL WIDTH
+   COMPACT TOC SIDEBAR - TOP LEFT CORNER
    ========================================================= */
 .toc-container {
   position: sticky;
-  top: 80px;
+  top: 20px;
   background: #f8f8f8;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
   padding: 16px 12px;
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 40px);
   overflow-y: auto;
-  width: 100%;
+  width: 240px;
 }
 
 .toc-header {
@@ -103,11 +105,11 @@ body {
 }
 
 /* =========================================================
-   MAXIMUM WIDTH CONTENT AREA
+   MAXIMUM WIDTH CONTENT AREA - 0XDF STYLE
    ========================================================= */
 .post-main {
   min-width: 0;
-  max-width: 100%;
+  max-width: 1400px;
   width: 100%;
 }
 
