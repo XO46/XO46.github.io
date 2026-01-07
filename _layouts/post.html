@@ -15,12 +15,12 @@ layout: default
 }
 
 .post-container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 40px 60px;
+  max-width: 100%;
+  margin: 0;
+  padding: 40px 20px;
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 50px;
+  grid-template-columns: 200px 1fr;
+  gap: 30px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
@@ -36,6 +36,7 @@ layout: default
   border-radius: 6px;
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0, 180, 216, 0.1);
+  width: 200px;
 }
 
 .toc-title {
@@ -248,14 +249,15 @@ layout: default
   background: #051423 !important;
   border: 1px solid #1d3f5c;
   border-radius: 6px;
-  padding: 24px !important;
+  padding: 20px !important;
   margin: 32px 0 !important;
   overflow-x: auto;
   font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Droid Sans Mono", "Source Code Pro", monospace;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: #48cae4 !important;
   box-shadow: 0 4px 16px rgba(0, 180, 216, 0.15);
+  max-width: 100%;
 }
 
 .post-content pre code {
@@ -494,9 +496,13 @@ layout: default
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 1200px) {
   .post-container {
-    grid-template-columns: 200px 1fr;
-    gap: 40px;
-    padding: 30px 40px;
+    grid-template-columns: 180px 1fr;
+    gap: 25px;
+    padding: 30px 15px;
+  }
+  
+  .toc-sidebar {
+    width: 180px;
   }
 }
 
@@ -504,13 +510,14 @@ layout: default
   .post-container {
     grid-template-columns: 1fr;
     gap: 0;
-    padding: 30px;
+    padding: 30px 15px;
   }
   
   .toc-sidebar {
     position: static;
     margin-bottom: 32px;
     max-width: 300px;
+    width: 100%;
   }
   
   .machine-info-box {
@@ -526,7 +533,7 @@ layout: default
 
 @media (max-width: 768px) {
   .post-container {
-    padding: 20px;
+    padding: 20px 10px;
   }
   
   .machine-info-box {
@@ -543,6 +550,11 @@ layout: default
   
   .toc-sidebar {
     max-width: 100%;
+  }
+  
+  .post-content pre {
+    font-size: 0.85rem;
+    padding: 15px !important;
   }
 }
 
