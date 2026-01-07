@@ -15,16 +15,16 @@ layout: default
 }
 
 .post-container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 40px 60px;
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 80px;
+  grid-template-columns: 220px 1fr;
+  gap: 50px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
-/* ===== TABLE OF CONTENTS ===== */
+/* ===== TABLE OF CONTENTS - COMPACT ===== */
 .toc-sidebar {
   position: sticky;
   top: 20px;
@@ -33,18 +33,18 @@ layout: default
   overflow-y: auto;
   background: #132e4a;
   border: 1px solid #1d3f5c;
-  border-radius: 8px;
-  padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.1);
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 180, 216, 0.1);
 }
 
 .toc-title {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: #a3c9e8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .toc-list {
@@ -54,18 +54,19 @@ layout: default
 }
 
 .toc-list li {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .toc-list a {
   color: #a3c9e8;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   display: block;
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-left: 2px solid transparent;
-  border-radius: 4px;
+  border-radius: 3px;
   transition: all 0.2s ease;
+  line-height: 1.4;
 }
 
 .toc-list a:hover {
@@ -82,13 +83,14 @@ layout: default
 }
 
 .toc-h3 {
-  padding-left: 28px;
-  font-size: 0.8125rem;
+  padding-left: 20px;
+  font-size: 0.75rem;
 }
 
-/* ===== MAIN CONTENT - FULL WIDTH ===== */
+/* ===== MAIN CONTENT - MAXIMIZED ===== */
 .post-content-wrapper {
   min-width: 0;
+  max-width: 100%;
 }
 
 /* ===== MACHINE INFO BOX ===== */
@@ -135,6 +137,7 @@ layout: default
 .difficulty-easy { color: #48cae4; font-weight: 600; }
 .difficulty-medium { color: #90e0ef; font-weight: 600; }
 .difficulty-hard { color: #00b4d8; font-weight: 600; }
+.difficulty-insane { color: #8e44ad; font-weight: 600; }
 
 .machine-summary {
   color: #a3c9e8;
@@ -489,16 +492,25 @@ layout: default
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 1200px) {
+  .post-container {
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 30px 40px;
+  }
+}
+
 @media (max-width: 1024px) {
   .post-container {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 0;
     padding: 30px;
   }
   
   .toc-sidebar {
     position: static;
     margin-bottom: 32px;
+    max-width: 300px;
   }
   
   .machine-info-box {
@@ -528,11 +540,15 @@ layout: default
   .post-content h3 {
     font-size: 1.4rem;
   }
+  
+  .toc-sidebar {
+    max-width: 100%;
+  }
 }
 
 /* ===== SCROLLBAR ===== */
 .toc-sidebar::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .toc-sidebar::-webkit-scrollbar-track {
@@ -541,7 +557,7 @@ layout: default
 
 .toc-sidebar::-webkit-scrollbar-thumb {
   background: #1d3f5c;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .toc-sidebar::-webkit-scrollbar-thumb:hover {
@@ -572,13 +588,13 @@ html {
 <div class="post-page-wrapper">
 <div class="post-container">
   
-  <!-- Table of Contents -->
+  <!-- Table of Contents - Compact -->
   <aside class="toc-sidebar">
     <div class="toc-title">Contents</div>
     <ul class="toc-list" id="toc-list"></ul>
   </aside>
 
-  <!-- Main Content -->
+  <!-- Main Content - Full Width -->
   <div class="post-content-wrapper">
     
     <!-- Machine Info Box -->
