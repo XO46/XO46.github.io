@@ -16,44 +16,145 @@ title: Mr. White | The Professor's Lab Notes
   --accent-muted: #5a6c7d;
 }
 
-/* Hero Section - More Visible */
-.hero {
+/* REMOVE DEFAULT PADDING/MARGINS */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.page-content, .wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+
+/* ===================================================
+   FULL-WIDTH HERO BANNER - NO GAPS
+   =================================================== */
+.hero-banner {
+  width: 100%;
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
+  border-bottom: 2px solid var(--htb-green);
+  box-shadow: 0 4px 20px rgba(159, 239, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Animated grid pattern background */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(159, 239, 0, 0.03) 2px,
+      rgba(159, 239, 0, 0.03) 4px
+    );
+  pointer-events: none;
+  animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100px); }
+}
+
+.hero-content {
   max-width: 1150px;
   margin: 0 auto;
-  padding: 50px 20px 30px 20px;
-}
-
-.hero h2 {
+  padding: 80px 20px 60px;
   text-align: center;
-  color: var(--retro-text);
-  font-size: 3rem;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  letter-spacing: 8px;
-  font-weight: 700;
-  font-family: 'Courier New', monospace;
-  text-shadow: 0 0 20px rgba(197, 197, 197, 0.3);
+  position: relative;
+  z-index: 1;
 }
 
-.hero-quote {
-  margin: 25px auto;
-  padding: 20px 25px;
-  background: var(--retro-surface);
-  border-left: 3px solid var(--htb-green);
+.hero-title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--htb-green);
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  margin-bottom: 20px;
+  font-family: 'Courier New', monospace;
+  text-shadow: 
+    0 0 10px rgba(159, 239, 0, 0.5),
+    0 0 20px rgba(159, 239, 0, 0.3),
+    0 0 30px rgba(159, 239, 0, 0.2);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 
+      0 0 10px rgba(159, 239, 0, 0.5),
+      0 0 20px rgba(159, 239, 0, 0.3),
+      0 0 30px rgba(159, 239, 0, 0.2);
+  }
+  to {
+    text-shadow: 
+      0 0 20px rgba(159, 239, 0, 0.8),
+      0 0 30px rgba(159, 239, 0, 0.5),
+      0 0 40px rgba(159, 239, 0, 0.3);
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--retro-text-dim);
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-family: 'Courier New', monospace;
+}
+
+.hero-quote-box {
   max-width: 700px;
-  font-size: 1rem;
-  line-height: 1.7;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(26, 26, 26, 0.8);
+  border-left: 4px solid var(--htb-green);
+  border-radius: 6px;
+  text-align: left;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-quote-box p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
   color: var(--retro-text-dim);
   font-family: 'Courier New', monospace;
-  box-shadow: 0 0 15px rgba(159, 239, 0, 0.1);
 }
 
-/* CUTE & SMALL COMPACT COUNTERS */
+.quote-highlight {
+  color: var(--htb-green);
+  font-weight: 700;
+}
+
+/* ===================================================
+   STATS SECTION - FULL WIDTH BACKGROUND
+   =================================================== */
+.stats-wrapper {
+  width: 100%;
+  background: var(--retro-bg);
+  padding: 40px 20px;
+  margin: 0;
+}
+
 .stats-compact {
   display: flex;
   gap: 12px;
   max-width: 1150px;
-  margin: 25px auto;
+  margin: 0 auto;
   justify-content: center;
   align-items: stretch;
 }
@@ -160,10 +261,19 @@ title: Mr. White | The Professor's Lab Notes
   font-family: 'Courier New', monospace;
 }
 
-/* POSTS SECTION - Eye Comfortable Font Sizes */
+/* ===================================================
+   POSTS SECTION - FULL WIDTH BACKGROUND
+   =================================================== */
+.posts-wrapper {
+  width: 100%;
+  background: var(--retro-bg);
+  padding: 50px 20px;
+  margin: 0;
+}
+
 .writeups-header {
   max-width: 1150px;
-  margin: 50px auto 30px auto;
+  margin: 0 auto 30px;
   padding: 0 20px;
 }
 
@@ -191,7 +301,7 @@ title: Mr. White | The Professor's Lab Notes
   font-family: 'Courier New', monospace;
 }
 
-/* Enhanced Post Cards - DRAMATIC HOVER */
+/* POST CARDS */
 .post-list {
   list-style: none;
   padding: 0;
@@ -219,7 +329,6 @@ title: Mr. White | The Professor's Lab Notes
   transition: all 0.6s ease;
 }
 
-/* DRAMATIC HOVER EFFECTS */
 .post-list li:hover::before {
   width: 4px;
   background: var(--htb-green);
@@ -230,7 +339,6 @@ title: Mr. White | The Professor's Lab Notes
   border-color: var(--htb-green);
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(159, 239, 0, 0.2);
-  background: var(--retro-surface);
 }
 
 .post-link {
@@ -252,7 +360,6 @@ title: Mr. White | The Professor's Lab Notes
   text-shadow: 0 0 8px rgba(159, 239, 0, 0.3);
 }
 
-/* Platform Indicator */
 .post-link::before {
   content: '[';
   margin-right: 6px;
@@ -296,7 +403,6 @@ title: Mr. White | The Professor's Lab Notes
   font-family: 'Courier New', monospace;
 }
 
-/* Difficulty Badge - Minimal Retro with Dramatic Hover */
 .difficulty-badge {
   display: inline-flex;
   align-items: center;
@@ -362,7 +468,6 @@ title: Mr. White | The Professor's Lab Notes
   margin-right: 5px;
 }
 
-/* Tags - Minimal Style with Dramatic Hover */
 .post-list div[style*="margin-top: 10px"] {
   margin-top: 14px !important;
 }
@@ -385,7 +490,6 @@ title: Mr. White | The Professor's Lab Notes
   box-shadow: 0 8px 20px rgba(159, 239, 0, 0.3);
 }
 
-/* Read Time Badge */
 .read-time {
   display: inline-flex;
   align-items: center;
@@ -400,11 +504,23 @@ title: Mr. White | The Professor's Lab Notes
   font-weight: 700;
 }
 
-/* Mobile Responsive */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 2rem;
-    letter-spacing: 4px;
+  .hero-title {
+    font-size: 2.5rem;
+    letter-spacing: 6px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-content {
+    padding: 50px 20px 40px;
+  }
+
+  .hero-quote-box {
+    padding: 20px;
   }
 
   .stats-compact {
@@ -427,44 +543,9 @@ title: Mr. White | The Professor's Lab Notes
   .post-list li {
     padding: 20px;
   }
-
-  .post-list li:hover {
-    transform: translateX(8px) translateY(-5px);
-  }
 }
 
-/* Subtle Scan Line Effect */
-@keyframes scanline {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100vh);
-  }
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(transparent, var(--htb-green), transparent);
-  opacity: 0.04;
-  animation: scanline 8s linear infinite;
-  pointer-events: none;
-  z-index: 1000;
-}
-
-/* Terminal Cursor Effect - Removed */
-
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-/* Fade In Animation */
+/* FADE IN ANIMATIONS */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -486,63 +567,69 @@ body::before {
 .post-list li:nth-child(3) { animation-delay: 0.3s; }
 .post-list li:nth-child(4) { animation-delay: 0.4s; }
 .post-list li:nth-child(5) { animation-delay: 0.5s; }
-
-/* Glow effect on hover - Removed */
 </style>
 
-<div class="hero">
-  <h2>THE PROFESSOR'S LAB</h2>
-  
-  <div class="hero-quote">
-    <p style="margin: 0;">
-      > "Say my name."<br>
-      > "Heisenberg."<br>
-      > <span style="color: var(--htb-green);">"You're goddamn right."</span>
+<!-- FULL-WIDTH HERO BANNER -->
+<section class="hero-banner">
+  <div class="hero-content">
+    <h1 class="hero-title">THE PROFESSOR'S LAB</h1>
+    <p class="hero-subtitle">Penetration Testing & Security Research</p>
+    
+    <div class="hero-quote-box">
+      <p>
+        > "Say my name."<br>
+        > "Heisenberg."<br>
+        > <span class="quote-highlight">"You're goddamn right."</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS SECTION WITH FULL BACKGROUND -->
+<section class="stats-wrapper">
+  <div class="stats-compact">
+    <div class="counter-box htb-counter">
+      <div class="counter-icon">▣</div>
+      <div class="counter-number" id="htb-count">0</div>
+      <div class="counter-label">HTB</div>
+      <div class="counter-detail">
+        <span>E:<span id="htb-easy-compact">0</span></span>
+        <span>M:<span id="htb-medium-compact">0</span></span>
+        <span>H:<span id="htb-hard-compact">0</span></span>
+      </div>
+    </div>
+
+    <div class="counter-box thm-counter">
+      <div class="counter-icon">▣</div>
+      <div class="counter-number" id="thm-count">0</div>
+      <div class="counter-label">THM</div>
+      <div class="counter-detail">
+        <span>E:<span id="thm-easy-compact">0</span></span>
+        <span>M:<span id="thm-medium-compact">0</span></span>
+        <span>H:<span id="thm-hard-compact">0</span></span>
+      </div>
+    </div>
+
+    <div class="counter-box total-counter">
+      <div class="counter-icon">◈</div>
+      <div class="counter-number" id="total-count">0</div>
+      <div class="counter-label">Total</div>
+      <div class="counter-detail" style="justify-content: center;">
+        <span>Root</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSTS SECTION WITH FULL BACKGROUND -->
+<section class="posts-wrapper">
+  <div class="writeups-header">
+    <h2 class="writeups-title">POSTS</h2>
+    <p class="writeups-subtitle">
+      Penetration testing journey from zero to hero
     </p>
   </div>
-</div>
-
-<!-- CUTE & SMALL COMPACT STATS -->
-<div class="stats-compact">
-  <div class="counter-box htb-counter">
-    <div class="counter-icon">▣</div>
-    <div class="counter-number" id="htb-count">0</div>
-    <div class="counter-label">HTB</div>
-    <div class="counter-detail">
-      <span>E:<span id="htb-easy-compact">0</span></span>
-      <span>M:<span id="htb-medium-compact">0</span></span>
-      <span>H:<span id="htb-hard-compact">0</span></span>
-    </div>
-  </div>
-
-  <div class="counter-box thm-counter">
-    <div class="counter-icon">▣</div>
-    <div class="counter-number" id="thm-count">0</div>
-    <div class="counter-label">THM</div>
-    <div class="counter-detail">
-      <span>E:<span id="thm-easy-compact">0</span></span>
-      <span>M:<span id="thm-medium-compact">0</span></span>
-      <span>H:<span id="thm-hard-compact">0</span></span>
-    </div>
-  </div>
-
-  <div class="counter-box total-counter">
-    <div class="counter-icon">◈</div>
-    <div class="counter-number" id="total-count">0</div>
-    <div class="counter-label">Total</div>
-    <div class="counter-detail" style="justify-content: center;">
-      <span>Root</span>
-    </div>
-  </div>
-</div>
-
-<!-- POSTS SECTION -->
-<div class="writeups-header">
-  <h2 class="writeups-title">POSTS</h2>
-  <p class="writeups-subtitle">
-    Penetration testing journey from zero to hero
-  </p>
-</div>
+</section>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
