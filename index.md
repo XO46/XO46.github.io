@@ -16,16 +16,32 @@ title: Mr. White | The Professor's Lab Notes
   --accent-muted: #5a6c7d;
 }
 
-/* REMOVE DEFAULT PADDING/MARGINS */
-body {
+/* FORCE DARK BACKGROUND EVERYWHERE */
+html, body {
+  background: var(--retro-bg) !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-.page-content, .wrapper {
+body {
+  background-color: var(--retro-bg) !important;
+}
+
+/* Override all Jekyll/Minima theme backgrounds */
+.page-content, .wrapper, main, article, .home {
+  background: var(--retro-bg) !important;
   padding: 0 !important;
   margin: 0 !important;
   max-width: 100% !important;
+}
+
+.site-header, .site-footer {
+  background: var(--retro-bg) !important;
+}
+
+/* Remove any white backgrounds from posts area */
+.post-list-heading {
+  display: none !important;
 }
 
 /* ===================================================
@@ -145,7 +161,7 @@ body {
    =================================================== */
 .stats-wrapper {
   width: 100%;
-  background: var(--retro-bg);
+  background: var(--retro-bg) !important;
   padding: 40px 20px;
   margin: 0;
 }
@@ -266,8 +282,8 @@ body {
    =================================================== */
 .posts-wrapper {
   width: 100%;
-  background: var(--retro-bg);
-  padding: 50px 20px;
+  background: var(--retro-bg) !important;
+  padding: 50px 20px 100px;
   margin: 0;
 }
 
@@ -304,15 +320,16 @@ body {
 /* POST CARDS */
 .post-list {
   list-style: none;
-  padding: 0;
+  padding: 0 !important;
   max-width: 1150px;
-  margin: 0 auto;
+  margin: 0 auto !important;
+  background: var(--retro-bg) !important;
 }
 
 .post-list li {
   margin-bottom: 28px;
   padding: 28px;
-  background: var(--retro-surface);
+  background: var(--retro-surface) !important;
   border: 1px solid var(--retro-border);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -343,16 +360,16 @@ body {
 
 .post-link {
   font-size: 1.6rem !important;
-  font-weight: 700;
+  font-weight: 700 !important;
   display: inline-block;
   margin-bottom: 14px;
-  text-decoration: none;
+  text-decoration: none !important;
   color: var(--retro-text) !important;
   position: relative;
   z-index: 1;
   transition: all 0.5s ease;
   line-height: 1.4;
-  font-family: 'Courier New', monospace;
+  font-family: 'Courier New', monospace !important;
 }
 
 .post-link:hover {
@@ -375,11 +392,11 @@ body {
 }
 
 .post-list .post-meta {
-  border: none;
-  padding: 0;
-  margin: 12px 0;
-  font-size: 0.95rem;
-  color: var(--retro-text-dim);
+  border: none !important;
+  padding: 0 !important;
+  margin: 12px 0 !important;
+  font-size: 0.95rem !important;
+  color: var(--retro-text-dim) !important;
   display: flex;
   gap: 15px;
   align-items: center;
@@ -391,11 +408,12 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
+  color: var(--retro-text-dim) !important;
 }
 
 .post-excerpt {
   margin-top: 14px;
-  color: var(--retro-text-dim);
+  color: var(--retro-text-dim) !important;
   font-size: 1.05rem;
   line-height: 1.8;
   position: relative;
