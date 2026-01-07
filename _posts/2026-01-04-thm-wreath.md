@@ -6,7 +6,7 @@ difficulty: Medium
 os: Multi (Linux/Windows)
 tags: [tryhackme, linux, windows, web, pivoting, lateral-movement, privilege-escalation, active-directory]
 summary: "Multi-machine network featuring pivoting techniques, exploiting Webmin CVE-2019-15107 for initial access, GitStack RCE for lateral movement, and unquoted service path privilege escalation on Windows."
-thumbnail: /assets/images/wreath.png
+thumbnail: /assets/images/thumbnails/wreath.png
 read_time: 25
 ---
 
@@ -386,8 +386,6 @@ Uploaded and executed Mimikatz to extract credentials:
 
 ![rdp-no2](/assets/images/wreath-images/rdp 2.png)
 
-![rdp-no3](/assets/images/wreath-images/rdp 3.png)
-
 ```
 mimikatz # privilege::debug
 Privilege '20' OK
@@ -398,6 +396,8 @@ mimikatz # lsadump::sam
 ![photo-no5](/assets/images/wreath-images/wreath5.png)
 
 **Extracted Hashes:**
+
+![rdp-no3](/assets/images/wreath-images/rdp 3.png)
 
 ```
 User : Administrator
