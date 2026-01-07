@@ -391,7 +391,7 @@ Privilege '20' OK
 mimikatz # lsadump::sam
 ```
 
-![photo-no5](/assets/images/wreath-images/wreath 5.png)
+![photo-no5](/assets/images/wreath-images/wreath5.png)
 
 **Extracted Hashes:**
 
@@ -469,7 +469,7 @@ netsh advfirewall firewall add rule name="port-fwd" \
 ```
 2026/01/05 22:27:04 client: Connected (Latency 174.480098ms)
 ```
-![photo-no6](/assets/images/wreath-images/wreath 6.png)
+![photo-no6](/assets/images/wreath-images/wreath6.png)
 
 ## Source Code Analysis
 
@@ -497,7 +497,7 @@ for i in $(ls); do
   printf "\n\n$separator\n\033[4;1m$i\033[0m\n$(cat $i/commit-meta.txt)\n";
 done
 ```
-![photo-no7](/assets/images/wreath-images/wreath 7.png)
+![photo-no7](/assets/images/wreath-images/wreath7.png)
 
 **Commit Messages:**
 
@@ -533,8 +533,8 @@ if(!in_array(explode(".", $_FILES["file"]["name"])[1], $goodExts) || !$size){
     die();
 }
 ```
-![photo-no8](/assets/images/wreath-images/wreath 8.png)
-![photo-no9](/assets/images/wreath-images/wreath 9.png)
+![photo-no8](/assets/images/wreath-images/wreath8.png)
+![photo-no9](/assets/images/wreath-images/wreath9.png)
 ### Identified Vulnerabilities
 
 **1. Weak Image Validation:**
