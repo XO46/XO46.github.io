@@ -551,7 +551,7 @@ if(!in_array(explode(".", $_FILES["file"]["name"])[1], $goodExts) || !$size){
   - Final extension `.php` is ignored
 
 ## Exploitation - File Upload Bypass
-
+![photo-no10](/assets/images/wreath-images/wreath10.png)
 ### Creating the Payload
 
 Obfuscated PHP webshell:
@@ -583,6 +583,7 @@ Accessed the webshell:
 ```
 http://10.200.180.100/resources/uploads/war.jpeg.php?wreath=systeminfo
 ```
+![photo-no11](/assets/images/wreath-images/wreath11.png)
 
 **Result:** Command execution successful!
 
