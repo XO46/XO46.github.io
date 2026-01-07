@@ -3,13 +3,28 @@ layout: default
 ---
 
 <style>
-/* Retro Terminal Theme - Monochrome Classic */
+/* Retro Terminal Theme - Matching Homepage */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* Force dark background everywhere */
+html, body {
+  background: #0d0d0d !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.page-content, .wrapper, main, article {
+  background: #0d0d0d !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
 
 .post-page-wrapper {
   background: #0d0d0d !important;
   min-height: 100vh;
   padding: 0 !important;
+  width: 100%;
 }
 
 .post-page-wrapper * {
@@ -17,10 +32,10 @@ layout: default
 }
 
 .post-container {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1150px;
+  margin: 0 auto;
   padding: 60px 40px;
-  font-family: 'IBM Plex Mono', 'Space Mono', 'Courier New', monospace;
+  font-family: 'Courier New', 'IBM Plex Mono', 'Space Mono', monospace;
 }
 
 /* ===== MAIN CONTENT - FULL WIDTH ===== */
@@ -32,11 +47,11 @@ layout: default
 /* ===== MACHINE INFO BOX ===== */
 .machine-info-box {
   background: #1a1a1a;
-  border: 2px solid #00ff00;
+  border: 2px solid #9fef00;
   border-radius: 0;
   padding: 40px;
   margin-bottom: 60px;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 20px rgba(0, 255, 0, 0.05);
+  box-shadow: 0 0 20px rgba(159, 239, 0, 0.3), inset 0 0 20px rgba(159, 239, 0, 0.05);
   position: relative;
 }
 
@@ -47,7 +62,7 @@ layout: default
   left: 20px;
   background: #0d0d0d;
   padding: 0 10px;
-  color: #00ff00;
+  color: #9fef00;
   font-size: 0.75rem;
   letter-spacing: 2px;
   font-weight: 700;
@@ -55,12 +70,12 @@ layout: default
 
 .machine-info-text h1 {
   font-size: 3rem;
-  color: #00ff00 !important;
+  color: #9fef00 !important;
   margin: 0 0 30px 0;
   font-weight: 700;
   line-height: 1.1;
-  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-  font-family: 'Space Mono', monospace;
+  text-shadow: 0 0 10px rgba(159, 239, 0, 0.5);
+  font-family: 'Courier New', 'Space Mono', monospace;
   letter-spacing: -1px;
 }
 
@@ -77,19 +92,19 @@ layout: default
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #00ff00;
+  color: #9fef00;
   padding: 5px 10px;
-  border: 1px solid #00ff00;
-  background: rgba(0, 255, 0, 0.05);
+  border: 1px solid #9fef00;
+  background: rgba(159, 239, 0, 0.05);
 }
 
-.difficulty-easy { color: #00ff00; font-weight: 700; }
-.difficulty-medium { color: #ffff00; font-weight: 700; }
-.difficulty-hard { color: #ff9900; font-weight: 700; }
+.difficulty-easy { color: #9fef00; font-weight: 700; }
+.difficulty-medium { color: #d4ac0d; font-weight: 700; }
+.difficulty-hard { color: #c0392b; font-weight: 700; }
 .difficulty-insane { color: #ff0000; font-weight: 700; }
 
 .machine-summary {
-  color: #888888;
+  color: #858585;
   font-size: 1.1rem;
   line-height: 1.8;
   margin: 0;
@@ -98,7 +113,7 @@ layout: default
 
 /* ===== TYPOGRAPHY ===== */
 .post-content {
-  color: #cccccc !important;
+  color: #c5c5c5 !important;
   font-size: 1.05rem;
   line-height: 1.9;
   font-weight: 400;
@@ -106,21 +121,21 @@ layout: default
 
 .post-content h2 {
   font-size: 2.2rem;
-  color: #00ff00 !important;
+  color: #9fef00 !important;
   font-weight: 700 !important;
   margin: 80px 0 30px 0;
   padding: 15px 0;
-  border-top: 2px solid #00ff00;
-  border-bottom: 2px solid #00ff00;
+  border-top: 2px solid #9fef00;
+  border-bottom: 2px solid #9fef00;
   line-height: 1.2;
-  text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
-  font-family: 'Space Mono', monospace;
+  text-shadow: 0 0 8px rgba(159, 239, 0, 0.4);
+  font-family: 'Courier New', 'Space Mono', monospace;
   letter-spacing: 1px;
 }
 
 .post-content h2::before {
   content: '## ';
-  color: #006600;
+  color: #4a7700;
   margin-right: 10px;
 }
 
@@ -130,29 +145,29 @@ layout: default
 
 .post-content h3 {
   font-size: 1.7rem;
-  color: #00cc00 !important;
+  color: #9fef00 !important;
   font-weight: 700 !important;
   margin: 60px 0 25px 0;
   line-height: 1.3;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Courier New', 'Space Mono', monospace;
 }
 
 .post-content h3::before {
   content: '### ';
-  color: #006600;
+  color: #4a7700;
   margin-right: 8px;
 }
 
 .post-content h4 {
   font-size: 1.4rem;
-  color: #009900 !important;
+  color: #7fbf00 !important;
   font-weight: 700 !important;
   margin: 40px 0 20px 0;
 }
 
 .post-content h4::before {
   content: '> ';
-  color: #006600;
+  color: #4a7700;
   margin-right: 5px;
 }
 
@@ -160,7 +175,7 @@ layout: default
   font-size: 1.05rem;
   line-height: 1.9;
   margin: 25px 0;
-  color: #cccccc !important;
+  color: #c5c5c5 !important;
 }
 
 .post-content strong {
@@ -177,34 +192,34 @@ layout: default
 .post-content li {
   margin: 15px 0;
   line-height: 1.9;
-  color: #cccccc !important;
+  color: #c5c5c5 !important;
 }
 
 .post-content li::marker {
-  color: #00ff00;
+  color: #9fef00;
 }
 
 .post-content blockquote {
-  border-left: 4px solid #00ff00;
+  border-left: 4px solid #9fef00;
   padding: 20px 25px;
   margin: 30px 0;
-  background: rgba(0, 255, 0, 0.05);
-  color: #999999;
+  background: rgba(159, 239, 0, 0.05);
+  color: #858585;
   font-style: italic;
   border-radius: 0;
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 15px rgba(159, 239, 0, 0.1);
 }
 
 .post-content blockquote::before {
   content: '"';
-  color: #00ff00;
+  color: #9fef00;
   font-size: 3rem;
   line-height: 0;
   margin-right: 10px;
 }
 
 .post-content a {
-  color: #00ff00 !important;
+  color: #9fef00 !important;
   text-decoration: none;
   transition: all 0.2s ease;
   border-bottom: 1px solid transparent;
@@ -212,24 +227,24 @@ layout: default
 }
 
 .post-content a:hover {
-  color: #00cc00 !important;
-  border-bottom-color: #00ff00;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  color: #7fbf00 !important;
+  border-bottom-color: #9fef00;
+  text-shadow: 0 0 5px rgba(159, 239, 0, 0.5);
 }
 
 /* ===== CODE BLOCKS ===== */
 .post-content pre {
   background: #000000 !important;
-  border: 1px solid #00ff00;
+  border: 1px solid #9fef00;
   border-radius: 0;
   padding: 25px !important;
   margin: 35px 0 !important;
   overflow-x: auto;
-  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-family: 'Courier New', 'IBM Plex Mono', monospace;
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #00ff00 !important;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2), inset 0 0 10px rgba(0, 255, 0, 0.05);
+  color: #9fef00 !important;
+  box-shadow: 0 0 20px rgba(159, 239, 0, 0.2), inset 0 0 10px rgba(159, 239, 0, 0.05);
   position: relative;
 }
 
@@ -240,28 +255,28 @@ layout: default
   left: 20px;
   background: #000000;
   padding: 0 10px;
-  color: #006600;
+  color: #4a7700;
   font-size: 0.7rem;
   letter-spacing: 1px;
 }
 
 .post-content pre code {
   background: transparent !important;
-  color: #00ff00 !important;
+  color: #9fef00 !important;
   padding: 0 !important;
   border: none;
   font-size: inherit;
-  text-shadow: 0 0 2px rgba(0, 255, 0, 0.3);
+  text-shadow: 0 0 2px rgba(159, 239, 0, 0.3);
 }
 
 .post-content code {
   background: #1a1a1a;
-  color: #00ff00 !important;
+  color: #9fef00 !important;
   padding: 3px 8px;
   border-radius: 0;
   font-size: 0.9em;
-  font-family: 'IBM Plex Mono', monospace;
-  border: 1px solid #333333;
+  font-family: 'Courier New', 'IBM Plex Mono', monospace;
+  border: 1px solid #2d2d2d;
   font-weight: 500;
 }
 
@@ -269,11 +284,11 @@ layout: default
 .code-block-wrapper {
   position: relative;
   margin: 35px 0;
-  border: 1px solid #00ff00;
+  border: 1px solid #9fef00;
   border-radius: 0;
   overflow: hidden;
   background: #000000;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 20px rgba(159, 239, 0, 0.2);
 }
 
 .code-header {
@@ -282,13 +297,13 @@ layout: default
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #00ff00;
+  border-bottom: 1px solid #9fef00;
 }
 
 .code-title {
-  color: #00ff00;
+  color: #9fef00;
   font-size: 0.8rem;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Courier New', 'IBM Plex Mono', monospace;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -296,27 +311,27 @@ layout: default
 
 .copy-button {
   background: transparent;
-  border: 1px solid #00ff00;
-  color: #00ff00;
+  border: 1px solid #9fef00;
+  color: #9fef00;
   padding: 5px 15px;
   font-size: 0.75rem;
   cursor: pointer;
   border-radius: 0;
   transition: all 0.2s ease;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Courier New', 'IBM Plex Mono', monospace;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .copy-button:hover {
-  background: #00ff00;
+  background: #9fef00;
   color: #000000;
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  box-shadow: 0 0 10px rgba(159, 239, 0, 0.5);
 }
 
 .copy-button.copied {
-  background: #00ff00;
+  background: #9fef00;
   color: #000000;
 }
 
@@ -324,19 +339,20 @@ layout: default
 .post-content img {
   max-width: 100%;
   height: auto;
-  border: 2px solid #00ff00;
+  border: 2px solid #9fef00;
   border-radius: 0;
   margin: 40px 0;
   display: block;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 20px rgba(159, 239, 0, 0.3);
   cursor: pointer;
   transition: all 0.3s ease;
-  filter: grayscale(30%) contrast(1.1);
+  filter: grayscale(20%) contrast(1.1);
 }
 
 .post-content img:hover {
-  box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+  box-shadow: 0 0 30px rgba(159, 239, 0, 0.5);
   filter: grayscale(0%) contrast(1.2);
+  transform: scale(1.01);
 }
 
 /* Image Modal */
@@ -357,8 +373,8 @@ layout: default
 .image-modal img {
   max-width: 90%;
   max-height: 90%;
-  border: 3px solid #00ff00;
-  box-shadow: 0 0 50px rgba(0, 255, 0, 0.5);
+  border: 3px solid #9fef00;
+  box-shadow: 0 0 50px rgba(159, 239, 0, 0.5);
 }
 
 .image-modal.active {
@@ -371,24 +387,24 @@ layout: default
   border-collapse: collapse;
   margin: 40px 0;
   background: #000000;
-  border: 2px solid #00ff00;
+  border: 2px solid #9fef00;
   border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 20px rgba(159, 239, 0, 0.2);
 }
 
 .post-content th,
 .post-content td {
   padding: 15px 20px;
   text-align: left;
-  border: 1px solid #00ff00;
-  color: #cccccc !important;
-  font-family: 'IBM Plex Mono', monospace;
+  border: 1px solid #9fef00;
+  color: #c5c5c5 !important;
+  font-family: 'Courier New', 'IBM Plex Mono', monospace;
 }
 
 .post-content th {
   background: #0d0d0d;
-  color: #00ff00 !important;
+  color: #9fef00 !important;
   font-weight: 700;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -396,18 +412,18 @@ layout: default
 }
 
 .post-content tr:hover {
-  background: rgba(0, 255, 0, 0.05);
+  background: rgba(159, 239, 0, 0.05);
 }
 
 /* ===== TAGS ===== */
 .post-tags {
   margin-top: 80px;
   padding-top: 30px;
-  border-top: 2px solid #00ff00;
+  border-top: 2px solid #9fef00;
 }
 
 .post-tags strong {
-  color: #00ff00 !important;
+  color: #9fef00 !important;
   font-size: 1.1rem;
   margin-right: 20px;
   font-weight: 700;
@@ -418,8 +434,8 @@ layout: default
 .post-tags a {
   display: inline-block;
   background: transparent;
-  color: #00ff00;
-  border: 1px solid #00ff00;
+  color: #9fef00;
+  border: 1px solid #9fef00;
   padding: 8px 16px;
   margin: 5px 5px 5px 0;
   text-decoration: none;
@@ -432,25 +448,31 @@ layout: default
 }
 
 .post-tags a:hover {
-  background: #00ff00;
+  background: #9fef00;
   color: #000000;
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  box-shadow: 0 0 15px rgba(159, 239, 0, 0.5);
+  transform: translateY(-3px);
 }
 
 /* ===== RELATED POSTS ===== */
 .related-posts {
   margin-top: 80px;
   padding-top: 40px;
-  border-top: 2px solid #00ff00;
+  border-top: 2px solid #9fef00;
 }
 
 .related-posts h3 {
   font-size: 1.8rem;
-  color: #00ff00 !important;
+  color: #9fef00 !important;
   margin-bottom: 30px;
   font-weight: 700 !important;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.related-posts h3::before {
+  content: '> ';
+  margin-right: 10px;
 }
 
 .related-posts-grid {
@@ -461,7 +483,7 @@ layout: default
 
 .related-post-card {
   background: #1a1a1a;
-  border: 1px solid #00ff00;
+  border: 1px solid #9fef00;
   border-radius: 0;
   padding: 25px;
   transition: all 0.3s ease;
@@ -470,17 +492,17 @@ layout: default
 }
 
 .related-post-card:hover {
-  background: rgba(0, 255, 0, 0.05);
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-  transform: translateY(-2px);
+  background: rgba(159, 239, 0, 0.05);
+  box-shadow: 0 0 20px rgba(159, 239, 0, 0.3);
+  transform: translateY(-5px);
 }
 
 .related-post-title {
-  color: #00ff00 !important;
+  color: #9fef00 !important;
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 12px;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Courier New', 'Space Mono', monospace;
 }
 
 .related-post-meta {
@@ -491,7 +513,7 @@ layout: default
 }
 
 .related-post-excerpt {
-  color: #999999;
+  color: #858585;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -532,6 +554,11 @@ layout: default
     font-size: 0.85rem;
     padding: 20px !important;
   }
+  
+  .machine-meta {
+    font-size: 0.9rem;
+    gap: 15px;
+  }
 }
 
 html {
@@ -550,7 +577,7 @@ html {
   margin-left: 5px;
 }
 
-/* Scanline effect */
+/* Scanline effect matching homepage */
 .post-page-wrapper::before {
   content: '';
   position: fixed;
@@ -560,10 +587,10 @@ html {
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 255, 0, 0.03) 0px,
+    rgba(159, 239, 0, 0.03) 0px,
     transparent 1px,
     transparent 2px,
-    rgba(0, 255, 0, 0.03) 3px
+    rgba(159, 239, 0, 0.03) 3px
   );
   pointer-events: none;
   z-index: 1;
@@ -577,15 +604,26 @@ html {
 /* Green glow effect */
 @keyframes glow {
   0%, 100% { 
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 20px rgba(0, 255, 0, 0.05);
+    box-shadow: 0 0 20px rgba(159, 239, 0, 0.3), inset 0 0 20px rgba(159, 239, 0, 0.05);
   }
   50% { 
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 25px rgba(0, 255, 0, 0.08);
+    box-shadow: 0 0 30px rgba(159, 239, 0, 0.4), inset 0 0 25px rgba(159, 239, 0, 0.08);
   }
 }
 
 .machine-info-box {
   animation: glow 3s ease-in-out infinite;
+}
+
+/* Selection color matching homepage */
+::selection {
+  background: #9fef00;
+  color: #0d0d0d;
+}
+
+::-moz-selection {
+  background: #9fef00;
+  color: #0d0d0d;
 }
 </style>
 
@@ -608,7 +646,7 @@ html {
             <span class="meta-item">💻 {{ page.os }}</span>
           {% endif %}
           {% if page.read_time %}
-            <span class="meta-item">⏱️ {{ page.read_time }} min read</span>
+            <span class="meta-item">⏱️ {{ page.read_time }}</span>
           {% endif %}
         </div>
         {% if page.summary %}
@@ -698,7 +736,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Image Modal
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoads', function() {
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImage');
   const images = document.querySelectorAll('.post-content img');
