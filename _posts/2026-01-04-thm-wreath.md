@@ -97,6 +97,7 @@ Type commands to have them executed on the target.
 # whoami
 root
 ```
+![photo-no1](/assets/images/wreath-images/wreath 1.png)
 
 ### Upgrading to Interactive Shell
 
@@ -149,6 +150,7 @@ Extracted the private key and established persistent SSH access:
 ```bash
 ssh -i root_ssh root@10.200.180.200
 ```
+![photo-no2](/assets/images/wreath-images/wreath 2.png)
 
 ## Internal Network Enumeration
 
@@ -237,6 +239,7 @@ searchsploit gitstack
 ```
 GitStack 2.3.10 - Remote Code Execution  |  php/webapps/43777.py
 ```
+![photo-no3](/assets/images/wreath-images/wreath 3.png)
 
 ### Preparing the Exploit
 
