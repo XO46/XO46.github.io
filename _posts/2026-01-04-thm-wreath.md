@@ -645,7 +645,9 @@ wmic service get name,displayname,pathname,startmode | findstr /v /i "C:\Windows
 ```
 
 **Found Vulnerable Service:**
+
 ![photo-no13](/assets/images/wreath-images/wreath 13.png)
+
 ```
 SystemExplorerHelpService
 C:\Program Files (x86)\System Explorer\System Explorer\service\SystemExplorerService64.exe
