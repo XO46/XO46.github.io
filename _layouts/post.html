@@ -232,46 +232,64 @@ html, body {
   text-shadow: 0 0 5px rgba(159, 239, 0, 0.5);
 }
 
-/* ===== CODE BLOCKS ===== */
+/* ===== TERMINAL CODE BLOCKS - OPTION 3 ===== */
 .post-content pre {
-  background: linear-gradient(135deg, #1a0033 0%, #2d0052 50%, #1a0033 100%) !important;
-  border: 1px solid #9fef00;
-  border-radius: 0;
-  padding: 25px !important;
+  background: linear-gradient(135deg, #1e0033 0%, #3d0066 100%) !important;
+  border: 2px solid #9fef00;
+  border-radius: 8px;
+  padding: 0 !important;
   margin: 35px 0 !important;
-  overflow-x: auto;
+  overflow: hidden;
   font-family: 'Courier New', 'IBM Plex Mono', monospace;
   font-size: 0.95rem;
-  line-height: 1.7;
-  color: #ffffff !important;
-  box-shadow: 0 0 20px rgba(159, 239, 0, 0.2), inset 0 0 10px rgba(138, 43, 226, 0.1);
+  line-height: 1.8;
+  box-shadow: 0 0 20px rgba(159, 239, 0, 0.2);
   position: relative;
 }
 
+/* Terminal Header */
 .post-content pre::before {
-  content: '$ ./command';
+  content: '';
+  display: block;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(159, 239, 0, 0.3);
+}
+
+.post-content pre::after {
+  content: '● ● ●    bash';
   position: absolute;
-  top: -12px;
-  left: 20px;
-  background: linear-gradient(135deg, #1a0033 0%, #2d0052 100%);
-  padding: 0 10px;
-  color: #9fef00;
-  font-size: 0.7rem;
-  letter-spacing: 1px;
+  top: 10px;
+  left: 15px;
+  color: #ffbd2e;
+  font-size: 0.85rem;
   font-weight: 700;
+  letter-spacing: 8px;
 }
 
 .post-content pre code {
+  display: block;
   background: transparent !important;
   color: #ffffff !important;
-  padding: 0 !important;
+  padding: 20px !important;
+  padding-top: 50px !important;
   border: none;
   font-size: inherit;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
+/* Style prompt lines */
+.post-content pre code::before {
+  content: '$ ';
+  color: #ffbd2e;
+  font-weight: bold;
+}
+
+/* Inline code */
 .post-content code {
-  background: rgba(26, 0, 51, 0.5);
+  background: rgba(30, 0, 51, 0.5);
   color: #ffffff !important;
   padding: 3px 8px;
   border-radius: 3px;
@@ -281,59 +299,9 @@ html, body {
   font-weight: 600;
 }
 
-/* Code Block Wrapper */
-.code-block-wrapper {
-  position: relative;
-  margin: 35px 0;
-  border: 1px solid #9fef00;
-  border-radius: 0;
-  overflow: hidden;
-  background: linear-gradient(135deg, #1a0033 0%, #2d0052 100%);
-  box-shadow: 0 0 20px rgba(159, 239, 0, 0.2);
-}
-
-.code-header {
-  background: rgba(13, 13, 13, 0.8);
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #9fef00;
-}
-
-.code-title {
-  color: #9fef00;
-  font-size: 0.8rem;
-  font-family: 'Courier New', 'IBM Plex Mono', monospace;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.copy-button {
-  background: transparent;
-  border: 1px solid #9fef00;
-  color: #9fef00;
-  padding: 5px 15px;
-  font-size: 0.75rem;
-  cursor: pointer;
-  border-radius: 0;
-  transition: all 0.2s ease;
-  font-family: 'Courier New', 'IBM Plex Mono', monospace;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.copy-button:hover {
-  background: #9fef00;
-  color: #000000;
-  box-shadow: 0 0 10px rgba(159, 239, 0, 0.5);
-}
-
-.copy-button.copied {
-  background: #9fef00;
-  color: #000000;
+.post-content p code {
+  background: rgba(30, 0, 51, 0.7);
+  padding: 4px 8px;
 }
 
 /* ===== IMAGES ===== */
@@ -387,7 +355,7 @@ html, body {
   width: 100%;
   border-collapse: collapse;
   margin: 40px 0;
-  background: linear-gradient(135deg, #1a0033 0%, #2d0052 100%);
+  background: linear-gradient(135deg, #1e0033 0%, #3d0066 100%);
   border: 2px solid #9fef00;
   border-radius: 0;
   overflow: hidden;
@@ -404,8 +372,8 @@ html, body {
 }
 
 .post-content th {
-  background: rgba(13, 13, 13, 0.5);
-  color: #9fef00 !important;
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffbd2e !important;
   font-weight: 700;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -553,7 +521,11 @@ html, body {
   
   .post-content pre {
     font-size: 0.85rem;
-    padding: 20px !important;
+  }
+  
+  .post-content pre code {
+    padding: 15px !important;
+    padding-top: 45px !important;
   }
   
   .machine-meta {
@@ -687,57 +659,8 @@ html {
 </div>
 
 <script>
-// Add Copy Buttons
-document.addEventListener('DOMContentLoaded', function() {
-  const codeBlocks = document.querySelectorAll('pre');
-  
-  codeBlocks.forEach((block, index) => {
-    if (block.parentElement.classList.contains('code-block-wrapper')) return;
-    
-    const wrapper = document.createElement('div');
-    wrapper.className = 'code-block-wrapper';
-    
-    const header = document.createElement('div');
-    header.className = 'code-header';
-    
-    const title = document.createElement('span');
-    title.className = 'code-title';
-    
-    const codeElement = block.querySelector('code');
-    let lang = 'Shell';
-    if (codeElement && codeElement.className) {
-      const langMatch = codeElement.className.match(/language-(\w+)/);
-      if (langMatch) lang = langMatch[1].charAt(0).toUpperCase() + langMatch[1].slice(1);
-    }
-    title.textContent = lang;
-    
-    const copyBtn = document.createElement('button');
-    copyBtn.className = 'copy-button';
-    copyBtn.textContent = 'Copy';
-    
-    header.appendChild(title);
-    header.appendChild(copyBtn);
-    
-    block.parentNode.insertBefore(wrapper, block);
-    wrapper.appendChild(header);
-    wrapper.appendChild(block);
-    
-    copyBtn.addEventListener('click', function() {
-      const code = block.textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        copyBtn.textContent = '✓ Copied!';
-        copyBtn.classList.add('copied');
-        setTimeout(() => {
-          copyBtn.textContent = 'Copy';
-          copyBtn.classList.remove('copied');
-        }, 2000);
-      });
-    });
-  });
-});
-
 // Image Modal
-document.addEventListener('DOMContentLoads', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImage');
   const images = document.querySelectorAll('.post-content img');
