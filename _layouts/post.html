@@ -3,653 +3,672 @@ layout: default
 ---
 
 <style>
-/* =========================================================
-   OPTION A - FULL SCREEN WIDTH LAYOUT
-   Maximum horizontal space for writeup content
-   ========================================================= */
-   
-/* Force white background */
-body {
-  background: #ffffff !important;
-  color: #000000 !important;
+/* Deep Ocean Theme - Professional Blue Dark Mode */
+.post-page-wrapper {
+  background: #0a1628 !important;
+  min-height: 100vh;
+  padding: 0 !important;
 }
 
-.site-header,
-.site-footer {
-  background: #ffffff !important;
-  border-color: #dddddd !important;
+.post-page-wrapper * {
+  color: inherit;
 }
 
-/* =========================================================
-   FULL WIDTH CONTAINER - NO LIMITS
-   ========================================================= */
-.post-wrapper {
-  width: 100%;
-  margin: 0;
-  padding: 20px 30px 40px 30px;
-  background: #ffffff;
-}
-
-.post-layout {
+.post-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 60px;
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 50px;
-  align-items: start;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
-/* =========================================================
-   FIXED WIDTH TOC SIDEBAR - 240px
-   ========================================================= */
-.toc-container {
+/* ===== TABLE OF CONTENTS ===== */
+.toc-sidebar {
   position: sticky;
   top: 20px;
-  width: 240px;
-  background: #f8f8f8;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 18px 14px;
+  height: fit-content;
   max-height: calc(100vh - 40px);
   overflow-y: auto;
+  background: #132e4a;
+  border: 1px solid #1d3f5c;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.1);
 }
 
-.toc-header {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #333;
+.toc-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #a3c9e8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #ddd;
+  margin-bottom: 16px;
 }
 
-.toc-nav {
+.toc-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.toc-nav li {
-  margin-bottom: 3px;
+.toc-list li {
+  margin-bottom: 8px;
 }
 
-.toc-nav a {
-  display: block;
-  padding: 6px 10px;
-  color: #555;
+.toc-list a {
+  color: #a3c9e8;
   text-decoration: none;
-  font-size: 0.78rem;
-  line-height: 1.4;
+  font-size: 0.875rem;
+  display: block;
+  padding: 6px 12px;
   border-left: 2px solid transparent;
+  border-radius: 4px;
   transition: all 0.2s ease;
 }
 
-.toc-nav a:hover {
-  color: #000;
-  background: #f0f0f0;
-  border-left-color: #888;
+.toc-list a:hover {
+  color: #00b4d8;
+  background: rgba(0, 180, 216, 0.1);
+  border-left-color: #00b4d8;
 }
 
-.toc-nav a.active {
-  color: #000;
-  font-weight: 600;
-  background: #e8e8e8;
-  border-left-color: #000;
+.toc-list a.active {
+  color: #48cae4;
+  background: rgba(72, 202, 228, 0.1);
+  border-left-color: #48cae4;
+  font-weight: 500;
 }
 
-.toc-nav .toc-h3 {
-  padding-left: 22px;
-  font-size: 0.72rem;
+.toc-h3 {
+  padding-left: 28px;
+  font-size: 0.8125rem;
 }
 
-/* =========================================================
-   CONTENT AREA - USES ALL REMAINING SPACE
-   ========================================================= */
-.post-main {
+/* ===== MAIN CONTENT - FULL WIDTH ===== */
+.post-content-wrapper {
   min-width: 0;
-  width: 100%;
-  max-width: 100%;
 }
 
-/* =========================================================
-   MACHINE INFO BOX
-   ========================================================= */
-.machine-card {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-left: 4px solid #4a90e2;
-  border-radius: 6px;
-  padding: 28px 32px;
-  margin-bottom: 40px;
+/* ===== MACHINE INFO BOX ===== */
+.machine-info-box {
+  background: #132e4a;
+  border: 2px solid #00b4d8;
+  border-radius: 8px;
+  padding: 35px 40px;
+  margin-bottom: 50px;
   display: flex;
-  gap: 32px;
-  align-items: start;
+  align-items: flex-start;
+  gap: 35px;
+  box-shadow: 0 0 30px rgba(0, 180, 216, 0.2);
 }
 
-.machine-details {
+.machine-info-text {
   flex: 1;
 }
 
-.machine-details h1 {
-  font-size: 2.4rem;
-  color: #1a1a1a;
-  margin: 0 0 18px 0;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.machine-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 16px;
-  font-size: 0.9rem;
-}
-
-.stat-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 12px;
-  background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.machine-info-text h1 {
+  font-size: 2.5rem;
+  color: #e1f5ff !important;
+  margin: 0 0 20px 0;
   font-weight: 600;
-  color: #333;
-  font-size: 0.88rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 180, 216, 0.3);
 }
 
-.difficulty-easy { border-left: 3px solid #28a745; color: #28a745; }
-.difficulty-medium { border-left: 3px solid #ffc107; color: #f39c12; }
-.difficulty-hard { border-left: 3px solid #dc3545; color: #dc3545; }
+.machine-meta {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #a3c9e8;
+}
+
+.difficulty-easy { color: #48cae4; font-weight: 600; }
+.difficulty-medium { color: #90e0ef; font-weight: 600; }
+.difficulty-hard { color: #00b4d8; font-weight: 600; }
 
 .machine-summary {
-  color: #444;
-  font-size: 1.02rem;
+  color: #a3c9e8;
+  font-size: 1.05rem;
   line-height: 1.7;
   margin: 0;
 }
 
-.machine-image {
-  width: 180px;
+.machine-thumbnail {
   flex-shrink: 0;
+  width: 200px;
 }
 
-.machine-image img {
+.machine-thumbnail img {
   width: 100%;
+  height: auto;
+  border: 2px solid #1d3f5c;
   border-radius: 6px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0, 180, 216, 0.2);
 }
 
-/* =========================================================
-   CONTENT TYPOGRAPHY
-   ========================================================= */
-.writeup-content {
-  color: #2c2c2c;
-  font-size: 1.05rem;
+/* ===== TYPOGRAPHY ===== */
+.post-content {
+  color: #e1f5ff !important;
+  font-size: 1.1rem;
   line-height: 1.8;
-  width: 100%;
-  max-width: 100%;
 }
 
-.writeup-content h2 {
-  font-size: 1.9rem;
-  color: #1a1a1a;
-  font-weight: 700;
-  margin: 55px 0 24px 0;
+.post-content h2 {
+  font-size: 2rem;
+  color: #e1f5ff !important;
+  font-weight: 600 !important;
+  margin: 70px 0 28px 0;
   padding-bottom: 12px;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid #1d3f5c;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 180, 216, 0.2);
+}
+
+.post-content h2:first-of-type {
+  margin-top: 10px;
+}
+
+.post-content h3 {
+  font-size: 1.6rem;
+  color: #e1f5ff !important;
+  font-weight: 600 !important;
+  margin: 50px 0 24px 0;
   line-height: 1.3;
 }
 
-.writeup-content h3 {
-  font-size: 1.5rem;
-  color: #2c2c2c;
+.post-content h4 {
+  font-size: 1.3rem;
+  color: #e1f5ff !important;
+  font-weight: 600 !important;
+  margin: 35px 0 18px 0;
+}
+
+.post-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 24px 0;
+  color: #e1f5ff !important;
+}
+
+.post-content strong {
+  color: #e1f5ff !important;
   font-weight: 600;
-  margin: 42px 0 20px 0;
-  line-height: 1.3;
 }
 
-.writeup-content h4 {
-  font-size: 1.25rem;
-  color: #333;
-  font-weight: 600;
-  margin: 32px 0 16px 0;
-}
-
-.writeup-content p {
-  margin: 18px 0;
-  color: #2c2c2c;
-}
-
-.writeup-content ul,
-.writeup-content ol {
-  margin: 20px 0;
+.post-content ul,
+.post-content ol {
+  margin: 24px 0;
   padding-left: 32px;
 }
 
-.writeup-content li {
-  margin: 10px 0;
-  line-height: 1.7;
+.post-content li {
+  margin: 14px 0;
+  line-height: 1.8;
+  color: #e1f5ff !important;
 }
 
-.writeup-content blockquote {
-  border-left: 4px solid #4a90e2;
-  background: #f8f9fa;
-  padding: 16px 20px;
-  margin: 24px 0;
-  color: #555;
+.post-content blockquote {
+  border-left: 4px solid #00b4d8;
+  padding: 18px 24px;
+  margin: 28px 0;
+  background: rgba(0, 180, 216, 0.1);
+  color: #a3c9e8;
   font-style: italic;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 180, 216, 0.1);
 }
 
-/* =========================================================
-   CODE BLOCKS - FULL WIDTH, NO SCROLLING
-   ========================================================= */
-.code-wrapper {
+.post-content a {
+  color: #00b4d8 !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.post-content a:hover {
+  color: #48cae4 !important;
+  border-bottom-color: #48cae4;
+}
+
+/* ===== CODE BLOCKS ===== */
+.post-content pre {
+  background: #051423 !important;
+  border: 1px solid #1d3f5c;
+  border-radius: 6px;
+  padding: 24px !important;
+  margin: 32px 0 !important;
+  overflow-x: auto;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Droid Sans Mono", "Source Code Pro", monospace;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #48cae4 !important;
+  box-shadow: 0 4px 16px rgba(0, 180, 216, 0.15);
+}
+
+.post-content pre code {
+  background: transparent !important;
+  color: #48cae4 !important;
+  padding: 0 !important;
+  border: none;
+  font-size: inherit;
+}
+
+.post-content code {
+  background: #132e4a;
+  color: #00b4d8 !important;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  font-family: "SF Mono", "Monaco", monospace;
+  border: 1px solid #1d3f5c;
+}
+
+/* Code Block Wrapper */
+.code-block-wrapper {
   position: relative;
-  margin: 26px 0;
-  background: #1e1e1e;
+  margin: 32px 0;
+  border: 1px solid #1d3f5c;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  width: 100%;
+  background: #051423;
+  box-shadow: 0 4px 16px rgba(0, 180, 216, 0.15);
 }
 
-.code-toolbar {
-  background: #2d2d2d;
-  padding: 7px 16px;
+.code-header {
+  background: #0a1e31;
+  padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #3d3d3d;
+  border-bottom: 1px solid #1d3f5c;
 }
 
-.code-lang {
-  color: #888;
-  font-size: 0.75rem;
-  font-family: monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.code-title {
+  color: #a3c9e8;
+  font-size: 0.85rem;
+  font-family: "SF Mono", monospace;
+  font-weight: 500;
 }
 
-.btn-copy {
-  background: #3d3d3d;
-  border: 1px solid #555;
-  color: #aaa;
-  padding: 4px 12px;
-  font-size: 0.72rem;
+.copy-button {
+  background: transparent;
+  border: 1px solid #1d3f5c;
+  color: #a3c9e8;
+  padding: 6px 14px;
+  font-size: 0.8rem;
   cursor: pointer;
-  border-radius: 3px;
-  font-family: monospace;
+  border-radius: 4px;
   transition: all 0.2s ease;
+  font-family: "SF Mono", monospace;
 }
 
-.btn-copy:hover {
-  background: #4d4d4d;
-  border-color: #666;
-  color: #fff;
+.copy-button:hover {
+  background: rgba(0, 180, 216, 0.2);
+  border-color: #00b4d8;
+  color: #00b4d8;
 }
 
-.btn-copy.copied {
-  background: #28a745;
-  border-color: #28a745;
-  color: #fff;
+.copy-button.copied {
+  background: rgba(72, 202, 228, 0.2);
+  border-color: #48cae4;
+  color: #48cae4;
 }
 
-.writeup-content pre {
-  background: #1e1e1e !important;
-  color: #d4d4d4 !important;
-  padding: 18px !important;
-  margin: 0 !important;
-  overflow-x: auto;
-  font-family: 'Courier New', 'Consolas', monospace;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  width: 100%;
-}
-
-.writeup-content pre code {
-  background: transparent !important;
-  color: inherit !important;
-  padding: 0 !important;
-  border: none !important;
-  white-space: pre;
-  word-wrap: normal;
-}
-
-.writeup-content code {
-  background: #f4f4f4;
-  color: #e83e8c;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-size: 0.88em;
-  font-family: 'Courier New', monospace;
-  border: 1px solid #e0e0e0;
-}
-
-.writeup-content a code {
-  color: #0366d6;
-}
-
-/* =========================================================
-   IMAGES
-   ========================================================= */
-.writeup-content img {
+/* ===== IMAGES ===== */
+.post-content img {
   max-width: 100%;
   height: auto;
-  margin: 28px 0;
-  border: 1px solid #ddd;
+  border: 1px solid #1d3f5c;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 35px 0;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0, 180, 216, 0.2);
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
-.writeup-content img:hover {
+.post-content img:hover {
   transform: scale(1.01);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 24px rgba(0, 180, 216, 0.3);
 }
 
-.img-modal {
+/* Image Modal */
+.image-modal {
   display: none;
   position: fixed;
-  z-index: 9999;
+  z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
+  background: rgba(10, 22, 40, 0.95);
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: zoom-out;
 }
 
-.img-modal.show {
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid #00b4d8;
+  box-shadow: 0 0 60px rgba(0, 180, 216, 0.4);
+}
+
+.image-modal.active {
   display: flex;
 }
 
-.img-modal img {
-  max-width: 95%;
-  max-height: 95%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+/* ===== TABLES ===== */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 35px 0;
+  background: #132e4a;
+  border: 1px solid #1d3f5c;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 180, 216, 0.1);
 }
 
-/* =========================================================
-   TAGS SECTION
-   ========================================================= */
-.post-tags-section {
-  margin-top: 55px;
-  padding-top: 30px;
-  border-top: 2px solid #e0e0e0;
+.post-content th,
+.post-content td {
+  padding: 14px 18px;
+  text-align: left;
+  border: 1px solid #1d3f5c;
+  color: #e1f5ff !important;
 }
 
-.tags-label {
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 12px;
+.post-content th {
+  background: #0a1e31;
+  color: #48cae4 !important;
+  font-weight: 600;
   font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.post-content tr:hover {
+  background: rgba(0, 180, 216, 0.05);
 }
 
-.tag-item {
+/* ===== TAGS ===== */
+.post-tags {
+  margin-top: 70px;
+  padding-top: 28px;
+  border-top: 1px solid #1d3f5c;
+}
+
+.post-tags strong {
+  color: #e1f5ff !important;
+  font-size: 1rem;
+  margin-right: 16px;
+}
+
+.post-tags a {
   display: inline-block;
-  padding: 6px 14px;
-  background: #f4f4f4;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  color: #555;
+  background: transparent;
+  color: #a3c9e8;
+  border: 1px solid #1d3f5c;
+  padding: 8px 16px;
+  margin: 5px 5px 5px 0;
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   transition: all 0.2s ease;
+  border-radius: 4px;
 }
 
-.tag-item:hover {
-  background: #e8e8e8;
-  border-color: #bbb;
-  color: #000;
-  transform: translateY(-1px);
+.post-tags a:hover {
+  border-color: #00b4d8;
+  color: #00b4d8 !important;
+  background: rgba(0, 180, 216, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.2);
 }
 
-/* =========================================================
-   RELATED POSTS SECTION
-   ========================================================= */
-.related-section {
-  margin-top: 65px;
+/* ===== RELATED POSTS ===== */
+.related-posts {
+  margin-top: 70px;
   padding-top: 35px;
-  border-top: 2px solid #e0e0e0;
+  border-top: 1px solid #1d3f5c;
 }
 
-.related-header {
+.related-posts h3 {
   font-size: 1.6rem;
-  color: #1a1a1a;
-  font-weight: 700;
-  margin-bottom: 26px;
+  color: #e1f5ff !important;
+  margin-bottom: 28px;
+  font-weight: 600 !important;
 }
 
-.related-grid {
+.related-posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 22px;
+  gap: 24px;
 }
 
-.related-card {
-  background: #f9f9f9;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 22px;
-  text-decoration: none;
+.related-post-card {
+  background: #132e4a;
+  border: 1px solid #1d3f5c;
+  border-radius: 8px;
+  padding: 24px;
   transition: all 0.2s ease;
+  text-decoration: none;
   display: block;
 }
 
-.related-card:hover {
-  background: #f4f4f4;
-  border-color: #ccc;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.related-post-card:hover {
+  border-color: #00b4d8;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 180, 216, 0.3);
 }
 
-.related-card-title {
-  color: #1a1a1a;
+.related-post-title {
+  color: #e1f5ff !important;
   font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 8px;
-  line-height: 1.3;
+  margin-bottom: 10px;
 }
 
-.related-card-date {
-  color: #777;
+.related-post-meta {
+  color: #6b9bbf;
   font-size: 0.85rem;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.related-card-excerpt {
-  color: #555;
-  font-size: 0.92rem;
+.related-post-excerpt {
+  color: #a3c9e8;
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
-/* =========================================================
-   RESPONSIVE - MOBILE
-   ========================================================= */
-@media (max-width: 1100px) {
-  .post-layout {
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .post-container {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 32px;
+    padding: 30px;
   }
   
-  .toc-container {
+  .toc-sidebar {
     position: static;
-    max-height: none;
-    width: 100%;
+    margin-bottom: 32px;
   }
   
-  .machine-card {
+  .machine-info-box {
     flex-direction: column;
+    padding: 28px;
   }
   
-  .machine-image {
-    order: -1;
+  .machine-thumbnail {
     width: 100%;
     max-width: 300px;
   }
-  
-  .post-wrapper {
-    padding: 20px 15px;
+}
+
+@media (max-width: 768px) {
+  .post-container {
+    padding: 20px;
   }
   
-  .writeup-content h2 {
-    font-size: 1.6rem;
+  .machine-info-box {
+    padding: 20px;
   }
   
-  .writeup-content h3 {
-    font-size: 1.3rem;
+  .post-content h2 {
+    font-size: 1.7rem;
+  }
+  
+  .post-content h3 {
+    font-size: 1.4rem;
   }
 }
 
-/* =========================================================
-   SCROLLBAR STYLING
-   ========================================================= */
-.toc-container::-webkit-scrollbar {
-  width: 5px;
+/* ===== SCROLLBAR ===== */
+.toc-sidebar::-webkit-scrollbar {
+  width: 8px;
 }
 
-.toc-container::-webkit-scrollbar-track {
-  background: #f0f0f0;
+.toc-sidebar::-webkit-scrollbar-track {
+  background: #0a1628;
 }
 
-.toc-container::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
+.toc-sidebar::-webkit-scrollbar-thumb {
+  background: #1d3f5c;
+  border-radius: 4px;
 }
 
-.toc-container::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
+.toc-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #00b4d8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ocean wave animation effect */
+@keyframes wave {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.2),
+                0 0 40px rgba(72, 202, 228, 0.1); 
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(0, 180, 216, 0.3),
+                0 0 60px rgba(72, 202, 228, 0.2); 
+  }
+}
+
+.machine-info-box {
+  animation: wave 3s ease-in-out infinite;
 }
 </style>
 
-<div class="post-wrapper">
-  <div class="post-layout">
-    
-    <!-- FIXED 240PX TOC SIDEBAR -->
-    <aside class="toc-container">
-      <div class="toc-header">Contents</div>
-      <ul class="toc-nav" id="toc-nav">
-        <!-- Auto-generated -->
-      </ul>
-    </aside>
+<div class="post-page-wrapper">
+<div class="post-container">
+  
+  <!-- Table of Contents -->
+  <aside class="toc-sidebar">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
 
-    <!-- FULL WIDTH CONTENT AREA -->
-    <main class="post-main">
-      
-      <!-- MACHINE INFO CARD -->
-      <article class="machine-card">
-        <div class="machine-details">
-          <h1>{{ page.title }}</h1>
-          
-          <div class="machine-stats">
-            <span class="stat-badge">📅 {{ page.date | date: "%b %d, %Y" }}</span>
-            {% if page.difficulty %}
-              <span class="stat-badge difficulty-{{ page.difficulty | downcase }}">
-                🎯 {{ page.difficulty }}
-              </span>
-            {% endif %}
-            {% if page.os %}
-              <span class="stat-badge">💻 {{ page.os }}</span>
-            {% endif %}
-            {% if page.read_time %}
-              <span class="stat-badge">⏱️ {{ page.read_time }} min</span>
-            {% endif %}
-          </div>
-          
-          {% if page.summary %}
-            <p class="machine-summary">{{ page.summary }}</p>
+  <!-- Main Content -->
+  <div class="post-content-wrapper">
+    
+    <!-- Machine Info Box -->
+    <div class="machine-info-box">
+      <div class="machine-info-text">
+        <h1>{{ page.title }}</h1>
+        <div class="machine-meta">
+          <span class="meta-item">📅 {{ page.date | date: "%b %d, %Y" }}</span>
+          {% if page.difficulty %}
+            <span class="meta-item">🎯 <span class="difficulty-{{ page.difficulty | downcase }}">{{ page.difficulty }}</span></span>
+          {% endif %}
+          {% if page.os %}
+            <span class="meta-item">💻 {{ page.os }}</span>
+          {% endif %}
+          {% if page.read_time %}
+            <span class="meta-item">⏱️ {{ page.read_time }} min read</span>
           {% endif %}
         </div>
-        
-        {% if page.thumbnail %}
-        <div class="machine-image">
-          <img src="{{ page.thumbnail }}" alt="{{ page.title }}">
-        </div>
+        {% if page.summary %}
+          <p class="machine-summary">{{ page.summary }}</p>
         {% endif %}
-      </article>
-
-      <!-- WRITEUP CONTENT - FULL WIDTH -->
-      <div class="writeup-content" id="writeup-content">
-        {{ content }}
       </div>
-
-      <!-- TAGS -->
-      {% if page.tags %}
-      <section class="post-tags-section">
-        <div class="tags-label">Tags</div>
-        <div class="tag-list">
-          {% for tag in page.tags %}
-            <a href="/tags#{{ tag }}" class="tag-item">#{{ tag }}</a>
-          {% endfor %}
-        </div>
-      </section>
+      
+      {% if page.thumbnail %}
+      <div class="machine-thumbnail">
+        <img src="{{ page.thumbnail }}" alt="{{ page.title }}">
+      </div>
       {% endif %}
+    </div>
 
-      <!-- RELATED POSTS -->
-      <section class="related-section">
-        <h2 class="related-header">Related Posts</h2>
-        <div class="related-grid" id="related-grid">
-          <p style="color: #777;">Check out more writeups on the <a href="/" style="color: #0366d6;">home page</a>!</p>
-        </div>
-      </section>
+    <!-- Post Content -->
+    <div class="post-content" id="post-content">
+      {{ content }}
+    </div>
 
-    </main>
+    <!-- Tags -->
+    {% if page.tags %}
+    <div class="post-tags">
+      <strong>Tags:</strong>
+      {% for tag in page.tags %}
+        <a href="/tags#{{ tag }}">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Related Posts -->
+    <div class="related-posts">
+      <h3>Related Posts</h3>
+      <div class="related-posts-grid" id="related-posts"></div>
+    </div>
+
   </div>
 </div>
+</div>
 
-<!-- IMAGE MODAL -->
-<div class="img-modal" id="img-modal">
-  <img src="" alt="" id="modal-img">
+<!-- Image Modal -->
+<div class="image-modal" id="imageModal">
+  <img src="" alt="" id="modalImage">
 </div>
 
 <script>
-// ===== AUTO-GENERATE TABLE OF CONTENTS =====
+// Generate TOC
 document.addEventListener('DOMContentLoaded', function() {
-  const content = document.getElementById('writeup-content');
-  const tocNav = document.getElementById('toc-nav');
-  const headings = content.querySelectorAll('h2, h3');
+  const content = document.getElementById('post-content');
+  const tocList = document.getElementById('toc-list');
+  const headings = content.querySelectorAll('h2, h3, h4');
   
-  headings.forEach((heading, idx) => {
-    const id = 'section-' + idx;
+  headings.forEach((heading, index) => {
+    const id = 'heading-' + index;
     heading.id = id;
     
     const li = document.createElement('li');
     const a = document.createElement('a');
     a.href = '#' + id;
     a.textContent = heading.textContent;
-    
-    if (heading.tagName === 'H3') {
-      a.classList.add('toc-h3');
-    }
+    a.className = heading.tagName === 'H3' ? 'toc-h3' : '';
     
     li.appendChild(a);
-    tocNav.appendChild(li);
+    tocList.appendChild(li);
   });
   
-  // Highlight active section
-  const tocLinks = tocNav.querySelectorAll('a');
+  // Active TOC on scroll
+  const tocLinks = document.querySelectorAll('.toc-list a');
   
   window.addEventListener('scroll', () => {
     let current = '';
     
     headings.forEach(heading => {
-      const top = heading.offsetTop;
-      if (window.pageYOffset >= top - 100) {
+      const sectionTop = heading.offsetTop;
+      if (window.pageYOffset >= sectionTop - 100) {
         current = heading.id;
       }
     });
@@ -661,76 +680,115 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
-  // Smooth scroll
-  tocLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.getElementById(this.getAttribute('href').slice(1));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
 });
 
-// ===== ADD COPY BUTTONS TO CODE BLOCKS =====
+// Add Copy Buttons
 document.addEventListener('DOMContentLoaded', function() {
-  const codeBlocks = document.querySelectorAll('.writeup-content pre');
+  const codeBlocks = document.querySelectorAll('pre');
   
-  codeBlocks.forEach((pre, idx) => {
-    if (pre.parentElement.classList.contains('code-wrapper')) return;
+  codeBlocks.forEach((block, index) => {
+    if (block.parentElement.classList.contains('code-block-wrapper')) return;
     
     const wrapper = document.createElement('div');
-    wrapper.className = 'code-wrapper';
+    wrapper.className = 'code-block-wrapper';
     
-    const toolbar = document.createElement('div');
-    toolbar.className = 'code-toolbar';
+    const header = document.createElement('div');
+    header.className = 'code-header';
     
-    const lang = document.createElement('span');
-    lang.className = 'code-lang';
-    lang.textContent = 'terminal';
+    const title = document.createElement('span');
+    title.className = 'code-title';
     
-    const btn = document.createElement('button');
-    btn.className = 'btn-copy';
-    btn.textContent = 'Copy';
+    const codeElement = block.querySelector('code');
+    let lang = 'Shell';
+    if (codeElement && codeElement.className) {
+      const langMatch = codeElement.className.match(/language-(\w+)/);
+      if (langMatch) lang = langMatch[1].charAt(0).toUpperCase() + langMatch[1].slice(1);
+    }
+    title.textContent = lang;
     
-    toolbar.appendChild(lang);
-    toolbar.appendChild(btn);
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-button';
+    copyBtn.textContent = 'Copy';
     
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(toolbar);
-    wrapper.appendChild(pre);
+    header.appendChild(title);
+    header.appendChild(copyBtn);
     
-    btn.addEventListener('click', function() {
-      const code = pre.textContent;
+    block.parentNode.insertBefore(wrapper, block);
+    wrapper.appendChild(header);
+    wrapper.appendChild(block);
+    
+    copyBtn.addEventListener('click', function() {
+      const code = block.textContent;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = 'Copied!';
-        btn.classList.add('copied');
+        copyBtn.textContent = '✓ Copied!';
+        copyBtn.classList.add('copied');
         setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('copied');
+          copyBtn.textContent = 'Copy';
+          copyBtn.classList.remove('copied');
         }, 2000);
       });
     });
   });
 });
 
-// ===== IMAGE ZOOM MODAL =====
+// Image Modal
 document.addEventListener('DOMContentLoaded', function() {
-  const modal = document.getElementById('img-modal');
-  const modalImg = document.getElementById('modal-img');
-  const images = document.querySelectorAll('.writeup-content img');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  const images = document.querySelectorAll('.post-content img');
   
   images.forEach(img => {
     img.addEventListener('click', function() {
-      modal.classList.add('show');
+      modal.classList.add('active');
       modalImg.src = this.src;
     });
   });
   
   modal.addEventListener('click', function() {
-    this.classList.remove('show');
+    this.classList.remove('active');
+  });
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      modal.classList.remove('active');
+    }
+  });
+});
+
+// Related Posts
+document.addEventListener('DOMContentLoaded', function() {
+  const relatedContainer = document.getElementById('related-posts');
+  const allPosts = [
+    {% for post in site.posts limit:10 %}
+      {
+        url: '{{ post.url }}',
+        title: '{{ post.title | escape }}',
+        date: new Date('{{ post.date | date: "%Y-%m-%d" }}'),
+        summary: '{{ post.summary | default: post.excerpt | strip_html | truncatewords: 20 | escape }}'
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+  
+  const currentUrl = '{{ page.url }}';
+  const related = allPosts.filter(post => post.url !== currentUrl).slice(0, 3);
+  
+  if (related.length === 0) {
+    relatedContainer.innerHTML = '<p style="color: #a3c9e8;">No related posts yet.</p>';
+    return;
+  }
+  
+  related.forEach(post => {
+    const card = document.createElement('a');
+    card.href = post.url;
+    card.className = 'related-post-card';
+    
+    card.innerHTML = `
+      <div class="related-post-title">${post.title}</div>
+      <div class="related-post-meta">${post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
+      <div class="related-post-excerpt">${post.summary}</div>
+    `;
+    
+    relatedContainer.appendChild(card);
   });
 });
 </script>
