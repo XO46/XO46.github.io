@@ -567,6 +567,11 @@ body {
 .post-list li:nth-child(3) { animation-delay: 0.3s; }
 .post-list li:nth-child(4) { animation-delay: 0.4s; }
 .post-list li:nth-child(5) { animation-delay: 0.5s; }
+.post-list li:nth-child(6) { animation-delay: 0.6s; }
+.post-list li:nth-child(7) { animation-delay: 0.7s; }
+.post-list li:nth-child(8) { animation-delay: 0.8s; }
+.post-list li:nth-child(9) { animation-delay: 0.9s; }
+.post-list li:nth-child(10) { animation-delay: 1.0s; }
 </style>
 
 <!-- FULL-WIDTH HERO BANNER -->
@@ -629,63 +634,70 @@ body {
       Penetration testing journey from zero to hero
     </p>
   </div>
+  
+  <!-- Jekyll will insert the post list here from the 'home' layout -->
+  <!-- Make sure your _layouts/home.html contains the post list generation -->
 </section>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const posts = document.querySelectorAll('.post-list li');
-  let htbCount = 0, thmCount = 0;
-  let htbEasy = 0, htbMedium = 0, htbHard = 0;
-  let thmEasy = 0, thmMedium = 0, thmHard = 0;
-  
-  posts.forEach(post => {
-    const link = post.querySelector('.post-link');
-    if (!link) return;
+  // Wait a bit for Jekyll to render posts
+  setTimeout(function() {
+    const posts = document.querySelectorAll('.post-list li');
+    let htbCount = 0, thmCount = 0;
+    let htbEasy = 0, htbMedium = 0, htbHard = 0;
+    let thmEasy = 0, thmMedium = 0, thmHard = 0;
     
-    const title = link.textContent.toLowerCase();
-    const difficultyBadge = post.querySelector('.difficulty-badge');
-    const difficulty = difficultyBadge ? difficultyBadge.textContent.toLowerCase() : 'easy';
-    
-    if (title.includes('htb:') || title.includes('hackthebox')) {
-      htbCount++;
-      if (difficulty.includes('easy') || difficulty.includes('[e]')) htbEasy++;
-      else if (difficulty.includes('medium') || difficulty.includes('[m]')) htbMedium++;
-      else if (difficulty.includes('hard') || difficulty.includes('[h]')) htbHard++;
-    } 
-    else if (title.includes('thm:') || title.includes('tryhackme')) {
-      thmCount++;
-      if (difficulty.includes('easy') || difficulty.includes('[e]')) thmEasy++;
-      else if (difficulty.includes('medium') || difficulty.includes('[m]')) thmMedium++;
-      else if (difficulty.includes('hard') || difficulty.includes('[h]')) thmHard++;
-    }
-  });
-  
-  function animateCounter(element, target) {
-    let current = 0;
-    const increment = Math.ceil(target / 15);
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        element.textContent = target;
-        clearInterval(timer);
-      } else {
-        element.textContent = current;
+    posts.forEach(post => {
+      const link = post.querySelector('.post-link');
+      if (!link) return;
+      
+      const title = link.textContent.toLowerCase();
+      const difficultyBadge = post.querySelector('.difficulty-badge');
+      const difficulty = difficultyBadge ? difficultyBadge.textContent.toLowerCase() : 'easy';
+      
+      if (title.includes('htb:') || title.includes('hackthebox')) {
+        htbCount++;
+        if (difficulty.includes('easy') || difficulty.includes('[e]')) htbEasy++;
+        else if (difficulty.includes('medium') || difficulty.includes('[m]')) htbMedium++;
+        else if (difficulty.includes('hard') || difficulty.includes('[h]')) htbHard++;
+      } 
+      else if (title.includes('thm:') || title.includes('tryhackme')) {
+        thmCount++;
+        if (difficulty.includes('easy') || difficulty.includes('[e]')) thmEasy++;
+        else if (difficulty.includes('medium') || difficulty.includes('[m]')) thmMedium++;
+        else if (difficulty.includes('hard') || difficulty.includes('[h]')) thmHard++;
       }
-    }, 60);
-  }
-  
-  const total = htbCount + thmCount;
-  
-  animateCounter(document.getElementById('htb-count'), htbCount);
-  animateCounter(document.getElementById('thm-count'), thmCount);
-  animateCounter(document.getElementById('total-count'), total);
-  
-  document.getElementById('htb-easy-compact').textContent = htbEasy;
-  document.getElementById('htb-medium-compact').textContent = htbMedium;
-  document.getElementById('htb-hard-compact').textContent = htbHard;
-  
-  document.getElementById('thm-easy-compact').textContent = thmEasy;
-  document.getElementById('thm-medium-compact').textContent = thmMedium;
-  document.getElementById('thm-hard-compact').textContent = thmHard;
+    });
+    
+    function animateCounter(element, target) {
+      if (!element) return;
+      let current = 0;
+      const increment = Math.ceil(target / 15);
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target;
+          clearInterval(timer);
+        } else {
+          element.textContent = current;
+        }
+      }, 60);
+    }
+    
+    const total = htbCount + thmCount;
+    
+    animateCounter(document.getElementById('htb-count'), htbCount);
+    animateCounter(document.getElementById('thm-count'), thmCount);
+    animateCounter(document.getElementById('total-count'), total);
+    
+    document.getElementById('htb-easy-compact').textContent = htbEasy;
+    document.getElementById('htb-medium-compact').textContent = htbMedium;
+    document.getElementById('htb-hard-compact').textContent = htbHard;
+    
+    document.getElementById('thm-easy-compact').textContent = thmEasy;
+    document.getElementById('thm-medium-compact').textContent = thmMedium;
+    document.getElementById('thm-hard-compact').textContent = thmHard;
+  }, 100);
 });
 </script>
