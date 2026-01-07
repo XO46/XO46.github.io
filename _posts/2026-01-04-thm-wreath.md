@@ -6,7 +6,7 @@ difficulty: Medium
 os: Multi (Linux/Windows)
 tags: [tryhackme, linux, windows, web, pivoting, lateral-movement, privilege-escalation, active-directory]
 summary: "Multi-machine network featuring pivoting techniques, exploiting Webmin CVE-2019-15107 for initial access, GitStack RCE for lateral movement, and unquoted service path privilege escalation on Windows."
-thumbnail: /assets/images/thumbnails/wreath.png
+thumbnail: /assets/images/wreath.png
 read_time: 25
 ---
 
@@ -37,18 +37,18 @@ nmap -T3 -A -oN wreath-scan.txt 10.200.180.200
 **Results:**
 
 ```
-PORT      STATE  SERVICE    VERSION
-22/tcp    open   ssh        OpenSSH 8.0 (protocol 2.0)
-80/tcp    open   http       Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1c)
+PORT      STATE   SERVICE    VERSION
+22/tcp    open    ssh        OpenSSH 8.0 (protocol 2.0)
+80/tcp    open    http       Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1c)
 |_http-title: Did not follow redirect to https://thomaswreath.thm
 |_http-server-header: Apache/2.4.37 (centos) OpenSSL/1.1.1c
-443/tcp   open   ssl/http   Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1c)
+443/tcp   open    ssl/http   Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1c)
 |_http-server-header: Apache/2.4.37 (centos) OpenSSL/1.1.1c
 |_http-title: Thomas Wreath | Developer
 | http-methods: 
 |_  Potentially risky methods: TRACE
-9090/tcp  closed zeus-admin
-10000/tcp open   http       MiniServ 1.890 (Webmin httpd)
+9090/tcp  closed  zeus-admin
+10000/tcp open    http       MiniServ 1.890 (Webmin httpd)
 ```
 
 ### Webmin Analysis (Port 10000)
