@@ -234,7 +234,7 @@ html, body {
 
 /* ===== CODE BLOCKS ===== */
 .post-content pre {
-  background: #000000 !important;
+  background: linear-gradient(135deg, #1a0033 0%, #2d0052 50%, #1a0033 100%) !important;
   border: 1px solid #9fef00;
   border-radius: 0;
   padding: 25px !important;
@@ -243,8 +243,8 @@ html, body {
   font-family: 'Courier New', 'IBM Plex Mono', monospace;
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #9fef00 !important;
-  box-shadow: 0 0 20px rgba(159, 239, 0, 0.2), inset 0 0 10px rgba(159, 239, 0, 0.05);
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(159, 239, 0, 0.2), inset 0 0 10px rgba(138, 43, 226, 0.1);
   position: relative;
 }
 
@@ -253,31 +253,32 @@ html, body {
   position: absolute;
   top: -12px;
   left: 20px;
-  background: #000000;
+  background: linear-gradient(135deg, #1a0033 0%, #2d0052 100%);
   padding: 0 10px;
-  color: #4a7700;
+  color: #9fef00;
   font-size: 0.7rem;
   letter-spacing: 1px;
+  font-weight: 700;
 }
 
 .post-content pre code {
   background: transparent !important;
-  color: #9fef00 !important;
+  color: #ffffff !important;
   padding: 0 !important;
   border: none;
   font-size: inherit;
-  text-shadow: 0 0 2px rgba(159, 239, 0, 0.3);
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .post-content code {
-  background: #1a1a1a;
-  color: #9fef00 !important;
+  background: rgba(26, 0, 51, 0.5);
+  color: #ffffff !important;
   padding: 3px 8px;
-  border-radius: 0;
+  border-radius: 3px;
   font-size: 0.9em;
   font-family: 'Courier New', 'IBM Plex Mono', monospace;
-  border: 1px solid #2d2d2d;
-  font-weight: 500;
+  border: 1px solid rgba(159, 239, 0, 0.3);
+  font-weight: 600;
 }
 
 /* Code Block Wrapper */
@@ -287,12 +288,12 @@ html, body {
   border: 1px solid #9fef00;
   border-radius: 0;
   overflow: hidden;
-  background: #000000;
+  background: linear-gradient(135deg, #1a0033 0%, #2d0052 100%);
   box-shadow: 0 0 20px rgba(159, 239, 0, 0.2);
 }
 
 .code-header {
-  background: #0d0d0d;
+  background: rgba(13, 13, 13, 0.8);
   padding: 12px 20px;
   display: flex;
   justify-content: space-between;
@@ -386,7 +387,7 @@ html, body {
   width: 100%;
   border-collapse: collapse;
   margin: 40px 0;
-  background: #000000;
+  background: linear-gradient(135deg, #1a0033 0%, #2d0052 100%);
   border: 2px solid #9fef00;
   border-radius: 0;
   overflow: hidden;
@@ -397,13 +398,13 @@ html, body {
 .post-content td {
   padding: 15px 20px;
   text-align: left;
-  border: 1px solid #9fef00;
-  color: #c5c5c5 !important;
+  border: 1px solid rgba(159, 239, 0, 0.3);
+  color: #ffffff !important;
   font-family: 'Courier New', 'IBM Plex Mono', monospace;
 }
 
 .post-content th {
-  background: #0d0d0d;
+  background: rgba(13, 13, 13, 0.5);
   color: #9fef00 !important;
   font-weight: 700;
   font-size: 0.9rem;
