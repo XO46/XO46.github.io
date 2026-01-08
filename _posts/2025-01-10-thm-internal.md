@@ -4,6 +4,12 @@ date: 2025-01-10
 categories: [TryHackMe]
 tags: [Enumeration, Linux, PrivEsc]
 ---
+| Finding | CVSS Score | Risk Level |
+|---------|-----------|------------|
+| Webmin CVE-2019-15107 | 9.8 | Critical |
+| GitStack RCE | 8.1 | High |
+| File Upload Bypass | 7.5 | High |
+| Unquoted Service Path | 7.8 | High |
 
 ## Recon
 
