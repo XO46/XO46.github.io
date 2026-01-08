@@ -232,7 +232,7 @@ html, body {
   text-shadow: 0 0 5px rgba(159, 239, 0, 0.5);
 }
 
-/* ===== TERMINAL CODE BLOCKS - OPTION 3 ===== */
+/* ===== CLEAN TERMINAL CODE BLOCKS ===== */
 .post-content pre {
   background: linear-gradient(135deg, #1e0033 0%, #3d0066 100%) !important;
   border: 2px solid #9fef00;
@@ -247,51 +247,49 @@ html, body {
   position: relative;
 }
 
-/* Terminal Header */
+/* Terminal Header Bar */
 .post-content pre::before {
   content: '';
   display: block;
+  height: 35px;
   background: rgba(0, 0, 0, 0.4);
-  padding: 10px 15px;
   border-bottom: 1px solid rgba(159, 239, 0, 0.3);
 }
 
+/* Terminal Dots Only */
 .post-content pre::after {
-  content: '● ● ●    bash';
+  content: '● ● ●';
   position: absolute;
-  top: 10px;
+  top: 12px;
   left: 15px;
   color: #ffbd2e;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.7rem;
   letter-spacing: 8px;
 }
 
+/* Code Content */
 .post-content pre code {
   display: block;
   background: transparent !important;
   color: #ffffff !important;
   padding: 20px !important;
-  padding-top: 50px !important;
   border: none;
   font-size: inherit;
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  white-space: pre;
+  overflow-x: auto;
 }
 
-/* Style prompt lines */
+/* Remove the $ prompt */
 .post-content pre code::before {
-  content: '$ ';
-  color: #ffbd2e;
-  font-weight: bold;
+  content: none;
 }
 
 /* Inline code */
 .post-content code {
-  background: rgba(30, 0, 51, 0.5);
+  background: rgba(30, 0, 51, 0.7);
   color: #ffffff !important;
-  padding: 3px 8px;
+  padding: 4px 8px;
   border-radius: 3px;
   font-size: 0.9em;
   font-family: 'Courier New', 'IBM Plex Mono', monospace;
@@ -299,9 +297,12 @@ html, body {
   font-weight: 600;
 }
 
-.post-content p code {
+/* Style for code inside paragraphs */
+.post-content p code,
+.post-content li code {
   background: rgba(30, 0, 51, 0.7);
-  padding: 4px 8px;
+  padding: 3px 8px;
+  color: #ffbd2e !important;
 }
 
 /* ===== IMAGES ===== */
@@ -357,7 +358,7 @@ html, body {
   margin: 40px 0;
   background: linear-gradient(135deg, #1e0033 0%, #3d0066 100%);
   border: 2px solid #9fef00;
-  border-radius: 0;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(159, 239, 0, 0.2);
 }
@@ -525,7 +526,6 @@ html, body {
   
   .post-content pre code {
     padding: 15px !important;
-    padding-top: 45px !important;
   }
   
   .machine-meta {
@@ -619,7 +619,7 @@ html {
             <span class="meta-item">💻 {{ page.os }}</span>
           {% endif %}
           {% if page.read_time %}
-            <span class="meta-item">⏱️ {{ page.read_time }}</span>
+            <span class="meta-item">⏱️ {{ page.read_time }} min read</span>
           {% endif %}
         </div>
         {% if page.summary %}
